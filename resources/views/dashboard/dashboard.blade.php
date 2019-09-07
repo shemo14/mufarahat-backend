@@ -70,22 +70,6 @@
                 <a href="{{route('allreports')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
         </div>
-
-        <div class="col-lg-4 col-xs-6">
-            <div class="small-box smallBoxCustom bg-aqua">
-                <div class="inner">
-                    <h3>{{$cities}}</h3>
-                    <p> عدد المدن</p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-globe"></i>
-                </div>
-                <a href="{{route('countries')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
-            </div>
-        </div>
-
-
-
     </div>
 
 @endsection

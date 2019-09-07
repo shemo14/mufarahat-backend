@@ -24,6 +24,11 @@ class CreateAppSeetingsTable extends Migration
         $setting->key = 'site_name';
         $setting->value = 'اوامر الشبكة';
         $setting->save();
+
+        $setting = new \App\Models\AppSetting();
+        $setting->key = 'site_name_ar';
+        $setting->value = 'اوامر الشبكة';
+        $setting->save();
     }
 
     /**

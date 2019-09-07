@@ -17,7 +17,6 @@ class AuthController extends Controller
     {
         $users          = User::where('role', 0)->count();
         $admins         = User::where('role', 1)->count();
-        $cities         = Countries::count();
         $categories     = Categories::count();
         $reports        = Report::count();
         $roles          = Role::count();
