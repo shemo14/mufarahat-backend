@@ -12,4 +12,11 @@ class City extends Model
     {
         return $this->hasMany('App\Models\Warehouse', 'city_id', 'id');
     }
+    
+    public function users()
+    {
+        return $this->hasMany('App\Models\User', 'city_id', 'id');
+    }
+
+
 }

@@ -12,4 +12,11 @@ class Warehouse extends Model
     {
         return $this->belongsTo('App\Models\City', 'city_id', 'id');
     }
+
+    public function delegates()
+    {
+        return $this->hasMany('App\Models\Delegate', 'warehouse_id', 'id');
+    }
+
+    
 }

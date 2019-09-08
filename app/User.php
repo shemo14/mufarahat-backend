@@ -21,7 +21,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','phone','code', 'lat', 'lng', 'avatar', 'role', 'checked'
+        'name', 'email', 'password','phone','code', 'lat', 'lang', 'avatar', 'role', 'checked','address','device_id','isNotify','type','city_id'
     ];
 
     /**
@@ -51,4 +51,17 @@ class User extends Authenticatable implements JWTSubject
     {
         return appPath() . '/images/users/' . $this->avatar;
     }
+
+    public function city()
+    {
+        return $this->belongsTo('App\Models\City', 'city_id', 'id');
+    }
+
+
+    public function dalegateInformation()
+    {
+        return $this->hasOne('App\Models\Delegate', 'user_id', 'id');
+    }
+
+
 }
