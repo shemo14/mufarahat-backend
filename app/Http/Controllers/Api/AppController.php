@@ -42,11 +42,9 @@ class AppController extends Controller
 		$info = [
 			'phone'     => settings('phone'),
 			'email'     => settings('email'),
-			'address'   => settings('address_' . $request['lang']),
 		];
 
 		$data = [
-			'contact_title' => settings('contact_title_' . $request->lang),
 			'info'      	=> $info,
 			'socials'   	=> $allSocials
 		];
