@@ -12,7 +12,7 @@ use App\Helpers\UploadFile;
 use Session;
 use Carbon\Carbon;
 use App\Models\Images;
-
+use App\Models\CommanQues;
 
 
 class AppController extends Controller
@@ -109,5 +109,29 @@ class AppController extends Controller
 		if ($upload->save()){
 			return returnResponse(null, 'uploaded successfully', 200);
 		}
+	}
+
+	public function common_questions(Request $request){
+		$rules = [
+			'lang'    => 'required',
+		];
+		App::setLocale($request['lang']);
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse([], validateRequest($validator), 400);
+		}
+
+		$qus 		= CommanQues::select('qu_' . $request->lang . ' as qu', 'ans_' . $request->lang . ' as ans')->get();
+		$all_qus   	= [];
+
+		foreach ($qus as $qu) {
+			$all_qus[] = [
+				'qu'  	=> $qu->qu,
+				'ans'   => $qu->ans,
+			];
+		}
+
+		return returnResponse($all_qus, '', 200);
 	}
 }

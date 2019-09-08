@@ -16,6 +16,10 @@ Route::group(['middleware' => 'localization'], function (){
 	// roles
 	Route::post('roles'              		, 'Api\AppController@roles');
 
+
+	// common questions
+	Route::post('common_questions'          , 'Api\AppController@common_questions');
+
 	// testing uploading video
 	Route::post('uploading_video'           , 'Api\AppController@uploading_video');
 
