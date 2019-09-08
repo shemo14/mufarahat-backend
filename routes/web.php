@@ -101,55 +101,21 @@ use Illuminate\Support\Facades\Route;
             ]);
         // ============= #Permission ==============
 
-        // ============= Admins ==============
-            Route::get('/admins', [
-                'uses' => 'AdminController@index',
-                'as' => 'admins',
-                'title' => 'المشرفين',
-                'icon' => '<i class="fa fa-user-circle"></i>',
-                'child' => [
+        // ============= المستخدمين ==============
+            Route::get('/all-users2',[
+                'uses'     =>'UsersController@index2',
+                'as'       =>'users2',
+                'title'    =>'الاعضاء ',
+                'subTitle' =>'المناديب',
+                'subIcon'  =>'<i class="glyphicon glyphicon-film"></i>',
+                'icon'     =>'<i class="fa fa-users"></i>',
+                'child'    => [
+                    'admins',
                     'addadmin',
                     'updateadmin',
                     'deleteadmin',
                     'deleteadmins',
-                ]
-            ]);
-
-            Route::post('/add-admin', [
-                'uses' => 'AdminController@store',
-                'as' => 'addadmin',
-                'title' => 'اضافة مشرف'
-            ]);
-
-            // Update Admin
-            Route::post('/update-admin', [
-                'uses' => 'AdminController@update',
-                'as' => 'updateadmin',
-                'title' => 'تعديل مشرف'
-            ]);
-
-            // Delete Admin
-            Route::post('/delete-admin', [
-                'uses' => 'AdminController@delete',
-                'as' => 'deleteadmin',
-                'title' => 'حذف مشرف'
-            ]);
-
-            // Delete Admin
-            Route::post('/delete-admins', [
-                'uses' => 'AdminController@deleteAllAdmins',
-                'as' => 'deleteadmins',
-                'title' => 'حذف اكتر من مشرف'
-            ]);
-        // ============= #Admins ==============
-
-        // ============= users ==============
-            Route::get('/users', [
-                'uses' => 'UsersController@index',
-                'as' => 'users',
-                'title' => 'الاعضاء ',
-                'icon' => '<i class="fa fa-users"></i>',
-                'child' => [
+                    'users',
                     'adduser',
                     'updateuser',
                     'deleteuser',
@@ -158,41 +124,93 @@ use Illuminate\Support\Facades\Route;
                 ]
             ]);
 
-            // Add User
-            Route::post('/add-user', [
-                'uses' => 'UsersController@store',
-                'as' => 'adduser',
-                'title' => 'اضافة عضو'
-            ]);
+            // ============= Admins ==============
+                Route::get('/admins',[
+                    'uses'=>'AdminController@index',
+                    'as'=>'admins',
+                    'icon'      =>'<i class="fa fa-user-circle"></i>',
+                    'title'    => 'المشرفين',
+                    'hasFather' =>true
+                ]);
 
-            // Update User
-            Route::post('/update-user', [
-                'uses' => 'UsersController@update',
-                'as' => 'updateuser',
-                'title' => 'تعديل عضو'
-            ]);
+                Route::post('/add-admin', [
+                    'uses' => 'AdminController@store',
+                    'as' => 'addadmin',
+                    'title' => 'اضافة مشرف'
+                ]);
 
-            // Delete User
-            Route::post('/delete-user', [
-                'uses' => 'UsersController@delete',
-                'as' => 'deleteuser',
-                'title' => 'حذف عضو'
-            ]);
+                // Update Admin
+                Route::post('/update-admin', [
+                    'uses' => 'AdminController@update',
+                    'as' => 'updateadmin',
+                    'title' => 'تعديل مشرف'
+                ]);
 
-            // Delete Users
-            Route::post('/delete-users', [
-                'uses' => 'UsersController@deleteAll',
-                'as' => 'deleteusers',
-                'title' => 'حذف اكتر من عضو'
-            ]);
+                // Delete Admin
+                Route::post('/delete-admin', [
+                    'uses' => 'AdminController@delete',
+                    'as' => 'deleteadmin',
+                    'title' => 'حذف مشرف'
+                ]);
+
+                // Delete Admin
+                Route::post('/delete-admins', [
+                    'uses' => 'AdminController@deleteAllAdmins',
+                    'as' => 'deleteadmins',
+                    'title' => 'حذف اكتر من مشرف'
+                ]);
+            // ============= #Admins ==============
+
+            // ============= users ==============
+                Route::get('/users',[
+                    'uses'=>'UsersController@index',
+                    'as'=>'users',
+                    'icon'      =>'<i class="fa fa-users"></i>',
+                    'title'    => 'المستخدمين',
+                    'hasFather' =>true
+                ]);
+
+                // Add User
+                Route::post('/add-user', [
+                    'uses' => 'UsersController@store',
+                    'as' => 'adduser',
+                    'title' => 'اضافة عضو'
+                ]);
+
+                // Update User
+                Route::post('/update-user', [
+                    'uses' => 'UsersController@update',
+                    'as' => 'updateuser',
+                    'title' => 'تعديل عضو'
+                ]);
+
+                // Delete User
+                Route::post('/delete-user', [
+                    'uses' => 'UsersController@delete',
+                    'as' => 'deleteuser',
+                    'title' => 'حذف عضو'
+                ]);
+
+                // Delete Users
+                Route::post('/delete-users', [
+                    'uses' => 'UsersController@deleteAll',
+                    'as' => 'deleteusers',
+                    'title' => 'حذف اكتر من عضو'
+                ]);
+
+                // Send Notify
+                Route::post('/send-notify', [
+                    'uses' => 'UsersController@sendNotify',
+                    'as' => 'send-fcm',
+                    'title' => 'ارسال اشعارات'
+                ]);
+            // ============= #users ==============
+            
+        // ============= #المستخدمين ==============
+                
         
-            // Send Notify
-            Route::post('/send-notify', [
-                'uses' => 'UsersController@sendNotify',
-                'as' => 'send-fcm',
-                'title' => 'ارسال اشعارات'
-            ]);
-        // ============= #users ==============
+
+       
 
         // ============= Categories ==============
             Route::get('/categories', [
