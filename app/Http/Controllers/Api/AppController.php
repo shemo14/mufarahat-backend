@@ -19,14 +19,12 @@ class AppController extends Controller
 {
 	public function roles(){
 		$roles       = 'roles_' . lang();
-		$roles_title = 'roles_title_' . lang();
-		return returnResponse(['roles_title' => settings($roles_title), 'roles' => settings($roles)], '', 200);
+		return returnResponse([ 'roles' => settings($roles)], '', 200);
 	}
 
 	public function about_app(){
 		$about_us       = 'about_us_' . lang();
-		$about_us_title = 'about_title_' . lang();
-		return returnResponse(['about_title' => settings($about_us_title), 'about' => settings($about_us)], '', 200);
+		return returnResponse([ 'about' => settings($about_us)], '', 200);
 	}
 
 	public function app_info(Request $request){
