@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2019 at 11:57 PM
+-- Generation Time: Sep 08, 2019 at 11:07 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.28
 
@@ -42,6 +42,13 @@ CREATE TABLE `app_sections` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `app_sections`
+--
+
+INSERT INTO `app_sections` (`id`, `title_ar`, `title_en`, `desc_ar`, `desc_en`, `android`, `ios`, `img_ar`, `img_en`, `created_at`, `updated_at`) VALUES
+(1, 'عنوان', 'address', 'وصف', 'description', '11', '11', 'image.png', 'image.png', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -62,7 +69,16 @@ CREATE TABLE `app_settings` (
 
 INSERT INTO `app_settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 (1, 'site_name', 'اوامر الشبكة', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
-(2, 'site_name_ar', 'اوامر الشبكة', '2019-09-07 19:53:52', '2019-09-07 19:53:52');
+(2, 'site_name_ar', 'مفرحات', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(3, 'site_name_en', 'Mofrhat', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(4, 'address_ar', 'السعوديه', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(5, 'address_en', 'السعوديه', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(6, 'email', 'email@yahoo.com', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(7, 'phone', '+966123456789', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(8, 'about_us_ar', 'من نحن', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(9, 'about_us_en', 'who', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(10, 'roles_ar', 'الشروط والاحكام', '2019-09-07 19:53:52', '2019-09-07 19:53:52'),
+(11, 'roles_en', 'roles', '2019-09-07 19:53:52', '2019-09-07 19:53:52');
 
 -- --------------------------------------------------------
 
@@ -214,13 +230,39 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `permissions`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 'dashboard', 1, '2019-09-07 19:53:50', '2019-09-07 19:53:50'),
-(2, 'permissionslist', 1, '2019-09-07 19:53:50', '2019-09-07 19:53:50'),
-(3, 'addpermissionspage', 1, '2019-09-07 19:53:50', '2019-09-07 19:53:50'),
-(4, 'addpermission', 1, '2019-09-07 19:53:50', '2019-09-07 19:53:50'),
-(5, 'editpermissionpage', 1, '2019-09-07 19:53:50', '2019-09-07 19:53:50'),
-(6, 'updatepermission', 1, '2019-09-07 19:53:50', '2019-09-07 19:53:50'),
-(7, 'deletepermission', 1, '2019-09-07 19:53:50', '2019-09-07 19:53:50');
+(46, 'dashboard', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(47, 'permissionslist', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(48, 'addpermissionspage', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(49, 'addpermission', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(50, 'editpermissionpage', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(51, 'updatepermission', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(52, 'deletepermission', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(53, 'admins', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(54, 'addadmin', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(55, 'updateadmin', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(56, 'deleteadmin', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(57, 'deleteadmins', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(58, 'users', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(59, 'adduser', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(60, 'updateuser', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(61, 'deleteuser', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(62, 'deleteusers', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(63, 'send-fcm', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(64, 'categories', 1, '2019-09-07 20:00:35', '2019-09-07 20:00:35'),
+(65, 'addCategory', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(66, 'updateCategory', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(67, 'deleteCategory', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(68, 'deleteCategories', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(69, 'allreports', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(70, 'deletereports', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(71, 'settings', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(72, 'sitesetting', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(73, 'add-social', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(74, 'update-social', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(75, 'delete-social', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(76, 'appSection', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(77, 'aboutUs', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36'),
+(78, 'roles', 1, '2019-09-07 20:00:36', '2019-09-07 20:00:36');
 
 -- --------------------------------------------------------
 
@@ -240,6 +282,13 @@ CREATE TABLE `reports` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`id`, `event`, `supervisor`, `ip`, `country`, `city`, `area`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'قام اوامر الشبكه بتعديل بيانات المشرف', 1, '::1', '', '', '', 1, '2019-09-07 19:58:35', '2019-09-07 19:58:35');
 
 -- --------------------------------------------------------
 
@@ -310,7 +359,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `address`, `code`, `device_id`, `avatar`, `active`, `checked`, `role`, `isNotify`, `type`, `lat`, `lang`, `city_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'اوامر الشبكه', 'aait@info.com', '123456789', '$2y$10$/pZILuA8Ay87XSOlEdI1H.vsmYdhwRysyCsqu2bBl6cbBuhJPQ4yS', 'مصر - المنصوره', NULL, '1111111111', 'default.png', 0, 0, 1, 1, 'user', NULL, NULL, 1, NULL, '2019-09-07 19:53:45', '2019-09-07 19:53:45'),
+(1, 'اوامر الشبكه', 'aait@info.com', '123456789', '$2y$10$AWKhkADFSNDcp0KypjC2o.QoZErzh3G.jhLEm9tZaNnKpWqCwyGQq', 'مصر - المنصوره', NULL, '1111111111', 'default.png', 0, 0, 1, 1, 'user', NULL, NULL, 1, NULL, '2019-09-07 19:53:45', '2019-09-07 19:58:34'),
 (2, 'مندوب', 'delegate@info.com', '01022222222', '$2y$10$ODUIZrR4o4U0rGW0n58Fueea9J5967QFnpnNtqC7Y.hnQ4EEH.6c6', 'السعوديه - جده', NULL, '1111111111', 'default.png', 0, 0, 0, 1, 'delegate', NULL, NULL, 2, NULL, '2019-09-07 19:53:45', '2019-09-07 19:53:45');
 
 -- --------------------------------------------------------
@@ -448,13 +497,13 @@ ALTER TABLE `warehouses`
 -- AUTO_INCREMENT for table `app_sections`
 --
 ALTER TABLE `app_sections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `app_settings`
 --
 ALTER TABLE `app_settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -496,13 +545,13 @@ ALTER TABLE `notifies`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
