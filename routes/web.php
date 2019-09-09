@@ -367,7 +367,51 @@ use Illuminate\Support\Facades\Route;
             ]);
         // ============= #Categories ==============
 
-        // ============= Reports ==============
+
+			// ======= Comman QUS
+			Route::get('/common-qus', [
+				'uses' => 'QUAnsController@index',
+				'as' => 'commonQus',
+				'title' => 'الاسئلة الشائعة ',
+				'icon' => '<i class="fa fa-question-circle-o"></i>',
+				'child' => [
+					'addQU',
+					'updateQU',
+					'deleteQU',
+					'deleteQus',
+				]
+			]);
+
+			// Add Qu
+			Route::post('/add-qu', [
+				'uses' => 'QUAnsController@addQU',
+				'as' => 'addQU',
+				'title' => 'اضافة سؤال'
+			]);
+
+			// Update Qu
+			Route::post('/update-qu', [
+				'uses' => 'QUAnsController@updateQU',
+				'as' => 'updateQU',
+				'title' => 'تعديل سؤال'
+			]);
+
+			// Delete Qu
+			Route::post('/delete-qu', [
+				'uses' => 'QUAnsController@deleteQU',
+				'as' => 'deleteQU',
+				'title' => 'حذف سؤال'
+			]);
+
+			// Delete Qus
+			Route::post('/delete-qus', [
+				'uses' => 'QUAnsController@deleteQus',
+				'as' => 'deleteQus',
+				'title' => 'حذف اكتر من سؤال'
+			]);
+
+
+			// ============= Reports ==============
             Route::get('all-reports', [
                 'uses'  => 'ReportController@index',
                 'as'    => 'allreports',
