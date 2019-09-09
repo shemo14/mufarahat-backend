@@ -32,7 +32,7 @@
 
 @extends('dashboard.index')
 @section('title')
-    المشرفين
+    المناديب
 @endsection
 @section('content')
 
@@ -40,7 +40,7 @@
 
         <div class="btn-group btn-group-justified m-b-10">
             <a href="#add" class="btn btn-success waves-effect btn-lg waves-light" data-animation="fadein" data-plugin="custommodal"
-                data-overlaySpeed="100" data-overlayColor="#36404a">اضافة مستخدم <i class="fa fa-plus"></i> </a>
+                data-overlaySpeed="100" data-overlayColor="#36404a">اضافة مندوب <i class="fa fa-plus"></i> </a>
             <a href="#deleteAll" class="btn btn-danger waves-effect btn-lg waves-light delete-all" data-animation="blur" data-plugin="custommodal"
                 data-overlaySpeed="100" data-overlayColor="#36404a">حذف المحدد <i class="fa fa-trash"></i> </a>
             <a class="btn btn-primary waves-effect btn-lg waves-light" onclick="window.location.reload()" role="button">تحديث الصفحة <i class="fa fa-refresh"></i> </a>
@@ -60,8 +60,7 @@
                         <th>البريد</th>
                         <th>رقم الهاتف</th>
                         <th> المدينه</th>
-                        <th>الصلاحية</th>
-                        <th>الحالة</th>
+                        <th> المستودع </th>
                         <th>تاريخ التسجيل</th>
                         <th>التحكم</th>
                     </tr>
@@ -81,26 +80,21 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
                             <td>{{$user->city->name_ar}}</td>
-                            <td>{{$user->Role->role}}</td>
-                            <td>
-                                @if($user->active == 0)
-                                    <span class="label label-danger">غير نشط</span>
-                                @else
-                                    <span class="label label-success">نشط</span>
-                                @endif
-                            </td>
+                            <td>{{$user->dalegateInformation->warehouse->name}}</td>
                             <td>{{$user->created_at->diffForHumans()}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a href="#edit" class="edit btn btn-success" data-animation="fadein" data-plugin="custommodal"
                                         data-overlaySpeed="100" data-overlayColor="#36404a" style="color: #c89e28; font-weight: bold;"
-                                        data-id = "{{$user->id}}"
-                                        data-phone = "{{$user->phone}}"
-                                        data-name = "{{$user->name}}"
-                                        data-email = "{{$user->email}}"
-                                        data-photo = "{{$user->avatar}}"
-                                        data-role = "{{$user->role}}"
-                                        data-city_id = "{{$user->city_id}}"
+                                        data-id             = "{{$user->id}}"
+                                        data-phone          = "{{$user->phone}}"
+                                        data-name           = "{{$user->name}}"
+                                        data-email          = "{{$user->email}}"
+                                        data-photo          = "{{$user->avatar}}"
+                                        data-role           = "{{$user->role}}"
+                                        data-city_id        = "{{$user->city_id}}"
+                                        data-warehouse_id   = "{{$user->dalegateInformation->warehouse->id}}"
+                                        data-address        = "{{$user->address}}"
                                     >
                                         <i class="fa fa-cogs"></i>
                                     </a>
@@ -129,22 +123,28 @@
             <span>&times</span><span class="sr-only" style="color: #f7f7f7">Close</span>
         </button>
         <h4 class="custom-modal-title" style="background-color: #36404a">
-            مشرف جديد
+            مندوب جديد
         </h4>
-        <form action="{{route('addadmin')}}" method="post" autocomplete="off" enctype="multipart/form-data">
+        <form action="{{route('adddelegate')}}" method="post" autocomplete="off" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="field-1" class="control-label">الاسم</label>
                             <input type="text" autocomplete="nope" name="name" required class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="field-2" class="control-label">رقم الهاتف</label>
                             <input type="text" autocomplete="nope" name="phone" required class="form-control phone" id="phone">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="field-2" class="control-label">العنوان</label>
+                            <input type="text" autocomplete="nope" name="address" required class="form-control " >
                         </div>
                     </div>
                 </div>
@@ -163,14 +163,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">المدينه</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="city_id">
-                                    @php
-                                     $cities= App\Models\City::latest()->get();
-                                    @endphp
                                     @foreach($cities as $city)
                                         <option value="{{$city->id}}">{{$city->name_ar}}</option>
                                     @endforeach
@@ -178,28 +175,45 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">الصلاحية</label>
+                            <label class="col-sm-2 control-label">المستودع</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="role">
-                                    @foreach($roles as $role)
-                                        <option value="{{$role->id}}">{{$role->role}}</option>
+                                <select class="form-control" name="warehouse_id">
+                                    @foreach($warehouses as $warehouse)
+                                        <option value="{{$warehouse->id}}">{{$warehouse->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="row" style="margin-top: 12px">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">الصورة الشخصية</label>
                             <div class="col-sm-10">
                                 <input type="file" name="avatar" class="dropify">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 12px">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">صوره المركبه</label>
+                            <div class="col-sm-10">
+                                <input type="file" name="car_image" class="dropify">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 12px">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">صوره رخصه القياده</label>
+                            <div class="col-sm-10">
+                                <input type="file" name="licenses_image" class="dropify">
                             </div>
                         </div>
                     </div>
@@ -220,21 +234,27 @@
         <h4 class="custom-modal-title" style="background-color: #36404a">
             تعديل <span id="username"></span>
         </h4>
-        <form action="{{route('updateadmin')}}" method="post" autocomplete="off" enctype="multipart/form-data">
+        <form action="{{route('editdelegate')}}" method="post" autocomplete="off" enctype="multipart/form-data">
             {{csrf_field()}}
             <input type="hidden" name="id" value="">
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="field-1" class="control-label">الاسم</label>
                             <input type="text" autocomplete="nope" name="edit_name" value="" required class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="field-2" class="control-label">رقم الهاتف</label>
                             <input type="text" autocomplete="nope" name="edit_phone" value="" required class="phone form-control" id="phone">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="field-2" class="control-label">العنوان</label>
+                            <input type="text" autocomplete="nope" name="edit_address" value="" required class="form-control" >
                         </div>
                     </div>
                 </div>
@@ -253,30 +273,26 @@
                     </div>
                 </div>
                 <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">المدينه</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" name="city_id">
-                                        @php
-                                         $cities= App\Models\City::latest()->get();
-                                        @endphp
-                                        @foreach($cities as $city)
-                                            <option value="{{$city->id}}" id="{{$city->id}}">{{$city->name_ar}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">المدينه</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="city_id">
+                                    @foreach($cities as $city)
+                                        <option value="{{$city->id}}" id="c_{{$city->id}}">{{$city->name_ar}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">الصلاحية</label>
+                            <label class="col-sm-2 control-label">المستودع</label>
                             <div class="col-sm-10">
-                                <select class="form-control role" name="role">
-                                    @foreach($roles as $role)
-                                        <option value="{{$role->id}}">{{$role->role}}</option>
+                                <select class="form-control" name="warehouse_id">
+                                    
+                                    @foreach($warehouses as $warehouse)
+                                        <option value="{{$warehouse->id}}" id="w_{{$warehouse->id}}">{{$warehouse->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -289,6 +305,26 @@
                             <label class="col-sm-2 control-label">الصورة الشخصية</label>
                             <div class="col-sm-10">
                                 <input type="file" name="avatar" class="dropify photo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">صوره المركبه</label>
+                            <div class="col-sm-10">
+                                <input type="file" name="car_image" class="dropify photo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">صوره رخصه القياده</label>
+                            <div class="col-sm-10">
+                                <input type="file" name="licenses_image" class="dropify photo">
                             </div>
                         </div>
                     </div>
@@ -360,13 +396,18 @@
             let phone      = $(this).data('phone');
             let email      = $(this).data('email');
             let city_id    = $(this).data('city_id');
+            let address    = $(this).data('address');
+            let warehouse_id    = $(this).data('warehouse_id');
             // let role      = $(this).data('role');
 
             $("input[name='id']").val(id);
             $("input[name='edit_name']").val(name);
             $("input[name='edit_phone']").val(phone);
             $("input[name='edit_email']").val(email);
-            $('#'+city_id).attr('selected', true)
+            $("input[name='edit_address']").val(address);
+            $('#c_'+city_id).attr('selected', true)
+            $('#w_'+warehouse_id).attr('selected', true)
+
             $("#username").html(name);
         });
 
