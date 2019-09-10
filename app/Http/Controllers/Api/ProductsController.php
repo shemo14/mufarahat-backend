@@ -121,9 +121,7 @@ class ProductsController extends Controller
 		$product_images   = [];
 
 		foreach ($images as $image) {
-			$product_images[] = [
-				'url' => url('images/products') . '/' . $image->name
-			];
+			$product_images[] =  url('images/products') . '/' . $image->name;
 		}
 
 		$user_id   = null;
