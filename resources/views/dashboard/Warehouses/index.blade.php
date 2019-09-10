@@ -203,7 +203,7 @@
         <button type="button" class="close" onclick="Custombox.close();" style="opacity: 1">
             <span>&times</span><span class="sr-only" style="color: #f7f7f7">Close</span>
         </button>
-        <h4 class="custom-modal-title">حذف مدينه</h4>
+        <h4 class="custom-modal-title">حذف  مستودع</h4>
         <div class="custombox-modal-container" style="width: 400px !important; height: 160px;">
             <div class="row">
                 <div class="col-sm-12">
@@ -219,27 +219,6 @@
                         <input type="hidden" name="delete_id" value="">
                         <button style="margin-top: 35px" type="submit" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5 send-delete-all"  style="margin-top: 19px">حـذف</button>
                     </form>
-                </div>
-            </div>
-        </div><!-- /.modal-content -->
-    </div>
-
-    <div id="deleteAll" class="modal-demo" style="position:relative; right: 32%">
-        <button type="button" class="close" onclick="Custombox.close();" style="opacity: 1">
-            <span>&times</span><span class="sr-only" style="color: #f7f7f7">Close</span>
-        </button>
-        <h4 class="custom-modal-title">حذف المحدد</h4>
-        <div class="custombox-modal-container" style="width: 400px !important; height: 160px;">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3 style="margin-top: 35px">
-                        هل تريد مواصلة عملية الحذف ؟
-                    </h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <button style="margin-top: 35px" type="submit" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5 send-delete-all" style="margin-top: 19px">حـذف</button>
                 </div>
             </div>
         </div><!-- /.modal-content -->

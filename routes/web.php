@@ -106,7 +106,7 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'CitiesController@index',
                 'as' => 'cities',
                 'title' => 'المدن',
-                'icon' => '<i class="fa fa-city"></i>',
+                'icon' => '<i class="far fa-building"></i>',
                 'child' => [
                     'addcity',
                     'editcity',
@@ -367,7 +367,7 @@ use Illuminate\Support\Facades\Route;
             ]);
         // ============= #Categories ==============
 
-
+        // ============= Comman QUS ==============
 			// ======= Comman QUS
 			Route::get('/common-qus', [
 				'uses' => 'QUAnsController@index',
@@ -409,9 +409,9 @@ use Illuminate\Support\Facades\Route;
 				'as' => 'deleteQus',
 				'title' => 'حذف اكتر من سؤال'
 			]);
+        // ============= #Comman QUS ==============
 
-
-			// ============= Reports ==============
+        // ============= Reports ==============
             Route::get('all-reports', [
                 'uses'  => 'ReportController@index',
                 'as'    => 'allreports',
