@@ -112,17 +112,8 @@ class AppController extends Controller
 	}
 
 	public function common_questions(Request $request){
-		$rules = [
-			'lang'    => 'required',
-		];
-		App::setLocale($request['lang']);
-		$validator  = validator($request->all(), $rules);
 
-		if ($validator->fails()) {
-			return returnResponse([], validateRequest($validator), 400);
-		}
-
-		$qus 		= CommanQues::select('qu_' . $request->lang . ' as qu', 'ans_' . $request->lang . ' as ans')->get();
+		$qus 		= CommanQues::select('qu_' . lang() . ' as qu', 'ans_' . lang() . ' as ans')->get();
 		$all_qus   	= [];
 
 		foreach ($qus as $qu) {

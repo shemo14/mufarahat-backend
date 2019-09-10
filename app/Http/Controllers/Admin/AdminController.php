@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\UploadFile;
-use App\Http\Controllers\Controller;
-use App\Models\Role;
 use App\User;
+use App\Models\City;
+use App\Models\Role;
+use App\Helpers\UploadFile;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
@@ -48,6 +49,7 @@ class AdminController extends Controller
             'password' => 'required',
             'avatar'   => 'nullable',
             'role'     => 'required',
+            'city_id'  => 'required',
         ];
 
         // Validator messages
@@ -62,6 +64,7 @@ class AdminController extends Controller
             'email.email'       => 'تحقق من صحة البريد الالكتروني',
             'password.required' => 'كلمة السر مطلوبة',
             'role.required'     => 'الصلاحية مطلوبة',
+            'city_id.required'  => 'المدينه مطلوبة',
         ];
 
         // Validation
@@ -86,6 +89,7 @@ class AdminController extends Controller
             'role'     => $request['role'],
             'password' => bcrypt($request['password']),
             'avatar'   => $avatar,
+            'city_id'  => $request['city_id'],
         ]);
 
         addReport(auth()->user()->id, 'باضافة مشرف جديد', $request->ip());
@@ -103,6 +107,7 @@ class AdminController extends Controller
             'edit_email' => 'required|email|unique:users,email,' . $request->id,
             'avatar'     => 'nullable',
             'role'       => 'required',
+            'city_id'    => 'required',
         ];
 
         // Validator messages
@@ -116,6 +121,7 @@ class AdminController extends Controller
             'edit_email.unique'   => 'البريد الالكتروني موجود بالفعل',
             'edit_email.email'    => 'تحقق من صحة البريد الالكتروني',
             'role.required'       => 'الصلاحية مطلوبة',
+            'city_id.required'    => 'المدينه مطلوبة',
         ];
 
         // Validation
@@ -143,6 +149,7 @@ class AdminController extends Controller
         $user->name  = $request->edit_name;
         $user->phone = convert2english($request->edit_phone);
         $user->email = $request->edit_email;
+        $user->city_id = $request->city_id;
         if ($request->id != 1) {
             $user->role = $request->role;
         }

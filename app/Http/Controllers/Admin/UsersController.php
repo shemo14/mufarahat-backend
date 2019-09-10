@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\UploadFile;
 use App\User;
-use App\Models\Notifications;
+use App\Models\City;
+use App\Helpers\UploadFile;
 use Illuminate\Http\Request;
+use App\Models\Notifications;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
@@ -24,8 +25,9 @@ class UsersController extends Controller
      */
     public function index(User $user)
     {
-        $users = $user->where('role', 0)->latest()->get();
-        return view('dashboard.users.index', compact('users'));
+        $users = $user->where('role', 0)->where('type','user')->latest()->get();
+        $cities = City::get();
+        return view('dashboard.users.index', compact('users','cities'));
     }
 
     /**
@@ -42,6 +44,8 @@ class UsersController extends Controller
             'phone'     => 'required|unique:users,phone',
             'email'     => 'required|email|unique:users,email',
             'password'  => 'required',
+            'city_id'   => 'required',
+            'address'   => 'required',
             'avatar'    => 'nullable|image'
         ];
         // Validation
@@ -64,7 +68,9 @@ class UsersController extends Controller
             'email'     => $request['email'],
             'lat'       => $request['lat'],
             'lng'       => $request['lng'],
-            'password'  => $request['password'],
+            'password'  => bcrypt($request['password']),
+            'city_id'   => $request['city_id'],
+            'address'   => $request['address'],
             'avatar'    => $avatar,
         ]);
 

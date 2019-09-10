@@ -32,7 +32,6 @@
                         <th>الرقم</th>
                         <th>الاسم بالعربية</th>
                         <th>الاسم بالانجليزية</th>
-                        <th>الايقونة</th>
                         <th>الصورة</th>
                         <th>التاريخ</th>
                         <th>التحكم</th>
@@ -50,7 +49,6 @@
                             <td>{{$category->id}}</td>
                             <td>{{$category->name_ar}}</td>
                             <td>{{$category->name_en}}</td>
-                            <td><a href="{{appPath()}}/images/categories/{{$category->icon}}" target="_blank"><img src="{{appPath()}}/images/categories/{{$category->icon}}" alt="user-img" width="60px" title="Mat Helme" class="img-circle img-thumbnail img-responsive"></a></td>
                             <td><a href="{{appPath()}}/images/categories/{{$category->image}}" target="_blank"><img src="{{appPath()}}/images/categories/{{$category->image}}" alt="user-img" width="60px" title="Mat Helme" class="img-circle img-thumbnail img-responsive"></a></td>
                             <td>{{$category->created_at->diffForHumans()}}</td>
                             <td>
@@ -61,7 +59,6 @@
                                         data-id = "{{$category->id}}"
                                         data-name_ar = "{{$category->name_ar}}"
                                         data-name_en = "{{$category->name_en}}"
-                                        data-icon_ = "{{$category->icon}}"
                                         data-image = "{{$category->image}}"
                                     >
                                         <i class="fa fa-cogs"></i>
@@ -109,12 +106,6 @@
                             <input type="text" autocomplete="nope" name="name_en" required class="form-control" placeholder="الاسم بالانجليزية ...">
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="field-2" class="control-label">الايقونة</label>
-                            <input type="file" name="icon" required class="form-control" placeholder="الايقونة ...">
-                        </div>
-                    </div>
                 </div>
                 <div class="row" style="margin-top: 15px;">
                     <div class="col-md-12">
@@ -157,12 +148,6 @@
                         <div class="form-group">
                             <label for="field-2" class="control-label">الاسم بالانجليزية</label>
                             <input type="text" autocomplete="nope" name="name_en" required class="form-control" placeholder="الاسم بالانجليزية ...">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="field-2" class="control-label">الايقونة</label>
-                            <input type="file" name="icon" required class="form-control" placeholder="الايقونة ...">
                         </div>
                     </div>
                 </div>

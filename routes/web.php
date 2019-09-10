@@ -101,9 +101,79 @@ use Illuminate\Support\Facades\Route;
             ]);
         // ============= #Permission ==============
 
+        // ============= Cities ==============
+            Route::get('cities-list', [
+                'uses' => 'CitiesController@index',
+                'as' => 'cities',
+                'title' => 'المدن',
+                'icon' => '<i class="far fa-building"></i>',
+                'child' => [
+                    'addcity',
+                    'editcity',
+                    'deletecity',
+                ]
+            ]);
+
+                // Add User
+                Route::post('/add-city', [
+                'uses' => 'CitiesController@store',
+                'as' => 'addcity',
+                'title' => 'اضافة مدينه'
+            ]);
+
+            // Update User
+            Route::post('/update-city', [
+                'uses' => 'CitiesController@update',
+                'as' => 'editcity',
+                'title' => 'تعديل مدينه'
+            ]);
+
+            // Delete User
+            Route::post('/delete-city', [
+                'uses' => 'CitiesController@delete',
+                'as' => 'deletecity',
+                'title' => 'حذف مدينه'
+            ]);
+        // ============= #Cities ==============
+
+        // ============= warehouses ==============
+            Route::get('warehouses-list', [
+                'uses' => 'WarehousesController@index',
+                'as' => 'warehouses',
+                'title' => 'المستودعات',
+                'icon' => '<i class="fa fa-city"></i>',
+                'child' => [
+                    'addwarehouse',
+                    'editwarehouse',
+                    'deletewarehouse',
+                ]
+            ]);
+
+                // Add User
+                Route::post('/add-warehouse', [
+                'uses' => 'WarehousesController@store',
+                'as' => 'addwarehouse',
+                'title' => 'اضافة مستودع'
+            ]);
+
+            // Update User
+            Route::post('/update-warehouse', [
+                'uses' => 'WarehousesController@update',
+                'as' => 'editwarehouse',
+                'title' => 'تعديل مستودع'
+            ]);
+
+            // Delete User
+            Route::post('/delete-warehouse', [
+                'uses' => 'WarehousesController@delete',
+                'as' => 'deletewarehouse',
+                'title' => 'حذف مستودع'
+            ]);
+        // ============= #warehouses ==============
+
         // ============= المستخدمين ==============
             Route::get('/all-users2',[
-                'uses'     =>'UsersController@index2',
+                'uses'     =>'UsersController@index',
                 'as'       =>'users2',
                 'title'    =>'الاعضاء ',
                 'subTitle' =>'المناديب',
@@ -121,6 +191,11 @@ use Illuminate\Support\Facades\Route;
                     'deleteuser',
                     'deleteusers',
                     'send-fcm',
+                    'delegates',
+                    'adddelegate',
+                    'editdelegate',
+                    'deletedelegate',
+                    'deletedelegates',
                 ]
             ]);
 
@@ -205,12 +280,49 @@ use Illuminate\Support\Facades\Route;
                     'title' => 'ارسال اشعارات'
                 ]);
             // ============= #users ==============
+
+            // ============= Delgates ==============
+                Route::get('/delegates',[
+                    'uses'=>'DelegateController@index',
+                    'as'=>'delegates',
+                    'icon'      =>'<i class="fa fa-users"></i>',
+                    'title'    => 'المناديب',
+                    'hasFather' =>true
+                ]);
+
+                // Add User
+                Route::post('/add-delegate', [
+                    'uses' => 'DelegateController@store',
+                    'as' => 'adddelegate',
+                    'title' => 'اضافة مندوب'
+                ]);
+
+                // Update User
+                Route::post('/update-delegate', [
+                    'uses' => 'DelegateController@update',
+                    'as' => 'editdelegate',
+                    'title' => 'تعديل مندوب'
+                ]);
+
+                // Delete User
+                Route::post('/delete-delegate', [
+                    'uses' => 'DelegateController@delete',
+                    'as' => 'deletedelegate',
+                    'title' => 'حذف مندوب'
+                ]);
+
+                // Delete Users
+                Route::post('/delete-delegates', [
+                    'uses' => 'DelegateController@deleteAll',
+                    'as' => 'deletedelegates',
+                    'title' => 'حذف اكتر من مندوب'
+                ]);
+
+            
+           // ============= #Delgates ==============
+            
             
         // ============= #المستخدمين ==============
-                
-        
-
-       
 
         // ============= Categories ==============
             Route::get('/categories', [
@@ -255,7 +367,7 @@ use Illuminate\Support\Facades\Route;
             ]);
         // ============= #Categories ==============
 
-
+        // ============= Comman QUS ==============
 			// ======= Comman QUS
 			Route::get('/common-qus', [
 				'uses' => 'QUAnsController@index',
@@ -297,9 +409,9 @@ use Illuminate\Support\Facades\Route;
 				'as' => 'deleteQus',
 				'title' => 'حذف اكتر من سؤال'
 			]);
+        // ============= #Comman QUS ==============
 
-
-			// ============= Reports ==============
+        // ============= Reports ==============
             Route::get('all-reports', [
                 'uses'  => 'ReportController@index',
                 'as'    => 'allreports',

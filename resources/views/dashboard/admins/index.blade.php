@@ -1,5 +1,4 @@
 @section('styles')
-
     <style>
 
         @media (max-width: 475.98px) {
@@ -49,7 +48,6 @@
 
         <div class="col-sm-12">
             <div class="card-box table-responsive boxes">
-
                 <table id="datatable" class="table table-bordered table-responsives">
                     <thead>
                     <tr>
@@ -61,6 +59,7 @@
                         <th>الاسم</th>
                         <th>البريد</th>
                         <th>رقم الهاتف</th>
+                        <th> المدينه</th>
                         <th>الصلاحية</th>
                         <th>الحالة</th>
                         <th>تاريخ التسجيل</th>
@@ -81,6 +80,7 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
+                            <td>{{$user->city->name_ar}}</td>
                             <td>{{$user->Role->role}}</td>
                             <td>
                                 @if($user->active == 0)
@@ -100,6 +100,7 @@
                                         data-email = "{{$user->email}}"
                                         data-photo = "{{$user->avatar}}"
                                         data-role = "{{$user->role}}"
+                                        data-city_id = "{{$user->city_id}}"
                                     >
                                         <i class="fa fa-cogs"></i>
                                     </a>
@@ -158,6 +159,23 @@
                         <div class="form-group">
                             <label for="field-3" class="control-label">كلمة السر</label>
                             <input type="password" autocomplete="nope" name="password" required class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">المدينه</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="city_id">
+                                    @php
+                                     $cities= App\Models\City::latest()->get();
+                                    @endphp
+                                    @foreach($cities as $city)
+                                        <option value="{{$city->id}}">{{$city->name_ar}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -233,6 +251,23 @@
                             <input type="password" autocomplete="nope" name="password" class="form-control">
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">المدينه</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="city_id">
+                                        @php
+                                         $cities= App\Models\City::latest()->get();
+                                        @endphp
+                                        @foreach($cities as $city)
+                                            <option value="{{$city->id}}" id="{{$city->id}}">{{$city->name_ar}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -324,12 +359,14 @@
             //let photo      = $(this).data('photo');
             let phone      = $(this).data('phone');
             let email      = $(this).data('email');
+            let city_id    = $(this).data('city_id');
             // let role      = $(this).data('role');
 
             $("input[name='id']").val(id);
             $("input[name='edit_name']").val(name);
             $("input[name='edit_phone']").val(phone);
             $("input[name='edit_email']").val(email);
+            $('#'+city_id).attr('selected', true)
             $("#username").html(name);
         });
 

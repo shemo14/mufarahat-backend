@@ -33,6 +33,8 @@
                         <th>الاسم</th>
                         <th>البريد</th>
                         <th>رقم الهاتف</th>
+                        <th> المدينه</th>
+                        <th> العنوان</th>
                         <th>الحالة</th>
                         <th>التفعيل</th>
                         <th>التاريخ</th>
@@ -52,6 +54,8 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
+                            <td>{{$user->city->name_ar}}</td>
+                            <td>{{$user->address}}</td>
                             <td>
                                 @if($user->active == 0)
                                     <span class="label label-danger">غير متصل</span>
@@ -76,7 +80,7 @@
                                         data-name = "{{$user->name}}"
                                         data-email = "{{$user->email}}"
                                         data-photo = "{{$user->avatar}}"
-                                        data-lat = "{{$user->lat}}"
+                                        
                                         data-lng = "{{$user->lng}}"
                                     >
                                         <i class="fa fa-cogs"></i>
@@ -141,6 +145,28 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-3" class="control-label">العنوان</label>
+                                <input type="text" autocomplete="nope" name="address" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">المدينه</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="city_id">
+                                        @foreach($cities as $city)
+                                            <option value="{{$city->id}}" id="{{$city->id}}">{{$city->name_ar}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
                 <div class="row" style="margin-top: 15px;">
                     <div class="col-md-12">
                         <div class="form-group">

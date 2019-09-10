@@ -30,11 +30,10 @@ class CategoriesController extends Controller
             return back()->withErrors($validator);
         }
 
-        $add = new Categories();
-        $add->name_ar = $request['name_ar'];
-        $add->name_en = $request['name_en'];
-        $add->image   = $avatar = UploadFile::uploadImage($request->file('image'), 'categories');
-        $add->icon    = $avatar = UploadFile::uploadImage($request->file('icon'), 'categories');
+        $add 			= new Categories();
+        $add->name_ar 	= $request['name_ar'];
+        $add->name_en 	= $request['name_en'];
+        $add->image   	= $avatar = UploadFile::uploadImage($request->file('image'), 'categories');
 
         if ($add->save()){
             addReport(auth()->user()->id, 'اضافة قسم', $request->ip());
@@ -65,10 +64,6 @@ class CategoriesController extends Controller
 
         if ($request->hasFile('image')){
             $edit->image    = $avatar = UploadFile::uploadImage($request->file('image'), 'categories');
-        }
-
-        if ($request->hasFile('icon')){
-            $edit->icon    = $avatar = UploadFile::uploadImage($request->file('icon'), 'categories');
         }
 
         if ($edit->save()){
