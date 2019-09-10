@@ -1,7 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cc42629-ff91-46e8-a802-4f01731dc36a" name="Default Changelist" comment="" />
+    <list default="true" id="9cc42629-ff91-46e8-a802-4f01731dc36a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AppController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/admins/1530440031.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/admins/1530440031.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/admins/1530441743.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/admins/1530441743.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/admins/1530795333.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/admins/1530795333.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/admins/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/admins/default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d1898f1e10db-1561893105-rfbM5TqnuT.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d1898f1e10db-1561893105-rfbM5TqnuT.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d189922c0d1b-1561893154-TwgR7aMMQT.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d189922c0d1b-1561893154-TwgR7aMMQT.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d189922c117d-1561893154-f1ojVq6hg1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d189922c117d-1561893154-f1ojVq6hg1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d189922cae66-1561893154-HMypbwM8x4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d189922cae66-1561893154-HMypbwM8x4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d18997d105c2-1561893245-SFJDIgDyh3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d18997d105c2-1561893245-SFJDIgDyh3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d18997d10a4d-1561893245-mmQCe14Yom.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d18997d10a4d-1561893245-mmQCe14Yom.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d18997d10e93-1561893245-G8wPYROc94.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d18997d10e93-1561893245-G8wPYROc94.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d189c7cb6bcd-1561894012-F5VClolOSk.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d189c7cb6bcd-1561894012-F5VClolOSk.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d189c7cb7206-1561894012-hLrx1F4f1G.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d189c7cb7206-1561894012-hLrx1F4f1G.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d189c7cb7869-1561894012-F9Rnogxzgz.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d189c7cb7869-1561894012-F9Rnogxzgz.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d1cf9a693ab7-1562180006-5kM51Thc4g.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d1cf9a693ab7-1562180006-5kM51Thc4g.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d1cf9a6941d6-1562180006-psMFhMTi5p.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d1cf9a6941d6-1562180006-psMFhMTi5p.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d21db3158e90-1562499889-H7auxRc9hg.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d21db3158e90-1562499889-H7auxRc9hg.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d21db9515b6b-1562499989-QKkJAtoJ2v.MP4" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d21db9515b6b-1562499989-QKkJAtoJ2v.MP4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d21f6241d341-1562506788-lKhcRrRi8J.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d21f6241d341-1562506788-lKhcRrRi8J.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d21f6241ee5d-1562506788-6MclQQGeZh.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d21f6241ee5d-1562506788-6MclQQGeZh.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d21f95e6ee61-1562507614-zAXxN1RPW5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d21f95e6ee61-1562507614-zAXxN1RPW5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d21f95e6f45a-1562507614-KIBiIiqosp.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d21f95e6f45a-1562507614-KIBiIiqosp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d21f95e6fed3-1562507614-BkqzAKrOsf.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d21f95e6fed3-1562507614-BkqzAKrOsf.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d36b41e2b9e9-1563866142-uWM0BMn6DH.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d36b41e2b9e9-1563866142-uWM0BMn6DH.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ads/5d36b41e2c54a-1563866142-m67SCvWl6n.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ads/5d36b41e2c54a-1563866142-m67SCvWl6n.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/appSection/5d271a1ce63a9-1562843676-OIClozKwu8.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/appSection/5d271a1ce63a9-1562843676-OIClozKwu8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/appSection/5d271a1ce6551-1562843676-a5JIUuhr7c.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/appSection/5d271a1ce6551-1562843676-a5JIUuhr7c.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d189eb149aae-1561894577-mk5VE5osNC.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d189eb149aae-1561894577-mk5VE5osNC.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d189eb149c5a-1561894577-U6jTGziwUs.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d189eb149c5a-1561894577-U6jTGziwUs.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d1b1af70aa3c-1562057463-yRl57Pd1jF.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d1b1af70aa3c-1562057463-yRl57Pd1jF.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d1b1af70d2fc-1562057463-gDVBTHUD1T.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d1b1af70d2fc-1562057463-gDVBTHUD1T.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d1d07558761b-1562183509-QS1atuyPjN.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d1d07558761b-1562183509-QS1atuyPjN.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d1d07558781e-1562183509-QvtNJMnCzR.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d1d07558781e-1562183509-QvtNJMnCzR.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d1d0e474a0c1-1562185287-kbXykZCvdd.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d1d0e474a0c1-1562185287-kbXykZCvdd.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d1d0e474a243-1562185287-giNb63f8Y8.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d1d0e474a243-1562185287-giNb63f8Y8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d2c7a256620f-1563195941-GcPBGIhQJK.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d2c7a256620f-1563195941-GcPBGIhQJK.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d2c7a25b023b-1563195941-0zClGEUCil.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d2c7a25b023b-1563195941-0zClGEUCil.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d2c7a8a4d995-1563196042-S5bb2UJDpF.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d2c7a8a4d995-1563196042-S5bb2UJDpF.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d2c7a8a4daea-1563196042-HrPtk1KjkT.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d2c7a8a4daea-1563196042-HrPtk1KjkT.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d2c7b3531d12-1563196213-S4z67hjW1n.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d2c7b3531d12-1563196213-S4z67hjW1n.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d2c7b3531ebf-1563196213-8R8mlwTruy.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d2c7b3531ebf-1563196213-8R8mlwTruy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34ac1103d39-1563733009-Xe5G71Lkzm.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34ac1103d39-1563733009-Xe5G71Lkzm.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34ac1103e72-1563733009-f43omScWHu.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34ac1103e72-1563733009-f43omScWHu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34ac587629b-1563733080-rQUdm7oGNN.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34ac587629b-1563733080-rQUdm7oGNN.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34b13381ed7-1563734323-JQ92Jxzeba.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34b13381ed7-1563734323-JQ92Jxzeba.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34b1338218a-1563734323-cILXPvKUyv.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34b1338218a-1563734323-cILXPvKUyv.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34b18859c17-1563734408-GWwNto2m2N.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34b18859c17-1563734408-GWwNto2m2N.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34b18859d3a-1563734408-JXT1CMV1HC.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34b18859d3a-1563734408-JXT1CMV1HC.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34b246f3d81-1563734598-dLaTCwar9J.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34b246f3d81-1563734598-dLaTCwar9J.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d34b246f3f26-1563734598-Wrt4QrcqHL.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d34b246f3f26-1563734598-Wrt4QrcqHL.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d4a8eb60b84e-1565167286-5FFeUYQACj.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d4a8eb60b84e-1565167286-5FFeUYQACj.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d4a8fd3b1b82-1565167571-r6ocrHNxJT.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d4a8fd3b1b82-1565167571-r6ocrHNxJT.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d4a9da398d29-1565171107-W0nWoEPJjY.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d4a9da398d29-1565171107-W0nWoEPJjY.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d4aa02ddb3ea-1565171757-fIcVhDoR4O.MP4" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d4aa02ddb3ea-1565171757-fIcVhDoR4O.MP4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/categories/5d4aa238b0070-1565172280-U6OxJOlqvp.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/images/categories/5d4aa238b0070-1565172280-U6OxJOlqvp.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1a30da5422f-1561997530-BEgdl1EB9C.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1a30da76789-1561997530-PzZDSjJVz3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1a30da8eb6e-1561997530-4PAvUdXTgf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b181943c9f-1562056729-KxPp6YGTIb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b181956be7-1562056729-AVeoQn9l3U.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b181969e16-1562056729-ymf5UA8Qap.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b1c691536d-1562057833-c2OlAIYbCZ.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b1c694814b-1562057833-jeQFlh7So5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b1c6952b2a-1562057833-pyCZbPfR5A.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b1ca65ebf8-1562057894-4R8T7EDKg9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b1ca673fd8-1562057894-prxpyVGj6l.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d1b1ca69237c-1562057894-hwZ1hL7gDK.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d222329246ef-1562518313-xRCxTLmtcK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d22232924d1a-1562518313-kGNnGRaqY6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d2223292521f-1562518313-jbRwdKDIIZ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d22462db174c-1562527277-gfx1vIU6Qj.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d22462db1f3f-1562527277-AtD64tnReu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d22462db2bc1-1562527277-mtYolqyzdj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d275f680ac6f-1562861416-m2Z751gLgp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d275f9fb4378-1562861471-il2T6gRw3D.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d275ff0eef51-1562861552-dOxxkBJHq9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d2761b63b0ca-1562862006-PxFZXOpsaW.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d2ef4e37a1aa-1563358435-zyezh0xHoo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d347108d8609-1563717896-6VIYfJJpdz.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d347705164d1-1563719429-N4EhX2vnMu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d347bb75dd19-1563720631-hVCtdyTNB2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d347ce6ad059-1563720934-bGcvlGWSFu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d347dc28ad9d-1563721154-kzvr9tP0b7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d348095b5abc-1563721877-fOPeF36YnK.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d3482276c344-1563722279-vKXDMnyBAi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34835ac14cd-1563722586-BLAZlgB4XU.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34a1ccab20b-1563730380-sHAX5rt15d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34a30d1794e-1563730701-ZjjTr6B65h.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34a5ae65319-1563731374-lMO1ZVTgJa.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34a6f64ccae-1563731702-fbC7pZ24XD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34aa95dc6c9-1563732629-3tGbMogtAt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34ae2f6405a-1563733551-i58mazKNUM.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34ae6a51cd2-1563733610-CJcwhP0qXh.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34af35a8fb9-1563733813-KTnV3ws50w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/events/5d34b006f0415-1563734022-0qJl0XAIQ2.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/5d2705107c919-1562838288-8ESjuSTF1s.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/5d2705107c919-1562838288-8ESjuSTF1s.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/5d3ead188927a-1564388632-yRkZdCASED.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/5d3ead188927a-1564388632-yRkZdCASED.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/5d3ead33308d7-1564388659-y3vsozqaHp.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/5d3ead33308d7-1564388659-y3vsozqaHp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/intro/5d3ead4d2afe2-1564388685-VAxA8bjgO5.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/intro/5d3ead4d2afe2-1564388685-VAxA8bjgO5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo(2).png" beforeDir="false" afterPath="$PROJECT_DIR$/images/logo(2).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/organizations/5d19f76e4c442-1561982830-Nh53FFC523.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/organizations/5d19f76e4c442-1561982830-Nh53FFC523.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/organizations/5d19f7dd9002a-1561982941-DhfF5vAYyi.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/organizations/5d19f7dd9002a-1561982941-DhfF5vAYyi.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/organizations/5d19f82dc1982-1561983021-60sCdjZI3u.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/organizations/5d19f82dc1982-1561983021-60sCdjZI3u.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/organizations/5d2daa52c6d2f-1563273810-cxJzRMu3aY.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/organizations/5d2daa52c6d2f-1563273810-cxJzRMu3aY.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/organizations/5d2daa7e1b794-1563273854-r9K1IcFkJz.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/organizations/5d2daa7e1b794-1563273854-r9K1IcFkJz.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/site/_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/site/_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/site/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/site/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/site/map.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/site/map.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/socials/5d2b40f628464-1563115766-N8OgxOBMzE.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/socials/5d2b40f628464-1563115766-N8OgxOBMzE.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/socials/5d2c8f0db656f-1563201293-ZKV4XqhpL8.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/socials/5d2c8f0db656f-1563201293-ZKV4XqhpL8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/socials/5d2c8f2807e60-1563201320-PZLT0dmUi7.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/socials/5d2c8f2807e60-1563201320-PZLT0dmUi7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/socials/5d3eac39ab057-1564388409-1XtHYsLqC2.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/socials/5d3eac39ab057-1564388409-1XtHYsLqC2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/socials/5d3eac5d90591-1564388445-dcMaJ2F7X4.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/socials/5d3eac5d90591-1564388445-dcMaJ2F7X4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/socials/5d3eac88ec6ec-1564388488-oGoQby0FYk.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/socials/5d3eac88ec6ec-1564388488-oGoQby0FYk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530175321.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530175321.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530175808.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530175808.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530180805.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530180805.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530441199.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530441199.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530441353.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530441353.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530618905.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530618905.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530619145.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530619145.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530619321.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530619321.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530626359.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530626359.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530626416.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530626416.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530626451.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530626451.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530626463.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530626463.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530626794.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530626794.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530627598.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530627598.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530627694.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530627694.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530696517.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530696517.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1530796053.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1530796053.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1563442398_53285.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1563442398_53285.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1563442462_54218.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1563442462_54218.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1563442888_75157.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1563442888_75157.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1563444953_33614.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1563444953_33614.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1564049877_88122.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1564049877_88122.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/1564397983_39780.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/1564397983_39780.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/5c1ba2e039f89-1545315040-EDValfOI9G.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/5c1ba2e039f89-1545315040-EDValfOI9G.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/5d1c6f8259674-1562144642-WvAdDxew1f.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/5d1c6f8259674-1562144642-WvAdDxew1f.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/5d34e3bee6454-1563747262-TQd0M1C7aS.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/5d34e3bee6454-1563747262-TQd0M1C7aS.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/5d4007dfc7fbc-1564477407-M7Kl8V2Eck.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/5d4007dfc7fbc-1564477407-M7Kl8V2Eck.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/5d74e614bcc2e-1567942164-MLwdoJP18K.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/5d74e614bcc2e-1567942164-MLwdoJP18K.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/5d75022e9d330-1567949358-mdi0ncqMMM.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/5d75022e9d330-1567949358-mdi0ncqMMM.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/5d7505690f9e9-1567950185-XvpFNcOoIq.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/5d7505690f9e9-1567950185-XvpFNcOoIq.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/cars/5d75022e9ec92-1567949358-hshLnSPRRC.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/cars/5d75022e9ec92-1567949358-hshLnSPRRC.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/cars/5d7505697769c-1567950185-ZWbPewq0aQ.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/cars/5d7505697769c-1567950185-ZWbPewq0aQ.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/default.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/licenses/5d75022ea0a7f-1567949358-xVoAM06G8Q.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/licenses/5d75022ea0a7f-1567949358-xVoAM06G8Q.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/users/licenses/5d75056978b52-1567950185-qncfd900ZV.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/users/licenses/5d75056978b52-1567950185-qncfd900ZV.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/categories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +171,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
+            <state relative-caret-position="795">
               <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
             </state>
           </provider>
@@ -25,13 +180,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Helpers/help.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
+            <state relative-caret-position="2505">
               <caret line="175" column="1" selection-start-line="175" selection-start-column="1" selection-end-line="175" selection-end-column="1" />
-              <folding>
-                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -39,8 +189,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/AppController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1193">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="474">
+              <caret line="119" column="26" selection-start-line="119" selection-start-column="26" selection-end-line="119" selection-end-column="26" />
               <folding>
                 <element signature="e#44#72#0#PHP" expanded="true" />
               </folding>
@@ -48,38 +198,56 @@
           </provider>
         </entry>
       </file>
-      <file pinned="true" current-in-tab="false">
-        <entry file="remoteDeploymentFS://&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/eBST-backend/routes/web.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="249" selection-start-line="208" selection-start-column="8" selection-end-line="249" />
+            <state relative-caret-position="6180">
+              <caret line="412" selection-start-line="412" selection-end-line="412" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="299" selection-start-line="299" selection-end-line="299" />
+            <state relative-caret-position="461">
+              <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="true" current-in-tab="false">
-        <entry file="remoteDeploymentFS://&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/eBST-backend/routes/api.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="24" selection-start-line="24" selection-end-line="26" selection-end-column="81" />
+            <state relative-caret-position="375">
+              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoriesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
+        <entry file="file://$PROJECT_DIR$/app/Helpers/UploadFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+            <state relative-caret-position="480">
+              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/categories/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="153" column="59" selection-start-line="153" selection-start-column="59" selection-end-line="153" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -98,6 +266,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>comm</find>
+      <find>common_questions</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,9 +277,12 @@
       <list>
         <option value="&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/mufarahat-backend/config/database.php" />
         <option value="$PROJECT_DIR$/app/Helpers/help.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/AppController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/AppController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CategoriesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/categories/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Helpers/UploadFile.php" />
       </list>
     </option>
   </component>
@@ -285,14 +457,6 @@
               <item name="mufarahat-backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="mufarahat-backend" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mufarahat-backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mufarahat-backend" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -380,20 +544,21 @@
       <updated>1567936099266</updated>
       <workItem from="1567936100906" duration="751000" />
       <workItem from="1567937656536" duration="3840000" />
+      <workItem from="1568105451465" duration="1512000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4591000" />
+    <option name="totallyTimeSpent" value="6103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="File Transfer" weight="0.32909784" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -407,6 +572,7 @@
       <window_info anchor="bottom" id="RNConsole" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="bottom" id="File Transfer" order="13" weight="0.32909784" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -420,8 +586,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="795">
           <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Helpers/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2505">
+          <caret line="175" column="1" selection-start-line="175" selection-start-column="1" selection-end-line="175" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6180">
+          <caret line="412" selection-start-line="412" selection-end-line="412" />
         </state>
       </provider>
     </entry>
@@ -432,39 +612,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Helpers/help.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="175" column="1" selection-start-line="175" selection-start-column="1" selection-end-line="175" selection-end-column="1" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1193">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="474">
+          <caret line="119" column="26" selection-start-line="119" selection-start-column="26" selection-end-line="119" selection-end-column="26" />
           <folding>
             <element signature="e#44#72#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="299" selection-start-line="299" selection-end-line="299" />
+        <state relative-caret-position="461">
+          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+        <state relative-caret-position="375">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/categories/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="153" column="59" selection-start-line="153" selection-start-column="59" selection-end-line="153" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/CategoriesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Helpers/UploadFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
         </state>
       </provider>
     </entry>
