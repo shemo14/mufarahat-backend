@@ -11,9 +11,27 @@ use App\Models\Bookings;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
 
-class EventsController extends Controller
+class ProductsController extends Controller
 {
+	public function products(){
+		$products 		= Product::select('name_' . lang() . ' as name', 'description_' . lang() . ' as desc', 'id', 'price', 'category_id' )->get();
+		$all_products	= [];
+
+		foreach ($products as $product){
+			$all_products[] = [
+				'id' 		=> $product->id,
+				'name' 		=> $product->name,
+				'desc' 		=> $product->desc,
+				'image' 	=> url('products') . '/' .  $product->images()->first()->name,
+				'category' 	=> $product->category->name
+			];
+		}
+
+		return returnResponse($all_products, '', 200);
+	}
+
 	public function events_filter(Request $request){
 		$events = Events::query();
 
