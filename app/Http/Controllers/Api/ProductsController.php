@@ -23,7 +23,7 @@ class ProductsController extends Controller
 			$all_products[] = [
 				'id' 			=> $product->id,
 				'name' 			=> $product->name,
-				'image' 		=> url('products') . '/images/' .  $product->images()->first()->name,
+				'image' 		=> url('/images/products') . '/' .  $product->images()->first()->name,
 				'category' 		=> $product->category->name,
 				'price'     	=> $product->price,
 				'old_price'     => $product->price - ($product->price * $product->discount)/100,
