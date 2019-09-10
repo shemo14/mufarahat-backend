@@ -76,7 +76,7 @@ class ProductsController extends Controller
 		return returnResponse($all_events, '', 200);
 	}
 
-	public function category_events(Request $request){
+	public function category_products(Request $request){
 		$rules = [
 			'category_id'   => 'required',
 		];
@@ -87,40 +87,21 @@ class ProductsController extends Controller
 			return returnResponse([], validateRequest($validator), 400);
 		}
 
-		$category 	= Categories::select('name_' . lang() . ' as name', 'icon')->find($request['category_id']);
-		$events 	= Events::where('category_id', $request['category_id'])->select( 'id', 'title_' . lang() . ' as title', 'date', 'time', 'normal' )->get();
-		$min 		= Events::where('category_id', $request['category_id'])->min('normal');
-		$max 		= Events::where('category_id', $request['category_id'])->max('normal');
-		$step		= ( $max - $min ) / $min;
-		$all_events = [];
+		$products 		= Product::where('category_id', $request->category_id)->select('name_' . lang() . ' as name', 'description_' . lang() . ' as desc', 'id', 'price', 'category_id', 'discount' )->get();
+		$all_products	= [];
 
-
-		foreach ($events  as $event) {
-			$all_events[] = [
-				'id' 	=> $event->id,
-				'title' => $event->title,
-				'date' 	=> $event->date,
-				'time' 	=> $event->time,
-				'price' => $event->normal . ' ' . trans('apis.rs'),
-				'image' => url('images/events') . '/' .  $event->images()->first()->name,
+		foreach ($products as $product){
+			$all_products[] = [
+				'id' 			=> $product->id,
+				'name' 			=> $product->name,
+				'image' 		=> url('/images/products') . '/' .  $product->images()->first()->name,
+				'category' 		=> $product->category->name,
+				'price'     	=> $product->price,
+				'old_price'     => $product->price - ($product->price * $product->discount)/100,
 			];
 		}
 
-		$category_details = [
-			'id' 	=> $request['category_id'],
-			'name' 	=> $category->name,
-			'icon'  => url('images/categories') . '/' . $category->icon
-		];
-
-		$data = [
-			'category' => $category_details,
-			'events'   => $all_events,
-			'max'      => $max,
-			'min'      => $min,
-			'step'     => $step,
-		];
-
-		return returnResponse($data, '', 200);
+		return returnResponse($all_products, '', 200);
 	}
 
 	public function event_details(Request $request){
