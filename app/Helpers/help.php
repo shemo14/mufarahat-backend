@@ -8,7 +8,7 @@ use App\Models\Role;
 //use App\SmsEmailNotification;
 use App\Models\Permission;
 use App\Models\Report;
-use App\Models\Saves;
+use App\Models\Favorite;
 
 function Home()
 {
@@ -70,12 +70,12 @@ function isSaved($event_id, $user_id, $device_id){
 	$isSaved = false;
 
 	if ($user_id != null){
-		if (Saves::where(['event_id' => $event_id, 'user_id' => $user_id])->exists()){
+		if (Favorite::where(['product_id' => $event_id, 'user_id' => $user_id])->exists()){
 			$isSaved = true;
 		}else
 			$isSaved = false;
 	}else{
-		if (Saves::where(['event_id' => $event_id, 'device_id' => $device_id])->exists()){
+		if (Favorite::where(['product_id' => $event_id, 'device_id' => $device_id])->exists()){
 			$isSaved = true;
 		}else
 			$isSaved = false;

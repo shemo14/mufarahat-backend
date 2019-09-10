@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Categories;
 use App\Models\Organizations;
 use App\Models\Events;
 use App\Models\Bookings;
 use JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 
@@ -96,15 +94,15 @@ class ProductsController extends Controller
 				'name' 			=> $product->name,
 				'image' 		=> url('/images/products') . '/' .  $product->images()->first()->name,
 				'category' 		=> $product->category->name,
-				'price'     	=> $product->price,
-				'old_price'     => $product->price - ($product->price * $product->discount)/100,
+				'old_price'     => $product->price,
+				'price'     	=> $product->price - ($product->price * $product->discount)/100,
 			];
 		}
 
 		return returnResponse($all_products, '', 200);
 	}
 
-	public function event_details(Request $request){
+	public function product_details(Request $request){
 		$rules = [
 			'id'          => 'required',
 		];
@@ -118,15 +116,13 @@ class ProductsController extends Controller
 		if (!$request->header('Authorization') && !$request['device_id'])
 			return returnResponse(null, 'plz, enter auth token or device id to set fav', 400);
 
-		$event          = Events::select( 'id', 'title_' . lang() . ' as title', 'desc_' . lang() . ' as desc', 'date', 'time', 'normal', 'vip', 'gold', 'lat', 'lng', 'country_id' )->find($request['id']);
-		$images         = $event->images()->get();
-		$event_images   = [];
-
-//		dd($event->city->id);
+		$product          = Product::select( 'id', 'name_' . lang() . ' as name', 'description_' . lang() . ' as desc', 'category_id', 'price', 'discount' )->find($request['id']);
+		$images           = $product->images()->get();
+		$product_images   = [];
 
 		foreach ($images as $image) {
 			$event_images[] = [
-				'url' => url('images/events') . '/' . $image->name
+				'url' => url('images/products') . '/' . $image->name
 			];
 		}
 
@@ -138,24 +134,18 @@ class ProductsController extends Controller
 		}else
 			$device_id  = $request['device_id'];
 
-		$event_details = [
+		$product_details = [
 			'id' 		=> $request['id'],
-			'title' 	=> $event->title,
-			'desc'  	=> $event->desc,
-			'normal'  	=> $event->normal  	. ' ' . trans('apis.rs'),
-			'vip'  		=> $event->vip 		. ' ' . trans('apis.rs'),
-			'gold'  	=> $event->gold 	. ' ' . trans('apis.rs'),
-			'available' => $event->count 	<= 0 ? TRUE : FALSE,
-			'date'  	=> $event->date,
-			'time'  	=> $event->time,
-			'lat'  		=> $event->lat,
-			'lng'  		=> $event->lng,
-			'city'  	=> $event->city->name,
-			'isLiked'   => isSaved($event->id, $user_id, $device_id),
-			'images' 	=> $event_images
+			'name' 		=> $product->name,
+			'desc'  	=> $product->desc,
+			'price'     => $product->price - ($product->price * $product->discount)/100,
+			'old_price' => $product->price,
+			'isLiked'   => isSaved($product->id, $user_id, $device_id),
+			'rate'      => 3,
+			'images' 	=> $product_images
 		];
 
-		return returnResponse($event_details, '', 200);
+		return returnResponse($product_details, '', 200);
 	}
 
 	public function search(Request $request){
