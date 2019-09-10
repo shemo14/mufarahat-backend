@@ -16,16 +16,17 @@ use App\Models\Product;
 class ProductsController extends Controller
 {
 	public function products(){
-		$products 		= Product::select('name_' . lang() . ' as name', 'description_' . lang() . ' as desc', 'id', 'price', 'category_id' )->get();
+		$products 		= Product::select('name_' . lang() . ' as name', 'description_' . lang() . ' as desc', 'id', 'price', 'category_id', 'discount' )->get();
 		$all_products	= [];
 
 		foreach ($products as $product){
 			$all_products[] = [
-				'id' 		=> $product->id,
-				'name' 		=> $product->name,
-				'desc' 		=> $product->desc,
-				'image' 	=> url('products') . '/' .  $product->images()->first()->name,
-				'category' 	=> $product->category->name
+				'id' 			=> $product->id,
+				'name' 			=> $product->name,
+				'image' 		=> url('products') . '/images/' .  $product->images()->first()->name,
+				'category' 		=> $product->category->name,
+				'price'     	=> $product->price,
+				'old_price'     => $product->price - ($product->price * $product->discount)/100,
 			];
 		}
 
