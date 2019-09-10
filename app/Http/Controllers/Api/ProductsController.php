@@ -23,8 +23,8 @@ class ProductsController extends Controller
 				'name' 			=> $product->name,
 				'image' 		=> url('/images/products') . '/' .  $product->images()->first()->name,
 				'category' 		=> $product->category->name,
-				'price'     	=> $product->price,
-				'old_price'     => $product->price - ($product->price * $product->discount)/100,
+				'old_price'     => $product->price,
+				'price'     	=> $product->price - ($product->price * $product->discount)/100,
 			];
 		}
 
@@ -121,7 +121,7 @@ class ProductsController extends Controller
 		$product_images   = [];
 
 		foreach ($images as $image) {
-			$event_images[] = [
+			$product_images[] = [
 				'url' => url('images/products') . '/' . $image->name
 			];
 		}
