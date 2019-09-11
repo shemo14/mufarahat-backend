@@ -106,7 +106,7 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'CitiesController@index',
                 'as' => 'cities',
                 'title' => 'المدن',
-                'icon' => '<i class="far fa-building"></i>',
+                'icon' => '<i class="fa fa-city"></i>',
                 'child' => [
                     'addcity',
                     'editcity',
@@ -366,6 +366,57 @@ use Illuminate\Support\Facades\Route;
                 'title' => 'حذف اكتر من قسم'
             ]);
         // ============= #Categories ==============
+
+        // ============= Products ==============
+            Route::get('/products', [
+                'uses' => 'ProductsController@index',
+                'as' => 'products',
+                'title' => 'المنتجات ',
+                'icon' => '<i class="fa fa-product-hunt"></i>',
+                'child' => [
+                    'addProduct',
+                    'updateProduct',
+                    'deleteProduct',
+                    'deleteProducts',
+                    'deleteImg',
+                ]
+            ]);
+
+            // Add product
+            Route::post('/add-product', [
+                'uses' => 'ProductsController@store',
+                'as' => 'addProduct',
+                'title' => 'اضافة منتج'
+            ]);
+
+            // Update product
+            Route::post('/update-product', [
+                'uses' => 'ProductsController@update',
+                'as' => 'updateProduct',
+                'title' => 'تعديل منتج'
+            ]);
+
+            // Delete product
+            Route::get('/delete-image/{id}', [
+                'uses' => 'ProductsController@deleteImg',
+                'as' => 'deleteImg',
+                'title' => 'حذف صور المنتجات'
+            ]);
+
+            // Delete product
+            Route::post('/delete-product', [
+                'uses' => 'ProductsController@delete',
+                'as' => 'deleteProduct',
+                'title' => 'حذف منتج'
+            ]);
+
+            // // Delete products
+            // Route::post('/delete-products', [
+            //     'uses' => 'CategoriesController@deleteAllCategories',
+            //     'as' => 'deleteProducts',
+            //     'title' => 'حذف اكتر من منتج'
+            // ]);
+        // ============= #Products ==============
 
         // ============= Comman QUS ==============
 			// ======= Comman QUS
