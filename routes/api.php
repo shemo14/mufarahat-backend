@@ -38,10 +38,11 @@ Route::group(['middleware' => 'localization'], function (){
 	// categories
 	Route::post('categories'         		, 'Api\CategoriesController@categories');
 
-	// events
-	Route::post('category_events'         	, 'Api\EventsController@category_events');
+	// products
+	Route::post('products'         			, 'Api\ProductsController@products');
+	Route::post('category_products'			, 'Api\ProductsController@category_products');
 	Route::post('events_filter'             , 'Api\EventsController@events_filter');
-	Route::post('event_details'             , 'Api\EventsController@event_details');
+	Route::post('product_details'           , 'Api\ProductsController@product_details');
 	Route::post('suggested_events'          , 'Api\EventsController@suggested_events');
 	Route::post('common_events'             , 'Api\EventsController@common_events');
 	Route::post('search'	                , 'Api\EventsController@search');
