@@ -54,7 +54,6 @@ class ProductsController extends Controller
 		}
 
 		return returnResponse($all_products, '', 200);
-
 	}
 
 	public function events_filter(Request $request){
