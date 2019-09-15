@@ -13,4 +13,5 @@ class BoxItem extends Model
         return $this->belongsTo('App\Models\Box', 'box_id', 'id');
     }
 
+
 }

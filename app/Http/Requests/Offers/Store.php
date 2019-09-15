@@ -25,7 +25,11 @@ class Store extends FormRequest
     {
         return [
             'product_id'          => 'required|numeric',
+<<<<<<< HEAD
             'discount'            => 'required|numeric',
+=======
+//            'discount'            => 'required|numeric|max:3',
+>>>>>>> a95a103d3afedd9d13935de4e071bd2a02133081
             'time'                => 'required|numeric',
         ];
     }
