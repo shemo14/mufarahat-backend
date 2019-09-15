@@ -15,7 +15,7 @@ class AuthController extends Controller
 		$rules = [
 			'phone'         => 'required|exists:users,phone',
 			'password'      => 'required|string',
-//			'device_id'     => 'required',
+			'device_id'     => 'required',
 		];
 
 		$validator = validator($request->all(), $rules);
@@ -67,11 +67,13 @@ class AuthController extends Controller
 		$rules = [
 			'name'          => 'required',
 			'password'      => 'required|min:6',
-			 'device_id'     => 'required',
-		//	'country_id'    => 'required',
+			'device_id'     => 'required',
+			'lat'	     	=> 'required',
+			'lng'		    => 'required',
 			'email'         => 'required|email|unique:users,email',
 			'phone'         => 'required|min:9|unique:users,phone',
 		];
+
 		App::setLocale($request['lang']);
 		$validator = validator($request->all(), $rules);
 
@@ -86,6 +88,8 @@ class AuthController extends Controller
 		$user->device_id  = $request['device_id'];
 		$user->lang       = $request['lang'];
 		$user->email      = $request['email'];
+		$user->lat        = $request['lat'];
+		$user->long       = $request['lng'];
 		$user->active     = 0;
 		$user->password   = bcrypt($request['password']);
 
