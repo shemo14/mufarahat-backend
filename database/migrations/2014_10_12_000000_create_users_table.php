@@ -29,9 +29,10 @@ class CreateUsersTable extends Migration
             $table->integer('isNotify')->default(1);
             $table->enum('type', ['user', 'delegate'])->default('user');
             $table->decimal('lat', 16,14)->nullable();
-            $table->decimal('lang', 16,14)->nullable();
+            $table->decimal('long', 16,14)->nullable();
+            $table->string('lang')->default('ar');
 
-            $table->unsignedInteger('city_id');
+            $table->unsignedInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
 
             $table->rememberToken();
