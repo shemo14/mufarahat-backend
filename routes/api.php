@@ -47,7 +47,7 @@ Route::group(['middleware' => 'localization'], function (){
 	Route::post('product_details'           , 'Api\ProductsController@product_details');
 	Route::post('suggested_events'          , 'Api\EventsController@suggested_events');
 	Route::post('common_events'             , 'Api\EventsController@common_events');
-	Route::post('search'	                , 'Api\EventsController@search');
+	Route::post('search'	                , 'Api\ProductsController@search');
 	Route::post('organizations_events'	    , 'Api\EventsController@organizations_events');
 
 	// saves

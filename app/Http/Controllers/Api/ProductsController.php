@@ -173,28 +173,27 @@ class ProductsController extends Controller
 	}
 
 	public function search(Request $request){
-		$events 	= Events::where('title_ar', 'LIKE', '%' . $request['search'] . '%')->orWhere('title_en', 'LIKE', '%' . $request['search'] . '%')
-							->select( 'id', 'title_' . lang() . ' as title', 'date', 'time', 'normal' )->get();
+		$products 	= Product::where('name_ar', 'LIKE', '%' . $request['search'] . '%')->orWhere('name_en', 'LIKE', '%' . $request['search'] . '%')
+							 ->select('name_' . lang() . ' as name', 'description_' . lang() . ' as desc', 'id', 'price', 'category_id', 'discount' )->get();
 
-		$all_events = [];
-		foreach ($events as $event) {
-			$all_events[] = [
-				'id' 	=> $event->id,
-				'title' => $event->title,
-				'date' 	=> $event->date,
-				'time' 	=> $event->time,
-				'price' => $event->normal . ' ' . trans('apis.rs'),
-				'image' => url('images/events') . '/' .  $event->images()->first()->name,
+		$all_products = [];
+		foreach ($products as $product){
+			$all_products[] = [
+				'id' 			=> $product->id,
+				'name' 			=> $product->name,
+				'image' 		=> url('/images/products') . '/' .  $product->images()->first()->name,
+				'category' 		=> $product->category->name,
+				'old_price'     => $product->price . ' ' . trans('apis.rs'),
+				'price'     	=> $product->price - ($product->price * $product->discount)/100 . ' ' . trans('apis.rs'),
 			];
 		}
 
-		return returnResponse($all_events, '', 200);
+		return returnResponse($all_products, '', 200);
 	}
 
 	public function suggested_events(){
 		$events 	= Events::select( 'id', 'title_' . lang() . ' as title', 'date', 'time', 'normal' )->orderBy('date', 'desc')->take(10)->get();
 		$all_events = [];
-
 
 		foreach ($events  as $event) {
 			$all_events[] = [
