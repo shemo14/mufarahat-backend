@@ -29,4 +29,9 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\Favorite', 'product_id', 'id');
     }
+
+    public function offer()
+    {
+        return $this->hasOne('App\Models\Offer', 'product_id', 'id');
+    }
 }

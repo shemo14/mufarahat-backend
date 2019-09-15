@@ -417,6 +417,116 @@ use Illuminate\Support\Facades\Route;
             //     'title' => 'حذف اكتر من منتج'
             // ]);
         // ============= #Products ==============
+        
+        // ============= offers ==============
+            Route::get('/offers', [
+                'uses' => 'OffersController@index',
+                'as' => 'offers',
+                'title' => 'العروض ',
+                'icon' => '<i class="fa fa-percent"></i>',
+                'child' => [
+                    'addOffer',
+                    'updateOffer',
+                    'deleteOffer',
+                ]
+            ]);
+
+            // Add product
+            Route::post('/add-offer', [
+                'uses' => 'OffersController@store',
+                'as' => 'addOffer',
+                'title' => 'اضافة عرض'
+            ]);
+
+            // Update product
+            Route::post('/update-offer', [
+                'uses' => 'OffersController@update',
+                'as' => 'updateOffer',
+                'title' => 'تعديل عرض'
+            ]);
+
+            // Delete product
+            Route::post('/delete-offer', [
+                'uses' => 'OffersController@delete',
+                'as' => 'deleteOffer',
+                'title' => 'حذف عرض'
+            ]);
+        // ============= #offers ==============
+
+        // ============= Boxs ==============
+            Route::get('/boxs', [
+                'uses' => 'BoxsController@index',
+                'as' => 'boxs',
+                'title' => 'البوكسات ',
+                'icon' => '<i class="fa fa-boxes"></i>',
+                'child' => [
+                    'addBox',
+                    'updateBox',
+                    'deleteBox',
+                    'EditBoxProducts',
+                ]
+            ]);
+
+            // Add product
+            Route::post('/add-box', [
+                'uses' => 'BoxsController@store',
+                'as' => 'addBox',
+                'title' => 'اضافة بوكس'
+            ]);
+
+            // Update product
+            Route::post('/update-box', [
+                'uses' => 'BoxsController@update',
+                'as' => 'updateBox',
+                'title' => 'تعديل بوكس'
+            ]);
+
+            // Update product
+            Route::post('/update-box-items', [
+                'uses' => 'BoxsController@updateBoxProducts',
+                'as' => 'EditBoxProducts',
+                'title' => 'تعديل منتجات البوكس'
+            ]);
+
+            // Delete product
+            Route::post('/delete-box', [
+                'uses' => 'BoxsController@delete',
+                'as' => 'deleteBox',
+                'title' => 'حذف بوكس'
+            ]);
+        // ============= #Boxs ==============
+
+        // ============= Packaging ==============
+            Route::get('/packaging', [
+                'uses' => 'PackagingController@index',
+                'as' => 'packaging',
+                'title' => 'اسعار التغليف',
+                'icon' => '<i class="fa fa-conveyor-belt"></i>',
+                'child' => [
+                    'addPackaging',
+                    'updatePackaging',
+                    'deletePackaging',
+                ]
+            ]);
+            // Add product
+            Route::post('/add-Packaging', [
+                'uses' => 'PackagingController@store',
+                'as' => 'addPackaging',
+                'title' => 'اضافة تغليف'
+            ]);
+            // Update product
+            Route::post('/update-Packaging', [
+                'uses' => 'PackagingController@update',
+                'as' => 'updatePackaging',
+                'title' => 'تعديل تغليف'
+            ]);
+            // Delete product
+            Route::post('/delete-Packaging', [
+                'uses' => 'PackagingController@delete',
+                'as' => 'deletePackaging',
+                'title' => 'حذف تغليف'
+            ]);
+        // ============= #Packaging ==============
 
         // ============= Comman QUS ==============
 			// ======= Comman QUS
