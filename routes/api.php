@@ -35,6 +35,10 @@ Route::group(['middleware' => 'localization'], function (){
 	// categories
 	Route::post('categories'         		, 'Api\CategoriesController@categories');
 
+	// boxes
+	Route::post('boxes'	  	         		, 'Api\BoxesController@boxes');
+	Route::post('box_items'	        		, 'Api\BoxesController@box_items');
+
 	// products
 	Route::post('products'         			, 'Api\ProductsController@products');
 	Route::post('offers'         			, 'Api\ProductsController@offers');

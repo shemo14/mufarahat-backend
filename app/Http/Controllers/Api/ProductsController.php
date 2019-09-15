@@ -46,9 +46,9 @@ class ProductsController extends Controller
 					'name' 			=> $product->name,
 					'image' 		=> url('/images/products') . '/' .  $product->images()->first()->name,
 					'category' 		=> $product->category->name,
-					'old_price'     => $product->price,
+					'old_price'     => $product->price  . ' ' . trans('apis.rs'),
 					'seconds'       => $max_date->diffInSeconds($product->offer->created_at),
-					'price'     	=> $product->price - ($product->price * $product->discount)/100,
+					'price'     	=> $product->price - ($product->price * $product->offer->discount)/100 . ' ' . trans('apis.rs'),
 				];
 			}
 		}
