@@ -25,7 +25,7 @@ class Store extends FormRequest
     {
         return [
             'product_id'          => 'required|numeric',
-            'discount'            => 'required|numeric|max:2',
+            'discount'            => 'required|numeric|max:3',
             'time'                => 'required|numeric',
         ];
     }

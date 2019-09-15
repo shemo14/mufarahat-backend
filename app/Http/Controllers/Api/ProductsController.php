@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Organizations;
 use App\Models\Events;
+use App\Models\Offer;
 use App\Models\Bookings;
 use JWTAuth;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use Carbon\Carbon;
 
 class ProductsController extends Controller
 {
@@ -29,6 +31,30 @@ class ProductsController extends Controller
 		}
 
 		return returnResponse($all_products, '', 200);
+	}
+
+	public function offers(){
+		$products_ids 	= Offer::where('active', 1)->get(['product_id']);
+		$products 		= Product::whereIn('id', $products_ids)->select('name_' . lang() . ' as name', 'description_' . lang() . ' as desc', 'id', 'price', 'category_id', 'discount' )->get();
+		$all_products	= [];
+
+		foreach ($products as $product){
+			$max_date   		= Carbon::now()->subHours($product->offer->time);
+			if ($product->offer->created_at >= $max_date){
+				$all_products[] = [
+					'id' 			=> $product->id,
+					'name' 			=> $product->name,
+					'image' 		=> url('/images/products') . '/' .  $product->images()->first()->name,
+					'category' 		=> $product->category->name,
+					'old_price'     => $product->price,
+					'seconds'       => $max_date->diffInSeconds($product->offer->created_at),
+					'price'     	=> $product->price - ($product->price * $product->discount)/100,
+				];
+			}
+		}
+
+		return returnResponse($all_products, '', 200);
+
 	}
 
 	public function events_filter(Request $request){

@@ -32,14 +32,12 @@ Route::group(['middleware' => 'localization'], function (){
 	// send report
 	Route::post('send_report'    	 		, 'Api\AppController@send_report');
 
-	// ads
-	Route::get('ads'                 		, 'Api\AdsController@ads');
-
 	// categories
 	Route::post('categories'         		, 'Api\CategoriesController@categories');
 
 	// products
 	Route::post('products'         			, 'Api\ProductsController@products');
+	Route::post('offers'         			, 'Api\ProductsController@offers');
 	Route::post('category_products'			, 'Api\ProductsController@category_products');
 	Route::post('events_filter'             , 'Api\EventsController@events_filter');
 	Route::post('product_details'           , 'Api\ProductsController@product_details');

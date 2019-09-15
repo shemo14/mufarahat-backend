@@ -32,6 +32,6 @@ class Product extends Model
 
     public function offer()
     {
-        return $this->hasOne('App\Models\Offer', 'product_id', 'id');
+        return $this->hasOne('App\Models\Offer', 'product_id', 'id')->where('active', 1);
     }
 }
