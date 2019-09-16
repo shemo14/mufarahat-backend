@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Organizations;
 use App\Models\Events;
 use App\Models\Offer;
+use App\Models\Review;
 use App\Models\Bookings;
 use JWTAuth;
 use Illuminate\Support\Facades\Auth;
@@ -163,7 +164,8 @@ class ProductsController extends Controller
 			'desc'  	=> $product->desc,
 			'price'     => $product->price - ($product->price * $product->discount)/100,
 			'old_price' => $product->price,
-			'isLiked'   => isSaved($product->id, $user_id, $device_id),
+			'category' 	=> $product->category->name,
+			'isLiked'   => isLiked($product->id, $user_id, $device_id),
 			'rate'      => 3,
 			'images' 	=> $product_images
 		];
@@ -188,6 +190,42 @@ class ProductsController extends Controller
 		}
 
 		return returnResponse($all_products, '', 200);
+	}
+
+	public function rate(Request $request){
+		$rules = [
+			'product_id'    => 'required',
+			'rate'          => 'required',
+		];
+
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		if ($is_rated = Review::where(['user_id' => Auth::user()->id, 'product_id' => $request['product_id']])->first()){
+			$is_rated->rate = $request['rate'];
+			$is_rated->update();
+
+			$msg      = lang() == 'ar' ? 'تم التقيم بنجاح' : 'rated successfully';
+			$avg_rate = Review::where('product_id', $request['product_id'])->avg('rate');
+			return returnResponse(['rate' => $avg_rate], $msg, 200);
+		}else{
+			$rate               = new Review();
+			$rate->user_id      = Auth::user()->id;
+			$rate->rate         = $request['rate'];
+			$rate->product_id   = $request['product_id'];
+			if ($rate->save()){
+				$avg_rate = $rate->avg('rate');
+				$msg      = lang() == 'ar' ? 'تم التقيم بنجاح' : 'rated successfully';
+				return returnResponse(['rate' => $avg_rate], $msg, 200);
+			}else{
+				$msg      = lang() == 'ar' ? 'لم يتم التقيم بعد ,الرجاء المحاولة مرة اخري' : 'something went wrong, plz try again';
+				return returnResponse(null, $msg, 400);
+			}
+		}
+
 	}
 
 	public function suggested_events(){

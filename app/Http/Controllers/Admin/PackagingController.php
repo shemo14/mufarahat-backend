@@ -41,8 +41,8 @@ class PackagingController extends Controller
     public function delete(Request $request)
     {
         Packaging::findOrFail($request->delete_id)->delete();
-        addReport(auth()->user()->id, 'بحذف بوكس', $request->ip());
-        Session::flash('success', 'تم حذف البوكس بنجاح');
+        addReport(auth()->user()->id, 'بحذف نوع تغليف', $request->ip());
+        Session::flash('success', 'تم حذف النوع بنجاح');
         return back();
     }
 }
