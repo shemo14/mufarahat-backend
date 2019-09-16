@@ -8,7 +8,7 @@
     'timezone' => 'UTC',
     'locale' => 'ar',
     'fallback_locale' => 'en',
-    'key' => 'base64:lT2L6fnBu3jfBKLZZqubxPjFLXaxzfpLlaApEVLXpBc=',
+    'key' => 'base64:fWkR+/DDzZCEZd8TjFL9nOXvWTMesEPy0X0/xg19F6I=',
     'cipher' => 'AES-256-CBC',
     'log' => 'single',
     'log_level' => 'debug',
@@ -180,7 +180,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/Applications/XAMPP/xamppfiles/htdocs/mufarahat-backend/storage/framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\mofrhat\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -409,12 +409,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/Applications/XAMPP/xamppfiles/htdocs/mufarahat-backend/storage/app',
+        'root' => 'C:\\xampp\\htdocs\\mofrhat\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/Applications/XAMPP/xamppfiles/htdocs/mufarahat-backend/storage/app/public',
+        'root' => 'C:\\xampp\\htdocs\\mofrhat\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -430,7 +430,7 @@
   ),
   'jwt' => 
   array (
-    'secret' => 'qFvxSITmcmSmOVEv1H40kLVsWRgNh5cuRdVOP9DOODpVVUlAo0TAckI8EjfMRfUR',
+    'secret' => 'EJApzrKESpqVGRJZoplEpIMQebCeJWuc4TGE3w2C3K0NunQUhnC9hgGnXwDviShX',
     'keys' => 
     array (
       'public' => NULL,
@@ -486,7 +486,7 @@
       ),
       'local' => 
       array (
-        'path' => '/Applications/XAMPP/xamppfiles/htdocs/mufarahat-backend/database/maxmind/GeoLite2-City.mmdb',
+        'path' => 'C:\\xampp\\htdocs\\mofrhat\\database\\maxmind/GeoLite2-City.mmdb',
       ),
     ),
     'testing' => 
@@ -514,7 +514,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/Applications/XAMPP/xamppfiles/htdocs/mufarahat-backend/resources/views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\mofrhat\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -600,7 +600,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/Applications/XAMPP/xamppfiles/htdocs/mufarahat-backend/storage/framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\mofrhat\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -620,9 +620,9 @@
   array (
     'paths' => 
     array (
-      0 => '/Applications/XAMPP/xamppfiles/htdocs/mufarahat-backend/resources/views',
+      0 => 'C:\\xampp\\htdocs\\mofrhat\\resources\\views',
     ),
-    'compiled' => '/Applications/XAMPP/xamppfiles/htdocs/mufarahat-backend/storage/framework/views',
+    'compiled' => 'C:\\xampp\\htdocs\\mofrhat\\storage\\framework\\views',
   ),
   'excel' => 
   array (
@@ -686,7 +686,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => '/var/folders/zd/gvtnf8dx1psc51nngjtvtqgm0000gn/T',
+      'local_path' => 'C:\\Users\\AHMEDA~1\\AppData\\Local\\Temp',
       'remote_disk' => NULL,
     ),
   ),

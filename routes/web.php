@@ -106,7 +106,7 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'CitiesController@index',
                 'as' => 'cities',
                 'title' => 'المدن',
-                'icon' => '<i class="fa fa-city"></i>',
+                'icon' => '<i class="fa fa-building-o"></i>',
                 'child' => [
                     'addcity',
                     'editcity',
@@ -527,6 +527,38 @@ use Illuminate\Support\Facades\Route;
                 'title' => 'حذف تغليف'
             ]);
         // ============= #Packaging ==============
+
+        // ============= Coupons ==============
+            Route::get('/coupons', [
+                'uses' => 'CouponsController@index',
+                'as' => 'coupons',
+                'title' => 'الكوبنات',
+                'icon' => '<i class="fa fa-conveyor-belt"></i>',
+                'child' => [
+                    'addCoupons',
+                    'updateCoupons',
+                    'deleteCoupons',
+                ]
+            ]);
+            // Add coupons
+            Route::post('/add-coupons', [
+                'uses' => 'CouponsController@store',
+                'as' => 'addCoupons',
+                'title' => 'اضافة كوبون'
+            ]);
+            // Update coupons
+            Route::post('/update-coupons', [
+                'uses' => 'CouponsController@update',
+                'as' => 'updateCoupons',
+                'title' => 'تعديل كوبون'
+            ]);
+            // Delete coupons
+            Route::post('/delete-coupons', [
+                'uses' => 'CouponsController@delete',
+                'as' => 'deleteCoupons',
+                'title' => 'حذف كوبون'
+            ]);
+        // ============= #Coupons ==============
 
         // ============= Comman QUS ==============
 			// ======= Comman QUS
