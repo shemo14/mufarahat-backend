@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9cc42629-ff91-46e8-a802-4f01731dc36a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/help.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/help.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
-    </list>
+    <list default="true" id="9cc42629-ff91-46e8-a802-4f01731dc36a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ProductsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="214" column="44" selection-start-line="214" selection-start-column="44" selection-end-line="214" selection-end-column="44" />
+            <state relative-caret-position="565">
+              <caret line="168" column="28" selection-start-line="168" selection-start-column="27" selection-end-line="168" selection-end-column="28" />
               <folding>
                 <element signature="e#44#72#0#PHP" expanded="true" />
               </folding>
@@ -67,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FavController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="67" column="29" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="29" />
+            <state relative-caret-position="315">
+              <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
               <folding>
                 <element signature="e#44#72#0#PHP" expanded="true" />
               </folding>
@@ -79,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="46" column="74" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="74" />
+            <state relative-caret-position="562">
+              <caret line="54" column="24" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -93,12 +87,13 @@
       <find>common_questions</find>
       <find>Save</find>
       <find>event_id</find>
-      <find>sql</find>
       <find>rate</find>
       <find>user</find>
       <find>search</find>
       <find>isSa</find>
+      <find>sql</find>
       <find>rate(</find>
+      <find>set_fav</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,13 +119,13 @@
         <option value="$PROJECT_DIR$/resources/lang/en/apis.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/FavController.php" />
         <option value="&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/mufarahat-backend/app/Providers/AppServiceProvider.php" />
-        <option value="&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/mufarahat-backend/bootstrap/cache/config.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_10_111828_create_rates_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Rates.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/products/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Helpers/help.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ProductsController.php" />
+        <option value="&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/mufarahat-backend/bootstrap/cache/config.php" />
       </list>
     </option>
   </component>
@@ -259,8 +254,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -370,18 +366,17 @@
       <workItem from="1568105451465" duration="6270000" />
       <workItem from="1568465350610" duration="89000" />
       <workItem from="1568531892575" duration="11176000" />
-      <workItem from="1568619964628" duration="1431000" />
+      <workItem from="1568619964628" duration="2852000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23557000" />
+    <option name="totallyTimeSpent" value="24978000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22818312" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22818312" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -402,7 +397,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Remote Host" order="3" weight="0.20529328" />
+      <window_info active="true" anchor="right" id="Remote Host" order="3" visible="true" weight="0.20529328" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -573,16 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FavController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="915">
-          <caret line="67" column="29" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="29" />
-          <folding>
-            <element signature="e#44#72#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Review.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -621,15 +606,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="46" column="74" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="74" />
+        <state relative-caret-position="562">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/FavController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
+          <folding>
+            <element signature="e#44#72#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/ProductsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="214" column="44" selection-start-line="214" selection-start-column="44" selection-end-line="214" selection-end-column="44" />
+        <state relative-caret-position="565">
+          <caret line="168" column="28" selection-start-line="168" selection-start-column="27" selection-end-line="168" selection-end-column="28" />
           <folding>
             <element signature="e#44#72#0#PHP" expanded="true" />
           </folding>

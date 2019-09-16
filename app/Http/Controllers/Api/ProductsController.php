@@ -166,7 +166,7 @@ class ProductsController extends Controller
 			'old_price' => $product->price,
 			'category' 	=> $product->category->name,
 			'isLiked'   => isLiked($product->id, $user_id, $device_id),
-			'rate'      => 3,
+			'rate'      => $product->reviews()->get()->avg('rate'),
 			'images' 	=> $product_images
 		];
 
