@@ -65,23 +65,21 @@ function reports () {
     return $reports;
 }
 
-#save
-function isSaved($event_id, $user_id, $device_id){
-	$isSaved = false;
-
+#Likes
+function isLiked($product_id, $user_id, $device_id){
 	if ($user_id != null){
-		if (Favorite::where(['product_id' => $event_id, 'user_id' => $user_id])->exists()){
-			$isSaved = true;
+		if (Favorite::where(['product_id' => $product_id, 'user_id' => $user_id])->exists()){
+			$isLiked = true;
 		}else
-			$isSaved = false;
+			$isLiked = false;
 	}else{
-		if (Favorite::where(['product_id' => $event_id, 'device_id' => $device_id])->exists()){
-			$isSaved = true;
+		if (Favorite::where(['product_id' => $product_id, 'device_id' => $device_id])->exists()){
+			$isLiked = true;
 		}else
-			$isSaved = false;
+			$isLiked = false;
 	}
 
-	return $isSaved;
+	return $isLiked;
 }
 
 function save_img_base64($base64_img, $path)
