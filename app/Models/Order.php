@@ -32,4 +32,17 @@ class Order extends Model
     {
         return $this->hasMany('App\Models\OrderItem', 'order_id', 'id');
     }
+
+    public function Answers()
+    {
+        return $this->hasMany('App\Models\QuestionUser', 'order_id', 'id');
+    }
+
+    public function Percentage()
+    {
+        return $this->belongsTo('App\Models\PercentageUser', 'user_id', 'id');
+    }
+
+    
+
 }

@@ -70,4 +70,15 @@ class User extends Authenticatable implements JWTSubject
     }
 
 
+    public function Answers()
+    {
+        return $this->hasMany('App\Models\QuestionUser', 'user_id', 'id');
+    }
+
+    public function Percentages()
+    {
+        return $this->hasMany('App\Models\PercentageUser', 'user_id', 'id');
+    }
+
+
 }
