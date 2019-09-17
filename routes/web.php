@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
     Auth::loginUsingId(1);
 
     Route::get('/login', 'Admin\AuthController@loginForm')->name('loginForm');
@@ -560,6 +559,49 @@ use Illuminate\Support\Facades\Route;
             ]);
         // ============= #Coupons ==============
 
+        // ============= questions ==============
+            Route::get('questions', [
+                'uses' => 'QuestionsController@index',
+                'as' => 'questions',
+                'title' => 'اسئله الاستبيان ',
+                'icon' => '<i class="fa fa-building-o"></i>',
+                'child' => [
+                    'addquestion',
+                    'editquestion',
+                    'deletequestion2',
+                    'deletequestions',
+                ]
+            ]);
+
+                // Add User
+                Route::post('/add-question', [
+                'uses' => 'QuestionsController@store',
+                'as' => 'addquestion',
+                'title' => 'اضافة سؤال'
+            ]);
+
+            // Update User
+            Route::post('/update-question', [
+                'uses' => 'QuestionsController@update',
+                'as' => 'editquestion',
+                'title' => 'تعديل سؤال'
+            ]);
+
+            // Delete User
+            Route::post('/delete-question', [
+                'uses' => 'QuestionsController@delete',
+                'as' => 'deletequestion2',
+                'title' => 'حذف سؤال'
+            ]);
+
+            // Delete Qus
+			Route::post('/delete-questions', [
+				'uses' => 'QuestionsController@deleteAll',
+				'as' => 'deletequestions',
+				'title' => 'حذف اكتر من سؤال'
+			]);
+        // ============= #questions ==============
+
         // ============= Comman QUS ==============
 			// ======= Comman QUS
 			Route::get('/common-qus', [
@@ -693,4 +735,6 @@ use Illuminate\Support\Facades\Route;
         Route::any('/logout', 'AuthController@logout')->name('logout');
     });
 // #Dashboard
+
+
 

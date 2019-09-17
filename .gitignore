@@ -6,6 +6,8 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
+bootstarp/
+storage/
 web-build/
 web-report/
 vendor/
