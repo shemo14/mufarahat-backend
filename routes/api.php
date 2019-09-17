@@ -55,6 +55,11 @@ Route::group(['middleware' => 'localization'], function (){
 	Route::post('set_fav'     	        	, 'Api\FavController@set_fav');
 	Route::post('favorites'    	        	, 'Api\FavController@favorites');
 
+	// Cart
+	Route::post('cart'     	        		, 'Api\CartController@cart');
+	Route::post('set_cart'    	        	, 'Api\CartController@set_cart');
+	Route::post('delete_cart'  		      	, 'Api\CartController@delete_cart');
+
 	// countries
 	Route::post('cities'		         	, 'Api\CategoriesController@cities');
 

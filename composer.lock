@@ -379,28 +379,30 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e17f069ede36f7534b95adec71910ed1b49c74ea",
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "doctrine/coding-standard": "^6.0",
+                "phpstan/phpstan": "^0.11.8",
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -414,12 +416,12 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Johannes Schmitt",
@@ -435,7 +437,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08T11:03:04+00:00"
+            "time": "2019-07-30T19:33:28+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -5072,6 +5074,18 @@
         },
         {
             "name": "yajra/laravel-datatables-html",
+<<<<<<< HEAD
+            "version": "v4.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yajra/laravel-datatables-html.git",
+                "reference": "57351be6bbb2ca537c22353217cd068aeeb327e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/57351be6bbb2ca537c22353217cd068aeeb327e3",
+                "reference": "57351be6bbb2ca537c22353217cd068aeeb327e3",
+=======
             "version": "v4.14.1",
             "source": {
                 "type": "git",
@@ -5082,6 +5096,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/2ea838ae85e22f802e3f16fdc9d7f69ad1f4423c",
                 "reference": "2ea838ae85e22f802e3f16fdc9d7f69ad1f4423c",
+>>>>>>> c9bd4e4021f3ef7f714a7ab3ffd567f96b14f0ce
                 "shasum": ""
             },
             "require": {
@@ -5128,7 +5143,11 @@
                 "jquery",
                 "laravel"
             ],
+<<<<<<< HEAD
+            "time": "2019-09-14T03:38:01+00:00"
+=======
             "time": "2019-09-16T11:07:24+00:00"
+>>>>>>> c9bd4e4021f3ef7f714a7ab3ffd567f96b14f0ce
         },
         {
             "name": "yajra/laravel-datatables-oracle",
