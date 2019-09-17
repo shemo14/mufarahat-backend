@@ -19,8 +19,8 @@ class CartController extends Controller
 			$user_id    = $user->id;
 		}
 
-		$cart_items = $user_id ? Cart::where('user_id', $user_id)->get() : Cart::where('device_id', $request->device_id)->get();
-		$all_products 		= [];
+		$cart_items	 	= $user_id ? Cart::where('user_id', $user_id)->get() : Cart::where('device_id', $request->device_id)->get();
+		$all_products 	= [];
 
 		foreach ($cart_items as $item) {
 			$all_products[] = [
@@ -71,5 +71,25 @@ class CartController extends Controller
 		}
 
 		return returnResponse(NULL, trans('apis.set_cart'), 200);
+	}
+
+	public function delete_cart(Request $request){
+		$rules = [
+			'cart_id'  	=> 'required',
+		];
+
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		$cart 	= Cart::find($request->cart_id);
+
+		if ($cart->delete()){
+			return returnResponse(NULL, trans('apis.delete_cart'), 200);
+		}
+
+		return returnResponse(NULL, 'cant delete cart, plz try again', 400);
 	}
 }
