@@ -379,28 +379,30 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e17f069ede36f7534b95adec71910ed1b49c74ea",
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "doctrine/coding-standard": "^6.0",
+                "phpstan/phpstan": "^0.11.8",
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -414,12 +416,12 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Johannes Schmitt",
@@ -435,7 +437,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08T11:03:04+00:00"
+            "time": "2019-07-30T19:33:28+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -4720,31 +4722,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tymondesigns/jwt-auth.git",
-                "reference": "6e9457185ef4e4ff52eb54a73a64be58aa46847b"
+                "reference": "103739700dc0358039a33b5bc91247570bb83529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tymondesigns/jwt-auth/zipball/6e9457185ef4e4ff52eb54a73a64be58aa46847b",
-                "reference": "6e9457185ef4e4ff52eb54a73a64be58aa46847b",
+                "url": "https://api.github.com/repos/tymondesigns/jwt-auth/zipball/103739700dc0358039a33b5bc91247570bb83529",
+                "reference": "103739700dc0358039a33b5bc91247570bb83529",
                 "shasum": ""
             },
             "require": {
-                "illuminate/auth": "^5.1",
-                "illuminate/contracts": "^5.1",
-                "illuminate/http": "^5.1",
-                "illuminate/support": "^5.1",
+                "illuminate/auth": "^5.1|^6",
+                "illuminate/contracts": "^5.1|^6",
+                "illuminate/http": "^5.1|^6",
+                "illuminate/support": "^5.1|^6",
                 "lcobucci/jwt": "^3.2",
                 "namshi/jose": "^7.0",
-                "nesbot/carbon": "^1.0 || ^2.0",
-                "php": "^5.5.9 || ^7.0"
+                "nesbot/carbon": "^1.0|^2.0",
+                "php": "^5.5.9|^7.0"
             },
             "require-dev": {
-                "cartalyst/sentinel": "2.0.*",
-                "illuminate/console": "^5.1",
-                "illuminate/database": "^5.1",
-                "illuminate/routing": "^5.1",
+                "cartalyst/sentinel": "^2|^3",
+                "illuminate/console": "^5.1|^6",
+                "illuminate/database": "^5.1|^6",
+                "illuminate/routing": "^5.1|^6",
                 "mockery/mockery": ">=0.9.9",
-                "phpunit/phpunit": "~4.8 || ~6.0"
+                "phpunit/phpunit": "~4.8|~6.0"
             },
             "type": "library",
             "extra": {
@@ -4773,9 +4775,9 @@
             "authors": [
                 {
                     "name": "Sean Tymon",
-                    "role": "Developer",
                     "email": "tymon148@gmail.com",
-                    "homepage": "https://tymon.xyz"
+                    "homepage": "https://tymon.xyz",
+                    "role": "Developer"
                 }
             ],
             "description": "JSON Web Token Authentication for Laravel and Lumen",
@@ -4787,7 +4789,7 @@
                 "jwt",
                 "laravel"
             ],
-            "time": "2019-07-11T18:40:09+00:00"
+            "time": "2019-09-09T03:33:47+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -4888,16 +4890,16 @@
         },
         {
             "name": "yajra/laravel-datatables-buttons",
-            "version": "v4.7.0",
+            "version": "v4.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-buttons.git",
-                "reference": "732c1cc2885622f6275560819fd41a6e0cfd24ae"
+                "reference": "9d3f4a72c6da9ef35aa775ae1b00f2648bea618c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-buttons/zipball/732c1cc2885622f6275560819fd41a6e0cfd24ae",
-                "reference": "732c1cc2885622f6275560819fd41a6e0cfd24ae",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-buttons/zipball/9d3f4a72c6da9ef35aa775ae1b00f2648bea618c",
+                "reference": "9d3f4a72c6da9ef35aa775ae1b00f2648bea618c",
                 "shasum": ""
             },
             "require": {
@@ -4948,20 +4950,20 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2019-09-04T07:53:57+00:00"
+            "time": "2019-09-10T04:46:41+00:00"
         },
         {
             "name": "yajra/laravel-datatables-editor",
-            "version": "v1.11.1",
+            "version": "v1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-editor.git",
-                "reference": "33359f46328e68dc78ec61f1e2fdab3cb23ffdbe"
+                "reference": "bcf5c2c1156950f94d70738812d5ab2c13e55fd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-editor/zipball/33359f46328e68dc78ec61f1e2fdab3cb23ffdbe",
-                "reference": "33359f46328e68dc78ec61f1e2fdab3cb23ffdbe",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-editor/zipball/bcf5c2c1156950f94d70738812d5ab2c13e55fd3",
+                "reference": "bcf5c2c1156950f94d70738812d5ab2c13e55fd3",
                 "shasum": ""
             },
             "require": {
@@ -5010,7 +5012,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2019-09-06T03:13:24+00:00"
+            "time": "2019-09-14T02:59:39+00:00"
         },
         {
             "name": "yajra/laravel-datatables-fractal",
@@ -5072,16 +5074,29 @@
         },
         {
             "name": "yajra/laravel-datatables-html",
-            "version": "v4.8.0",
+<<<<<<< HEAD
+            "version": "v4.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables-html.git",
-                "reference": "3999b1cb7054735be2366809d67abc5894a2a9bb"
+                "reference": "57351be6bbb2ca537c22353217cd068aeeb327e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/3999b1cb7054735be2366809d67abc5894a2a9bb",
-                "reference": "3999b1cb7054735be2366809d67abc5894a2a9bb",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/57351be6bbb2ca537c22353217cd068aeeb327e3",
+                "reference": "57351be6bbb2ca537c22353217cd068aeeb327e3",
+=======
+            "version": "v4.14.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yajra/laravel-datatables-html.git",
+                "reference": "2ea838ae85e22f802e3f16fdc9d7f69ad1f4423c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables-html/zipball/2ea838ae85e22f802e3f16fdc9d7f69ad1f4423c",
+                "reference": "2ea838ae85e22f802e3f16fdc9d7f69ad1f4423c",
+>>>>>>> c9bd4e4021f3ef7f714a7ab3ffd567f96b14f0ce
                 "shasum": ""
             },
             "require": {
@@ -5128,7 +5143,11 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2019-09-04T08:38:30+00:00"
+<<<<<<< HEAD
+            "time": "2019-09-14T03:38:01+00:00"
+=======
+            "time": "2019-09-16T11:07:24+00:00"
+>>>>>>> c9bd4e4021f3ef7f714a7ab3ffd567f96b14f0ce
         },
         {
             "name": "yajra/laravel-datatables-oracle",
@@ -5701,35 +5720,33 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6"
+                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
-                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/63a995caa1ca9e5590304cd845c15ad6d482a62a",
+                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.6"
+                "phpunit/phpunit": "~6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\Reflection\\": [
-                        "src"
-                    ]
+                    "phpDocumentor\\Reflection\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5751,30 +5768,30 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-09-11T18:02:19+00:00"
+            "time": "2018-08-07T13:53:10+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.3.1",
+            "version": "4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c"
+                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
-                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
+                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "phpdocumentor/reflection-common": "^1.0.0",
-                "phpdocumentor/type-resolver": "^0.4.0",
+                "phpdocumentor/reflection-common": "^1.0.0 || ^2.0.0",
+                "phpdocumentor/type-resolver": "~0.4 || ^1.0.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "doctrine/instantiator": "~1.0.5",
+                "doctrine/instantiator": "^1.0.5",
                 "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^6.4"
             },
@@ -5802,41 +5819,40 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2019-04-30T17:48:53+00:00"
+            "time": "2019-09-12T14:27:41+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.4.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
+                "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
-                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
+                "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
-                "phpdocumentor/reflection-common": "^1.0"
+                "php": "^7.1",
+                "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^5.2||^4.8.24"
+                "ext-tokenizer": "^7.1",
+                "mockery/mockery": "~1",
+                "phpunit/phpunit": "^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\Reflection\\": [
-                        "src/"
-                    ]
+                    "phpDocumentor\\Reflection\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5849,7 +5865,8 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-07-14T14:27:02+00:00"
+            "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
+            "time": "2019-08-22T18:11:29+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -6520,16 +6537,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "06a9a5947f47b3029d76118eb5c22802e5869687"
+                "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/06a9a5947f47b3029d76118eb5c22802e5869687",
-                "reference": "06a9a5947f47b3029d76118eb5c22802e5869687",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/68609e1261d215ea5b21b7987539cbfbe156ec3e",
+                "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e",
                 "shasum": ""
             },
             "require": {
@@ -6583,7 +6600,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2019-08-11T12:43:14+00:00"
+            "time": "2019-09-14T09:02:43+00:00"
         },
         {
             "name": "sebastian/global-state",

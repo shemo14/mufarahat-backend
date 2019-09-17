@@ -44,6 +44,7 @@ Route::group(['middleware' => 'localization'], function (){
 	Route::post('offers'         			, 'Api\ProductsController@offers');
 	Route::post('category_products'			, 'Api\ProductsController@category_products');
 	Route::post('search'	                , 'Api\ProductsController@search');
+	Route::post('rate'                      , 'Api\ProductsController@rate');
 	Route::post('events_filter'             , 'Api\EventsController@events_filter');
 	Route::post('product_details'           , 'Api\ProductsController@product_details');
 	Route::post('suggested_events'          , 'Api\EventsController@suggested_events');
@@ -53,6 +54,11 @@ Route::group(['middleware' => 'localization'], function (){
 	// Fav
 	Route::post('set_fav'     	        	, 'Api\FavController@set_fav');
 	Route::post('favorites'    	        	, 'Api\FavController@favorites');
+
+	// Cart
+	Route::post('cart'     	        		, 'Api\CartController@cart');
+	Route::post('set_cart'    	        	, 'Api\CartController@set_cart');
+	Route::post('delete_cart'  		      	, 'Api\CartController@delete_cart');
 
 	// countries
 	Route::post('cities'		         	, 'Api\CategoriesController@cities');
