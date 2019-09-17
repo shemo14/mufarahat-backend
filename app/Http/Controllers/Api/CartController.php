@@ -56,18 +56,31 @@ class CartController extends Controller
 
 		if ($request->header('Authorization')){  // if user auth...
 			$user         		= JWTAuth::parseToken()->authenticate();
-			$cart  				= new Cart();
-			$cart->user_id 		= $user->id;
-			$cart->product_id 	= $request->product_id;
-			$cart->quantity 	= $request->quantity;
-			$cart->save();
+
+			if (Cart::where([ 'user_id' => $user->id, 'product_id' => $request->product_id ])->exists()){
+				$cart = Cart::where([ 'user_id' => $user->id, 'product_id' => $request->product_id ])->first();
+				$cart->quantity = $cart->quantity + $request->quantity;
+				$cart->save();
+			}else{
+				$cart  				= new Cart();
+				$cart->user_id 		= $user->id;
+				$cart->product_id 	= $request->product_id;
+				$cart->quantity 	= $request->quantity;
+				$cart->save();
+			}
 
 		}else{  // if user guest
-			$cart  					= new Cart();
-			$cart->device_id 		= $request->device_id;
-			$cart->product_id 		= $request->product_id;
-			$cart->quantity 		= $request->quantity;
-			$cart->save();
+			if (Cart::where([ 'device_id' => $request->device_id, 'product_id' => $request->product_id ])->exists()){
+				$cart = Cart::where([ 'device_id' => $request->device_id, 'product_id' => $request->product_id ])->first();
+				$cart->quantity = $cart->quantity + $request->quantity;
+				$cart->save();
+			}else{
+				$cart  					= new Cart();
+				$cart->device_id 		= $request->device_id;
+				$cart->product_id 		= $request->product_id;
+				$cart->quantity 		= $request->quantity;
+				$cart->save();
+			}
 		}
 
 		return returnResponse(NULL, trans('apis.set_cart'), 200);
@@ -91,5 +104,27 @@ class CartController extends Controller
 		}
 
 		return returnResponse(NULL, 'cant delete cart, plz try again', 400);
+	}
+
+	public function cart_quantity(Request $request){
+		$rules = [
+			'cart_id'  	=> 'required',
+			'quantity'  => 'required',
+		];
+
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		$cart 				= Cart::find($request->cart_id);
+		$cart->quantity 	= $request->quantity;
+
+		if ($cart->save()){
+			return returnResponse(NULL, trans('apis.qnty_cart'), 200);
+		}
+
+		return returnResponse(NULL, 'cant modified cart, plz try again', 400);
 	}
 }
