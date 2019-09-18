@@ -80,8 +80,6 @@ class CitiesController extends Controller
         Session::flash('success', 'تم تعديل المدينه بنجاح');
         return back();
     }
-
-
     
     public function delete(Request $request)
     {
@@ -89,5 +87,20 @@ class CitiesController extends Controller
         addReport(auth()->user()->id, 'بحذف المدينه', $request->ip());
         Session::flash('success', 'تم حذف المدينه بنجاح');
         return back();
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $requestIds = json_decode($request->data);
+        foreach ($requestIds as $id) {
+            $ids[] = $id->id;
+        }
+        if (City::whereIn('id', $ids)->delete()) {
+            addReport(auth()->user()->id, 'قام بحذف العديد من المدن', $request->ip());
+            Session::flash('success', 'تم الحذف بنجاح');
+            return response()->json('success');
+        } else {
+            return response()->json('failed');
+        }
     }
 }

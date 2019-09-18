@@ -41,6 +41,8 @@
         <div class="btn-group btn-group-justified m-b-10">
             <a href="#add" class="btn btn-success waves-effect btn-lg waves-light" data-animation="fadein" data-plugin="custommodal"
                 data-overlaySpeed="100" data-overlayColor="#36404a">اضافة مدينه <i class="fa fa-plus"></i> </a>
+                <a href="#deleteAll" class="btn btn-danger waves-effect btn-lg waves-light delete-all" data-animation="blur" data-plugin="custommodal"
+            data-overlaySpeed="100" data-overlayColor="#36404a">حذف المحدد <i class="fa fa-trash"></i> </a>
             <a class="btn btn-primary waves-effect btn-lg waves-light" onclick="window.location.reload()" role="button">تحديث الصفحة <i class="fa fa-refresh"></i> </a>
         </div>
 
@@ -49,7 +51,12 @@
                 <table id="datatable" class="table table-bordered table-responsives">
                     <thead>
                     <tr>
-                      
+                        <th>
+                            <label class="custom-control material-checkbox" style="margin: auto">
+                                <input type="checkbox" class="material-control-input" id="checkedAll">
+                                <span class="material-control-indicator"></span>
+                            </label>
+                        </th>
                         <th>الاسم بالعربيه </th>
                         <th>الاسم بالانجليزيه </th>
                         <th>قيمه الشحن </th>
@@ -60,6 +67,12 @@
                     <tbody class="text-center">
                     @foreach($cities as $row)
                         <tr>
+                            <td>
+                                <label class="custom-control material-checkbox" style="margin: auto">
+                                    <input type="checkbox" class="material-control-input checkSingle" id="{{$row->id}}">
+                                    <span class="material-control-indicator"></span>
+                                </label>
+                            </td>   
                             <td>{{$row->name_ar}}</td>
                             <td>{{$row->name_en}}</td>
                             <td>{{$row->shipping}}</td>
@@ -288,7 +301,7 @@
                 e.preventDefault();
                 $.ajax({
                     type: "POST",
-                    url: "{{route('deleteadmins')}}",
+                    url: "{{route('deletecities')}}",
                     data: {data: requestData, _token: '{{csrf_token()}}'},
                     success: function( msg ) {
                         if (msg == 'success') {

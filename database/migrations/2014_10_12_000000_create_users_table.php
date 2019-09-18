@@ -47,7 +47,7 @@ class CreateUsersTable extends Migration
         $user->role ='1';
         $user->device_id ='1111111111';
         $user->address ='مصر - المنصوره';
-        $user->city_id =1;
+        $user->city_id =null;
         $user->save();
 
         $user            = new \App\User();

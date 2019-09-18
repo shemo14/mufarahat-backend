@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-    Auth::loginUsingId(1);
+    Auth::loginUsingId(18);
 
     Route::get('/login', 'Admin\AuthController@loginForm')->name('loginForm');
     Route::post('/login', 'Admin\AuthController@login')->name('login');
@@ -110,6 +110,7 @@ use Illuminate\Support\Facades\Route;
                     'addcity',
                     'editcity',
                     'deletecity',
+                    'deletecities',
                 ]
             ]);
 
@@ -133,6 +134,13 @@ use Illuminate\Support\Facades\Route;
                 'as' => 'deletecity',
                 'title' => 'حذف مدينه'
             ]);
+
+            // Delete User
+            Route::post('/delete-cities', [
+                'uses' => 'CitiesController@deleteAll',
+                'as' => 'deletecities',
+                'title' => 'حذف اكثر من مدينه'
+            ]);
         // ============= #Cities ==============
 
         // ============= warehouses ==============
@@ -140,33 +148,37 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'WarehousesController@index',
                 'as' => 'warehouses',
                 'title' => 'المستودعات',
-                'icon' => '<i class="fa fa-city"></i>',
+                'icon' => '<i class="fa fa-industry"></i>',
                 'child' => [
                     'addwarehouse',
                     'editwarehouse',
                     'deletewarehouse',
+                    'deletewarehouses',
                 ]
             ]);
 
-                // Add User
                 Route::post('/add-warehouse', [
                 'uses' => 'WarehousesController@store',
                 'as' => 'addwarehouse',
                 'title' => 'اضافة مستودع'
             ]);
 
-            // Update User
             Route::post('/update-warehouse', [
                 'uses' => 'WarehousesController@update',
                 'as' => 'editwarehouse',
                 'title' => 'تعديل مستودع'
             ]);
 
-            // Delete User
             Route::post('/delete-warehouse', [
                 'uses' => 'WarehousesController@delete',
                 'as' => 'deletewarehouse',
                 'title' => 'حذف مستودع'
+            ]);
+
+            Route::post('/delete-warehouses', [
+                'uses' => 'WarehousesController@deleteAll',
+                'as' => 'deletewarehouses',
+                'title' => 'حذف اكثر من مستودع'
             ]);
         // ============= #warehouses ==============
 
@@ -409,12 +421,12 @@ use Illuminate\Support\Facades\Route;
                 'title' => 'حذف منتج'
             ]);
 
-            // // Delete products
-            // Route::post('/delete-products', [
-            //     'uses' => 'CategoriesController@deleteAllCategories',
-            //     'as' => 'deleteProducts',
-            //     'title' => 'حذف اكتر من منتج'
-            // ]);
+            // Delete products
+            Route::post('/delete-products', [
+                'uses' => 'ProductsController@deleteAll',
+                'as' => 'deleteProducts',
+                'title' => 'حذف اكتر من منتج'
+            ]);
         // ============= #Products ==============
         
         // ============= offers ==============
@@ -427,29 +439,39 @@ use Illuminate\Support\Facades\Route;
                     'addOffer',
                     'updateOffer',
                     'deleteOffer',
+                    'deleteOffers',
                 ]
             ]);
 
-            // Add product
+            // Add offer
             Route::post('/add-offer', [
                 'uses' => 'OffersController@store',
                 'as' => 'addOffer',
                 'title' => 'اضافة عرض'
             ]);
 
-            // Update product
+            // Update offer
             Route::post('/update-offer', [
                 'uses' => 'OffersController@update',
                 'as' => 'updateOffer',
                 'title' => 'تعديل عرض'
             ]);
 
-            // Delete product
+            
+            // Delete offer
             Route::post('/delete-offer', [
                 'uses' => 'OffersController@delete',
                 'as' => 'deleteOffer',
                 'title' => 'حذف عرض'
             ]);
+            
+            // Delete offer
+            Route::post('/delete-offers', [
+                'uses' => 'OffersController@deleteAll',
+                'as' => 'deleteOffers',
+                'title' => 'حذف اكثر من عرض'
+            ]);
+
         // ============= #offers ==============
 
         // ============= Boxs ==============
@@ -457,41 +479,44 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'BoxsController@index',
                 'as' => 'boxs',
                 'title' => 'البوكسات ',
-                'icon' => '<i class="fa fa-boxes"></i>',
+                'icon' => '<i class="fa fa-archive"></i>',
                 'child' => [
                     'addBox',
                     'updateBox',
                     'deleteBox',
+                    'deleteBoxs',
                     'EditBoxProducts',
                 ]
             ]);
 
-            // Add product
             Route::post('/add-box', [
                 'uses' => 'BoxsController@store',
                 'as' => 'addBox',
                 'title' => 'اضافة بوكس'
             ]);
 
-            // Update product
             Route::post('/update-box', [
                 'uses' => 'BoxsController@update',
                 'as' => 'updateBox',
                 'title' => 'تعديل بوكس'
             ]);
 
-            // Update product
             Route::post('/update-box-items', [
                 'uses' => 'BoxsController@updateBoxProducts',
                 'as' => 'EditBoxProducts',
                 'title' => 'تعديل منتجات البوكس'
             ]);
 
-            // Delete product
             Route::post('/delete-box', [
                 'uses' => 'BoxsController@delete',
                 'as' => 'deleteBox',
                 'title' => 'حذف بوكس'
+            ]);
+
+            Route::post('/delete-boxs', [
+                'uses' => 'BoxsController@deleteAll',
+                'as' => 'deleteBoxs',
+                'title' => 'حذف اكثر من بوكس'
             ]);
         // ============= #Boxs ==============
 
@@ -500,30 +525,33 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'PackagingController@index',
                 'as' => 'packaging',
                 'title' => 'اسعار التغليف',
-                'icon' => '<i class="fa fa-conveyor-belt"></i>',
+                'icon' => '<i class="fa fa-gift"></i>',
                 'child' => [
                     'addPackaging',
                     'updatePackaging',
                     'deletePackaging',
+                    'deletePackagings',
                 ]
             ]);
-            // Add product
             Route::post('/add-Packaging', [
                 'uses' => 'PackagingController@store',
                 'as' => 'addPackaging',
                 'title' => 'اضافة تغليف'
             ]);
-            // Update product
             Route::post('/update-Packaging', [
                 'uses' => 'PackagingController@update',
                 'as' => 'updatePackaging',
                 'title' => 'تعديل تغليف'
             ]);
-            // Delete product
             Route::post('/delete-Packaging', [
                 'uses' => 'PackagingController@delete',
                 'as' => 'deletePackaging',
                 'title' => 'حذف تغليف'
+            ]);
+            Route::post('/delete-Packagings', [
+                'uses' => 'PackagingController@deleteAll',
+                'as' => 'deletePackagings',
+                'title' => 'حذف اكثر من نوع تغليف'
             ]);
         // ============= #Packaging ==============
 
@@ -532,11 +560,12 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'CouponsController@index',
                 'as' => 'coupons',
                 'title' => 'الكوبنات',
-                'icon' => '<i class="fa fa-conveyor-belt"></i>',
+                'icon' => '<i class="fa fa-percent"></i>',
                 'child' => [
                     'addCoupons',
                     'updateCoupons',
                     'deleteCoupons',
+                    'deleteCoupons2',
                 ]
             ]);
             // Add coupons
@@ -556,6 +585,12 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'CouponsController@delete',
                 'as' => 'deleteCoupons',
                 'title' => 'حذف كوبون'
+            ]);
+            // Delete coupons
+            Route::post('/delete-coupons2', [
+                'uses'  => 'CouponsController@deleteAll',
+                'as'    => 'deleteCoupons2',
+                'title' => 'حذف اكثر من كوبون'
             ]);
         // ============= #Coupons ==============
 

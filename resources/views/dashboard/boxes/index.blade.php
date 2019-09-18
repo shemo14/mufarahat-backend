@@ -10,6 +10,8 @@
     <div class="btn-group btn-group-justified m-b-10">
         <a href="#add" class="btn btn-success waves-effect btn-lg waves-light" data-animation="fadein" data-plugin="custommodal"
             data-overlaySpeed="100" data-overlayColor="#36404a">اضافة بوكس جديد <i class="fa fa-plus"></i> </a>
+        <a href="#deleteAll" class="btn btn-danger waves-effect btn-lg waves-light delete-all" data-animation="blur" data-plugin="custommodal"
+        data-overlaySpeed="100" data-overlayColor="#36404a">حذف المحدد <i class="fa fa-trash"></i> </a>
         <a class="btn btn-primary waves-effect btn-lg waves-light" onclick="window.location.reload()" role="button">تحديث الصفحة <i class="fa fa-refresh"></i> </a>
     </div>
 
@@ -21,6 +23,12 @@
                 <table id="datatable" class="table table-bordered table-responsives">
                     <thead>
                     <tr>
+                        <th>
+                            <label class="custom-control material-checkbox" style="margin: auto">
+                                <input type="checkbox" class="material-control-input" id="checkedAll">
+                                <span class="material-control-indicator"></span>
+                            </label>
+                        </th>
                         <th>الصورة</th>
                         <th>الاسم بالعربية</th>
                         <th>الاسم بالانجليزية</th>
@@ -32,6 +40,12 @@
                     <tbody class="text-center">
                     @foreach($boxes as $row)
                         <tr>
+                            <td>
+                                <label class="custom-control material-checkbox" style="margin: auto">
+                                    <input type="checkbox" class="material-control-input checkSingle" id="{{$row->id}}">
+                                    <span class="material-control-indicator"></span>
+                                </label>
+                            </td>
                             <td><a href="{{appPath()}}/images/boxes/{{$row->image}}" target="_blank"><img src="{{appPath()}}/images/boxes/{{$row->image}}" alt="user-img" width="60px" title="Mat Helme" class="img-circle img-thumbnail img-responsive"></a></td>
                             <td>{{$row->name_ar}}</td>
                             <td>{{$row->name_en}}</td>
@@ -256,6 +270,27 @@
             </div>
         </div><!-- /.modal-content -->
     </div>
+
+    <div id="deleteAll" class="modal-demo" style="position:relative; right: 32%">
+        <button type="button" class="close" onclick="Custombox.close();" style="opacity: 1">
+            <span>&times</span><span class="sr-only" style="color: #f7f7f7">Close</span>
+        </button>
+        <h4 class="custom-modal-title">حذف المحدد</h4>
+        <div class="custombox-modal-container" style="width: 400px !important; height: 160px;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 style="margin-top: 35px">
+                        هل تريد مواصلة عملية الحذف ؟
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button style="margin-top: 35px" type="submit" class="btn btn-danger btn-rounded w-md waves-effect waves-light m-b-5 send-delete-all" style="margin-top: 19px">حـذف</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
    
 
 @endsection
@@ -321,7 +356,55 @@
             e.preventDefault(); $(this).parent('div').parent('div').remove(); 
         });
 
+        $("#checkedAll").change(function(){
+            if(this.checked){
+                $(".checkSingle").each(function(){
+                    this.checked=true;
+                })
+            }else{
+                $(".checkSingle").each(function(){
+                    this.checked=false;
+                })
+            }
+        });
 
+        $(".checkSingle").click(function () {
+            if ($(this).is(":checked")){
+                var isAllChecked = 0;
+                $(".checkSingle").each(function(){
+                    if(!this.checked)
+                        isAllChecked = 1;
+                })
+                if(isAllChecked == 0){ $("#checkedAll").prop("checked", true); }
+            }else {
+                $("#checkedAll").prop("checked", false);
+            }
+        });
+
+        $('.send-delete-all').on('click', function (e) {
+            var usersIds = [];
+            $('.checkSingle:checked').each(function () {
+                var id = $(this).attr('id');
+                usersIds.push({
+                    id: id,
+                });
+            });
+            var requestData = JSON.stringify(usersIds);
+            // console.log(requestData);
+            if (usersIds.length > 0) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('deleteBoxs')}}",
+                    data: {data: requestData, _token: '{{csrf_token()}}'},
+                    success: function( msg ) {
+                        if (msg == 'success') {
+                            location.reload()
+                        }
+                    }
+                });
+            }
+        });
 
 
 		

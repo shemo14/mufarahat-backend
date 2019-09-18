@@ -47,4 +47,18 @@ class CouponsController extends Controller
         return back();
     }
     
+    public function deleteAll(Request $request)
+    {
+        $requestIds = json_decode($request->data);
+        foreach ($requestIds as $id) {
+            $ids[] = $id->id;
+        }
+        if (Coupon::whereIn('id', $ids)->delete()) {
+            addReport(auth()->user()->id, 'قام بحذف العديد من المدن', $request->ip());
+            Session::flash('success', 'تم الحذف بنجاح');
+            return response()->json('success');
+        } else {
+            return response()->json('failed');
+        }
+    }
 }
