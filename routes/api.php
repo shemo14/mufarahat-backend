@@ -66,6 +66,7 @@ Route::group(['middleware' => 'localization'], function (){
 	Route::post('set_cart'    	        	, 'Api\CartController@set_cart');
 	Route::post('delete_cart'  		      	, 'Api\CartController@delete_cart');
 	Route::post('cart_quantity' 	      	, 'Api\CartController@cart_quantity');
+	Route::post('cart_search'	            , 'Api\CartController@cart_search');
 
 	// organizations
 	Route::post('organizations'		        , 'Api\CategoriesController@organizations');

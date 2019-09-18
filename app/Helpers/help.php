@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\Models\Permission;
 use App\Models\Report;
 use App\Models\Favorite;
+use App\Models\Cart;
 
 function Home()
 {
@@ -57,6 +58,19 @@ function Role()
     }else{
         return 'عضو';
     }
+}
+
+function cart_details($product_id, $user_id, $device_id){
+	$cart = NULL;
+	if ($user_id != null){
+		if (Cart::where(['product_id' => $product_id, 'user_id' => $user_id])->exists())
+			$cart = Cart::where(['product_id' => $product_id, 'user_id' => $user_id])->first();
+	}else{
+		if (Cart::where(['product_id' => $product_id, 'device_id' => $device_id])->exists())
+			$cart = Cart::where(['product_id' => $product_id, 'device_id' => $device_id])->first();
+	}
+
+	return $cart;
 }
 
 function reports () {
