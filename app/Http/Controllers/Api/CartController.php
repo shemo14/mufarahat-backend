@@ -31,7 +31,7 @@ class CartController extends Controller
 				'image'    		=> url('images/products') . '/' . $item->product->images()->first()->name,
 				'category'  	=> $item->product->category->name,
 				'desc'  		=> $item->product->desc,
-				'price'  		=> $item->product->price - ( $item->product->price * $item->product->discount ) / 100 . ' ' . trans('apis.rs'),
+				'price'  		=> ( $item->product->price - ( $item->product->price * $item->product->discount ) / 100 ) * $item->quantity,
 				'rate'   		=> $item->product->reviews()->avg('rate')
 			];
 		}
