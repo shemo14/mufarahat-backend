@@ -39,6 +39,12 @@ Route::group(['middleware' => 'localization'], function (){
 	Route::post('boxes'	  	         		, 'Api\BoxesController@boxes');
 	Route::post('box_items'	        		, 'Api\BoxesController@box_items');
 
+	// cities
+	Route::post('cities'	  	         	, 'Api\AppController@cities');
+
+	// packages
+	Route::post('packages'	  	         	, 'Api\AppController@packages');
+
 	// products
 	Route::post('products'         			, 'Api\ProductsController@products');
 	Route::post('offers'         			, 'Api\ProductsController@offers');
@@ -59,9 +65,8 @@ Route::group(['middleware' => 'localization'], function (){
 	Route::post('cart'     	        		, 'Api\CartController@cart');
 	Route::post('set_cart'    	        	, 'Api\CartController@set_cart');
 	Route::post('delete_cart'  		      	, 'Api\CartController@delete_cart');
-
-	// countries
-	Route::post('cities'		         	, 'Api\CategoriesController@cities');
+	Route::post('cart_quantity' 	      	, 'Api\CartController@cart_quantity');
+	Route::post('cart_search'	            , 'Api\CartController@cart_search');
 
 	// organizations
 	Route::post('organizations'		        , 'Api\CategoriesController@organizations');
@@ -76,11 +81,8 @@ Route::group(['middleware' => 'localization'], function (){
 		Route::post('update_password'        , 'Api\UserController@update_password');
 		Route::post('logout'       			 , 'Api\UserController@logout');
 
-		// Booking
-		Route::post('booking'             	 , 'Api\BookingController@booking');
-		Route::post('my_bookings'         	 , 'Api\BookingController@my_bookings');
-		Route::post('ticket_details'         , 'Api\BookingController@ticket_details');
-		Route::post('delete_ticket'          , 'Api\BookingController@delete_ticket');
+		// Order
+		Route::post('set_order'  	 	      	, 'Api\OrderController@set_order');
 
 		// Notifications
 		Route::post('notifications'          , 'Api\NotifyController@notifications');

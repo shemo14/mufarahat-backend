@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\City;
+use App\Models\Packaging;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Social;
@@ -124,5 +126,35 @@ class AppController extends Controller
 		}
 
 		return returnResponse($all_qus, '', 200);
+	}
+
+	public function cities(){
+		$cities 	= City::select('id', 'name_' . lang() . ' as name', 'shipping')->get();
+		$cities_all = [];
+
+		foreach ($cities as $city) {
+			$cities_all[] = [
+				'id'  		=> $city->id,
+				'name'  	=> $city->name,
+				'shipping'  => $city->shipping . ' ' . trans('apis.rs'),
+			];
+		}
+
+		return returnResponse($cities_all, '', 200);
+	}
+
+	public function packages(){
+		$packages 		= Packaging::select('id', 'name_' . lang() . ' as name', 'price')->get();
+		$packages_all 	= [];
+
+		foreach ($packages as $package) {
+			$packages_all[] = [
+				'id'  	 => $package->id,
+				'name'   => $package->name,
+				'price'  => $package->price . ' ' . trans('apis.rs'),
+			];
+		}
+
+		return returnResponse($packages_all, '', 200);
 	}
 }
