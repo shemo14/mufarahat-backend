@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Http\Request;
-use App\Models\Categories;
-use App\Models\Countries;
+use App\Models\Box;
+use App\Models\City;
 use App\Models\Role;
+use App\Models\Offer;
+use App\Models\Coupon;
 use App\Models\Report;
+use App\Models\Product;
+use App\Models\Question;
+use App\Models\Countries;
+use App\Models\Packaging;
+use App\Models\Warehouse;
+use App\Models\Categories;
+use App\Models\CommanQues;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -18,9 +27,19 @@ class AuthController extends Controller
         $users          = User::where('role', 0)->count();
         $admins         = User::where('role', 1)->count();
         $categories     = Categories::count();
-        $reports        = Report::count();
         $roles          = Role::count();
-        return view('dashboard.dashboard', compact('users', 'admins', 'cities', 'categories', 'organizations', 'ads', 'events', 'reports', 'roles'));
+        $cities         = City::count();
+        $wharehouses    = Warehouse::count();
+        $products       = Product::count();
+        $offers         = Offer::count();
+        $boxes          = Box::count();
+        $packagins      = Packaging::count();
+        $coupons        = Coupon::count();
+        $questions      = Question::count();
+        $commanQues      = CommanQues::count();
+        $reports        = Report::count();
+        return view('dashboard.dashboard', 
+        compact('users', 'admins', 'cities', 'categories', 'wharehouses', 'products', 'offers', 'boxes', 'packagins','coupons','questions','reports','roles','commanQues'));
     }
 
     public function loginForm()

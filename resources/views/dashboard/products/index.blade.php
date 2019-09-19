@@ -10,8 +10,8 @@
     <div class="btn-group btn-group-justified m-b-10">
         <a href="#add" class="btn btn-success waves-effect btn-lg waves-light" data-animation="fadein" data-plugin="custommodal"
             data-overlaySpeed="100" data-overlayColor="#36404a">اضافة منتج جديد <i class="fa fa-plus"></i> </a>
-        {{-- <a href="#deleteAll" class="btn btn-danger waves-effect btn-lg waves-light delete-all" data-animation="blur" data-plugin="custommodal"
-            data-overlaySpeed="100" data-overlayColor="#36404a">حذف المحدد <i class="fa fa-trash"></i> </a> --}}
+        <a href="#deleteAll" class="btn btn-danger waves-effect btn-lg waves-light delete-all" data-animation="blur" data-plugin="custommodal"
+            data-overlaySpeed="100" data-overlayColor="#36404a">حذف المحدد <i class="fa fa-trash"></i> </a>
         <a class="btn btn-primary waves-effect btn-lg waves-light" onclick="window.location.reload()" role="button">تحديث الصفحة <i class="fa fa-refresh"></i> </a>
     </div>
 
@@ -23,12 +23,12 @@
                 <table id="datatable" class="table table-bordered table-responsives">
                     <thead>
                     <tr>
-                        {{-- <th>
+                        <th>
                             <label class="custom-control material-checkbox" style="margin: auto">
                                 <input type="checkbox" class="material-control-input" id="checkedAll">
                                 <span class="material-control-indicator"></span>
                             </label>
-                        </th> --}}
+                        </th>
                         <th>الرقم</th>
                         <th>اسم المنتج</th>
                         <th>القسم </th>
@@ -42,12 +42,12 @@
                     <tbody class="text-center">
                     @foreach($products as $row)
                         <tr>
-                            {{-- <td>
+                            <td>
                                 <label class="custom-control material-checkbox" style="margin: auto">
                                     <input type="checkbox" class="material-control-input checkSingle" id="{{$row->id}}">
                                     <span class="material-control-indicator"></span>
                                 </label>
-                            </td> --}}
+                            </td>
                             <td>{{$row->id}}</td>
                             <td>{{$row->name_ar}}</td>
                             <td>{{$row->category->name_ar}}</td>
@@ -390,6 +390,57 @@
 			$("input[name='delete_id']").val(id);
 
 		});
+
+
+        $("#checkedAll").change(function(){
+            if(this.checked){
+                $(".checkSingle").each(function(){
+                    this.checked=true;
+                })
+            }else{
+                $(".checkSingle").each(function(){
+                    this.checked=false;
+                })
+            }
+        });
+
+        $(".checkSingle").click(function () {
+            if ($(this).is(":checked")){
+                var isAllChecked = 0;
+                $(".checkSingle").each(function(){
+                    if(!this.checked)
+                        isAllChecked = 1;
+                })
+                if(isAllChecked == 0){ $("#checkedAll").prop("checked", true); }
+            }else {
+                $("#checkedAll").prop("checked", false);
+            }
+        });
+
+        $('.send-delete-all').on('click', function (e) {
+            var usersIds = [];
+            $('.checkSingle:checked').each(function () {
+                var id = $(this).attr('id');
+                usersIds.push({
+                    id: id,
+                });
+            });
+            var requestData = JSON.stringify(usersIds);
+            // console.log(requestData);
+            if (usersIds.length > 0) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('deleteProducts')}}",
+                    data: {data: requestData, _token: '{{csrf_token()}}'},
+                    success: function( msg ) {
+                        if (msg == 'success') {
+                            location.reload()
+                        }
+                    }
+                });
+            }
+        });
     </script>
 
     <script>

@@ -80,7 +80,7 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
-                            <td>{{$user->city->name_ar}}</td>
+                            <td>{{ $user->city != null ? $user->city->name_ar : 'لايوجد مدينه'}}</td>
                             <td>{{$user->Role->role}}</td>
                             <td>
                                 @if($user->active == 0)

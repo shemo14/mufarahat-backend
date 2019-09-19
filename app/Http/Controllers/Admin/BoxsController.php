@@ -37,11 +37,20 @@ class BoxsController extends Controller
                 foreach ($request->product as $key1 => $value1) {
                     foreach ($request->ammounts as $key2 => $value2) {
                         if ($key1 == $key2) {
-                            BoxItem::create([
-                                'box_id'     => $boxStored->id,
-                                'product_id' => $value1,
-                                'quantity'   => $value2,
-                            ]);
+                            $checkThatProductExists = BoxItem::where(['box_id' => $boxStored->id , 'product_id' => $value1])->get();
+                            if ($checkThatProductExists->count() == 0 ) {
+                                BoxItem::create([
+                                    'box_id'     => $boxStored->id,
+                                    'product_id' => $value1,
+                                    'quantity'   => $value2,
+                                ]);
+                            }else{
+                                $checkThatProductExists->first()->update([
+                                    'box_id'     => $boxStored->id,
+                                    'product_id' => $value1,
+                                    'quantity'   => $value2+$checkThatProductExists->first()->quantity,
+                                ]);
+                            }
                         }
                     }  
                 }
@@ -79,11 +88,20 @@ class BoxsController extends Controller
             foreach ($request->product as $key1 => $value1) {
                 foreach ($request->ammounts as $key2 => $value2) {
                     if ($key1 == $key2) {
-                        BoxItem::create([
-                            'box_id'     => $request->box_id,
-                            'product_id' => $value1,
-                            'quantity'   => $value2,
-                        ]);
+                        $checkThatProductExists = BoxItem::where(['box_id' => $request->box_id , 'product_id' => $value1])->get();
+                            if ($checkThatProductExists->count() == 0 ) {
+                                BoxItem::create([
+                                    'box_id'     => $request->box_id,
+                                    'product_id' => $value1,
+                                    'quantity'   => $value2,
+                                ]);
+                            }else{
+                                $checkThatProductExists->first()->update([
+                                    'box_id'     => $request->box_id,
+                                    'product_id' => $value1,
+                                    'quantity'   => $value2+$checkThatProductExists->first()->quantity,
+                                ]);
+                            }
                     }
                 }  
             }
@@ -101,5 +119,20 @@ class BoxsController extends Controller
         addReport(auth()->user()->id, 'بحذف بوكس', $request->ip());
         Session::flash('success', 'تم حذف البوكس بنجاح');
         return back();
+    }
+
+    public function deleteAll(Request $request)
+    {
+        $requestIds = json_decode($request->data);
+        foreach ($requestIds as $id) {
+            $ids[] = $id->id;
+        }
+        if (Box::whereIn('id', $ids)->delete()) {
+            addReport(auth()->user()->id, 'قام بحذف العديد من المدن', $request->ip());
+            Session::flash('success', 'تم الحذف بنجاح');
+            return response()->json('success');
+        } else {
+            return response()->json('failed');
+        }
     }
 }
