@@ -47,8 +47,50 @@ class OrderController extends Controller
 				$order_item->price 			= $cart_item->product->price * $cart_item->quantity;
 				$order_item->save();
 			}
-			return returnResponse('', 'تم تسجيل الطلب بنجاح', 200);
+
+			Cart::whereIn('id', $cart_ids)->delete();
+			return returnResponse(NULL, trans('apis.set_order') , 200);
+		}
+	}
+
+	public function my_orders(Request $request){
+		$rules = [
+			'type'  => 'required', // type => 0 ( new order ) || // type => 1 ( finished order )
+		];
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
 		}
 
+		$orders 	= Order::where([ 'user_id' => Auth::user()->id, 'status' => $request->type ])->get();
+		$all_orders = [];
+
+		foreach ($orders as $order) {
+			$all_orders[] = [
+				'id' 		=> $order->id,
+				'order_no' 	=> '#' . $order->id,
+				'price' 	=> $order->price,
+				'images' 	=> orders($order->id)
+			];
+		}
+
+		return returnResponse($all_orders, '', 200);
+	}
+
+	public function deleted_order(Request $request){
+		$rules = [
+			'order_id'  => 'required'
+		];
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		$order = Order::find($request->order_id);
+		if ($order->delete()){
+			return returnResponse(NULL, trans('apis.delete_order') , 200);
+		}
 	}
 }
