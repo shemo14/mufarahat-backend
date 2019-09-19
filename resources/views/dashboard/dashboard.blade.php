@@ -52,7 +52,7 @@
                     <p> عدد المدن</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-building-o"></i>
                 </div>
                 <a href="{{route('cities')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
@@ -65,7 +65,7 @@
                     <p> عدد المستودعات</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-industry"></i>
                 </div>
                 <a href="{{route('warehouses')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
@@ -91,7 +91,7 @@
                     <p> عدد المنتجات</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-product-hunt"></i>
                 </div>
                 <a href="{{route('products')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
@@ -104,7 +104,7 @@
                     <p> عدد العروض</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-file-text-o"></i>
+                    <i class="fa fa-percent"></i>
                 </div>
                 <a href="{{route('offers')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
@@ -117,7 +117,7 @@
                     <p> عدد البوكسات</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-file-text-o"></i>
+                    <i class="fa fa-archive"></i>
                 </div>
                 <a href="{{route('boxs')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
@@ -130,7 +130,7 @@
                     <p> عدد انواع التغليف</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-file-text-o"></i>
+                    <i class="fa fa-gift"></i>
                 </div>
                 <a href="{{route('packaging')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
@@ -143,7 +143,7 @@
                     <p> عدد الكوبونات </p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-file-text-o"></i>
+                    <i class="fa fa-percent"></i>
                 </div>
                 <a href="{{route('coupons')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
@@ -156,7 +156,7 @@
                     <p> عدد اسئله الاستبيان</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-file-text-o"></i>
+                    <i class="fa fa-building-o"></i>
                 </div>
                 <a href="{{route('questions')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>
@@ -169,7 +169,7 @@
                     <p> عدد ا الاسئله  الشائعه </p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-file-text-o"></i>
+                    <i class="fa fa-question-circle-o"></i>
                 </div>
                 <a href="{{route('commonQus')}}" class="small-box-footer"> الذهاب <i class="fa fa-arrow-circle-left"></i></a>
             </div>

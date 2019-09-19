@@ -59,9 +59,9 @@
                         <th>الاسم</th>
                         <th>البريد</th>
                         <th>رقم الهاتف</th>
-                        <th> المدينه</th>
+                        {{-- <th> المدينه</th> --}}
                         <th>الصلاحية</th>
-                        <th>الحالة</th>
+                        {{-- <th>الحالة</th> --}}
                         <th>تاريخ التسجيل</th>
                         <th>التحكم</th>
                     </tr>
@@ -80,15 +80,15 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
-                            <td>{{ $user->city != null ? $user->city->name_ar : 'لايوجد مدينه'}}</td>
+                            {{-- <td>{{ $user->city != null ? $user->city->name_ar : 'لايوجد مدينه'}}</td> --}}
                             <td>{{$user->Role->role}}</td>
-                            <td>
+                            {{-- <td>
                                 @if($user->active == 0)
                                     <span class="label label-danger">غير نشط</span>
                                 @else
                                     <span class="label label-success">نشط</span>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>{{$user->created_at->diffForHumans()}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -100,7 +100,7 @@
                                         data-email = "{{$user->email}}"
                                         data-photo = "{{$user->avatar}}"
                                         data-role = "{{$user->role}}"
-                                        data-city_id = "{{$user->city_id}}"
+                                        {{-- data-city_id = "{{$user->city_id}}" --}}
                                     >
                                         <i class="fa fa-cogs"></i>
                                     </a>
@@ -162,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">المدينه</label>
@@ -178,7 +178,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -252,7 +252,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">المدينه</label>
@@ -268,7 +268,7 @@
                                 </div>
                             </div>
                         </div>
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -359,14 +359,14 @@
             //let photo      = $(this).data('photo');
             let phone      = $(this).data('phone');
             let email      = $(this).data('email');
-            let city_id    = $(this).data('city_id');
+            // let city_id    = $(this).data('city_id');
             // let role      = $(this).data('role');
 
             $("input[name='id']").val(id);
             $("input[name='edit_name']").val(name);
             $("input[name='edit_phone']").val(phone);
             $("input[name='edit_email']").val(email);
-            $('#'+city_id).attr('selected', true)
+            // $('#'+city_id).attr('selected', true)
             $("#username").html(name);
         });
 

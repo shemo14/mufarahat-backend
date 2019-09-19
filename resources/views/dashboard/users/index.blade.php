@@ -36,7 +36,7 @@
                         <th> المدينه</th>
                         <th> العنوان</th>
                         <th>الحالة</th>
-                        <th>التفعيل</th>
+                        {{-- <th>التفعيل</th> --}}
                         <th>التاريخ</th>
                         <th>التحكم</th>
                     </tr>
@@ -63,13 +63,13 @@
                                     <span class="label label-success">متصل</span>
                                 @endif
                             </td>
-                            <td>
+                            {{-- <td>
                                 @if($user->checked == 0)
                                     <span class="label label-danger">غير نشط</span>
                                 @else
                                     <span class="label label-success">نشط</span>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>{{$user->created_at->diffForHumans()}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -85,10 +85,10 @@
                                     >
                                         <i class="fa fa-cogs"></i>
                                     </a>
-                                    <a href="#contact" class="contact btn btn-warning" style="color: #79c842; font-weight: bold;" data-animation="sign" data-plugin="custommodal"
+                                    {{-- <a href="#contact" class="contact btn btn-warning" style="color: #79c842; font-weight: bold;" data-animation="sign" data-plugin="custommodal"
                                                data-overlaySpeed="100" data-overlayColor="#36404a"
                                                data-user_id = "{{$user->id}}"
-                                            > <i class="fa fa-comment" style="margin-left: 3px;"></i> </a>
+                                            > <i class="fa fa-comment" style="margin-left: 3px;"></i> </a> --}}
                                     <a href="#delete" class="delete btn btn-danger" data-animation="blur" data-plugin="custommodal"
                                         data-overlaySpeed="100" data-overlayColor="#36404a"
                                         data-id = "{{$user->id}}"

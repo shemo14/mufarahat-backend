@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-    Auth::loginUsingId(18);
+    Auth::loginUsingId(21);
 
     Route::get('/login', 'Admin\AuthController@loginForm')->name('loginForm');
     Route::post('/login', 'Admin\AuthController@login')->name('login');
@@ -207,6 +207,8 @@ use Illuminate\Support\Facades\Route;
                     'editdelegate',
                     'deletedelegate',
                     'deletedelegates',
+                    'delegatesUnActive',
+                    'activate',
                 ]
             ]);
 
@@ -292,12 +294,12 @@ use Illuminate\Support\Facades\Route;
                 ]);
             // ============= #users ==============
 
-            // ============= Delgates ==============
+            // ============= ActiveDelgates ==============
                 Route::get('/delegates',[
                     'uses'=>'DelegateController@index',
                     'as'=>'delegates',
                     'icon'      =>'<i class="fa fa-users"></i>',
-                    'title'    => 'المناديب',
+                    'title'    => 'المناديب المفعلين ',
                     'hasFather' =>true
                 ]);
 
@@ -328,9 +330,25 @@ use Illuminate\Support\Facades\Route;
                     'as' => 'deletedelegates',
                     'title' => 'حذف اكتر من مندوب'
                 ]);
-
             
-           // ============= #Delgates ==============
+           // ============= #ActiveDelgates ==============
+           
+           // ============= #UnActiveDelgates ==============
+                Route::get('/delegates-unactive',[
+                    'uses'=>'DelegateController@index2',
+                    'as'=>'delegatesUnActive',
+                    'icon'      =>'<i class="fa fa-users"></i>',
+                    'title'    => 'المناديب الغير مفعلين  ',
+                    'hasFather' =>true
+                ]);
+
+                // Delete Users
+                Route::post('/active-delegates', [
+                    'uses' => 'DelegateController@activate',
+                    'as' => 'activate',
+                    'title' => 'تفعيل او الغاء تفعيل مندوب'
+                ]);
+           // ============= #UnActiveDelgates ==============
             
             
         // ============= #المستخدمين ==============
