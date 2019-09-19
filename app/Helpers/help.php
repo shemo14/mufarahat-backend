@@ -79,6 +79,18 @@ function reports () {
     return $reports;
 }
 
+function orders ($order_id) {
+	$products_ids 	= \App\Models\OrderItem::where('order_id', $order_id)->distinct()->get(['product_id']);
+    $products   	= \App\Models\Product::whereIn('id', $products_ids)->get();
+    $imgs			= [];
+
+	foreach ($products as $product) {
+		$imgs[] = url('images/products') . '/' . $product->images()->first()->name;
+    }
+
+	return $imgs;
+}
+
 #Likes
 function isLiked($product_id, $user_id, $device_id){
 	if ($user_id != null){
