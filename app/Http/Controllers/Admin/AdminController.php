@@ -49,7 +49,7 @@ class AdminController extends Controller
             'password' => 'required',
             'avatar'   => 'nullable',
             'role'     => 'required',
-            'city_id'  => 'required',
+            // 'city_id'  => 'required',
         ];
 
         // Validator messages
@@ -64,7 +64,7 @@ class AdminController extends Controller
             'email.email'       => 'تحقق من صحة البريد الالكتروني',
             'password.required' => 'كلمة السر مطلوبة',
             'role.required'     => 'الصلاحية مطلوبة',
-            'city_id.required'  => 'المدينه مطلوبة',
+            // 'city_id.required'  => 'المدينه مطلوبة',
         ];
 
         // Validation
@@ -89,7 +89,8 @@ class AdminController extends Controller
             'role'     => $request['role'],
             'password' => bcrypt($request['password']),
             'avatar'   => $avatar,
-            'city_id'  => $request['city_id'],
+            'active'   => 1,
+            // 'city_id'  => $request['city_id'],
         ]);
 
         addReport(auth()->user()->id, 'باضافة مشرف جديد', $request->ip());

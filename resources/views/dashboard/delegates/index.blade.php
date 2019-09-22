@@ -32,7 +32,7 @@
 
 @extends('dashboard.index')
 @section('title')
-    المناديب
+    المناديب المفعلين 
 @endsection
 @section('content')
 
@@ -106,6 +106,12 @@
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     @endif
+                                    <a href="#active" class="active btn btn-warning" style="color: #c83338; font-weight: bold;" data-animation="blur" data-plugin="custommodal"
+                                            data-overlaySpeed="100" data-overlayColor="#36404a"
+                                            data-id = "{{$user->id}}"
+                                        >
+                                            <i class="fa fa-times"></i>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
@@ -337,6 +343,32 @@
         </form>
     </div>
 
+
+    <div id="active" class="modal-demo" style="position:relative; right: 32%">
+        <button type="button" class="close" onclick="Custombox.close();" style="opacity: 1">
+            <span>&times</span><span class="sr-only" style="color: #f7f7f7">Close</span>
+        </button>
+        <h4 class="custom-modal-title">الغاء تفعيل المندوب</h4>
+        <div class="custombox-modal-container" style="width: 400px !important; height: 160px;">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 style="margin-top: 35px">
+                        هل تريد مواصلة عملية الغاء التفعيل  ؟
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form action="{{route('activate')}}" method="post">
+                        {{csrf_field()}}
+                        <input type="hidden" name="active_id" value="">
+                        <button style="margin-top: 35px" type="submit" class="btn btn-primary btn-rounded w-md waves-effect waves-light m-b-5 send-delete-all"  style="margin-top: 19px">الغاء التفعيل </button>
+                    </form>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+
    <div id="delete" class="modal-demo" style="position:relative; right: 32%">
         <button type="button" class="close" onclick="Custombox.close();" style="opacity: 1">
             <span>&times</span><span class="sr-only" style="color: #f7f7f7">Close</span>
@@ -360,7 +392,7 @@
                 </div>
             </div>
         </div><!-- /.modal-content -->
-    </div>
+   </div>
 
     <div id="deleteAll" class="modal-demo" style="position:relative; right: 32%">
         <button type="button" class="close" onclick="Custombox.close();" style="opacity: 1">
@@ -418,6 +450,12 @@
             $("input[name='delete_id']").val(id);
 
         });
+
+        $('.active').on('click',function(){
+            let id         = $(this).data('id');
+            $("input[name='active_id']").val(id);
+        });
+
 
         $("#checkedAll").change(function(){
             if(this.checked){

@@ -20,10 +20,32 @@ class DelegateController extends Controller
 {
     public function index(User $user)
     {
-        $users = User::with('dalegateInformation')->where('role', 0)->where('type','delegate')->latest()->get();
+        $users = User::with('dalegateInformation')->where('role', 0)->where('type','delegate')->where('active',1)->latest()->get();
         $cities = City::get();
         $warehouses = Warehouse::get();
         return view('dashboard.delegates.index', compact('users','cities','warehouses'));
+    }
+
+    public function index2(User $user)
+    {
+        $users = User::with('dalegateInformation')->where('role', 0)->where('type','delegate')->where('active',0)->latest()->get();
+        $cities = City::get();
+        $warehouses = Warehouse::get();
+        return view('dashboard.delegates.index2', compact('users','cities','warehouses'));
+    }
+
+    public function activate(Request  $request)
+    {
+        // dd($request->active_id);
+        $delegate = User::findOrFail($request->active_id);
+        $delegate->active   = $delegate->active > 0 ? 0 : 1 ;
+        $message  = $delegate->active > 0 ? '' : 'الغاء';
+        $delegate->save();
+        $ip = $request->ip();
+        addReport(auth()->user()->id, $message.' تفعيل مندوب ', $ip);
+        Session::flash('success', 'تم  '.$message.' التفعيل بنجاح ');
+        return back();
+
     }
 
     public function store(Request $request)
@@ -67,7 +89,8 @@ class DelegateController extends Controller
             'city_id'           => $request['city_id'],
             'avatar'            => $avatar,
             'lat'               => $request['lat'],
-            'long'              => $request['lng'],
+            'long'              => $request['long'],
+            'active'            => 1 ,
             'type'              =>'delegate'
         ]);
 

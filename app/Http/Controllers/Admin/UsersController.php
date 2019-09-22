@@ -72,6 +72,7 @@ class UsersController extends Controller
             'city_id'   => $request['city_id'],
             'address'   => $request['address'],
             'avatar'    => $avatar,
+            'active'    => 1,
         ]);
 
         $ip = $request->ip();

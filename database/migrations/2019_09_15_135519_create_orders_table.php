@@ -41,14 +41,10 @@ class CreateOrdersTable extends Migration
             $table->integer('status')->default(0);
 
             $table->string('name');
+            $table->string('phone');
 
-
-            $table->unsignedInteger('dalegate_id');
+            $table->unsignedInteger('dalegate_id')->nullable();
             $table->foreign('dalegate_id')->references('id')->on('users')->onDelete('cascade');
-
-
-
-
 
             // $table->string('name', 100)->default('text');
             $table->timestamps();
