@@ -670,6 +670,35 @@ use Illuminate\Support\Facades\Route;
             
         // ============= #Orders ==============
 
+        // ============= transactions ==============
+            Route::get('/transactions',[
+                'uses'     =>'TransactionsController@index',
+                'as'       =>'transactions',
+                'title'    =>'الطلبات الغير مدفوعه',
+                'icon'     =>'<i class="fa fa-cart-plus"></i>',
+                'child'    => [
+                    'deletetransaction',
+                    'markedAsPay',
+                ]
+            ]);
+
+
+            // Delete User
+            Route::post('/delete-transaction', [
+                'uses' => 'TransactionsController@delete',
+                'as' => 'deletetransaction',
+                'title' => 'حذف تعامل '
+            ]);
+
+            // Delete Users
+            Route::post('/markedAsPay', [
+                'uses' => 'TransactionsController@markedAsPay',
+                'as' => 'markedAsPay',
+                'title' => 'تأكيد الدفع'
+            ]);
+            
+        // ============= #transactions ==============
+
         // ============= questions ==============
             Route::get('questions', [
                 'uses' => 'QuestionsController@index',

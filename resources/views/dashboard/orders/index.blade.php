@@ -56,7 +56,20 @@
                             <td>{{$row->price}}</td>
                             <td>{{$row->coupon != null ? $row->coupon->number : 'لايوجد'}}</td>
                             <td>{{$row->packaging->name_ar}}</td> 
-                            <td>{{$row->payment_type}}</td> 
+                            <td>
+                                @if ($row->payment_type == 0)
+                                    فيزا
+                                @endif
+                                @if ($row->payment_type == 1)
+                                    مدي
+                                @endif
+                                @if ($row->payment_type == 2)
+                                    دفع عند الاستلام
+                                @endif
+                                @if ($row->payment_type == 3)
+                                    Apple Pay
+                                @endif
+                            </td> 
                             <td>{{$row->dalegate != null ?  $row->dalegate->name  : 'لايوجد'}}</td> 
                             <td>{{$row->created_at->diffForHumans()}}</td>
                         
@@ -218,13 +231,8 @@
 @endsection
 
 @section('script')
-
-
     <script>
-
-
 		$('.edit').on('click',function() {
-
 			let user               = $(this).data('user');
 			let coupon             = $(this).data('coupon');
 			let packaging          = $(this).data('packaging');
@@ -234,7 +242,6 @@
 			let notes              = $(this).data('notes');
 			let name               = $(this).data('name');
 			let phone              = $(this).data('phone');
-
             
             $('#user').val(user);
             $('#coupon').val(coupon);
