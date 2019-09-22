@@ -112,7 +112,7 @@ class OrderController extends Controller
 				'desc' 			=> $item->product->desc,
 				'quantity' 		=> $item->quantity,
 				'price' 		=> $item->price . ' ' . trans('apis.rs'),
-				'image' 		=> url('images/product') . '/' . $item->product->images()->first()->name,
+				'url' 			=> url('images/products') . '/' . $item->product->images()->first()->name,
 				'category' 		=> $item->product->category->name,
 				'package_price' => isset($order->packaging->price) ? $order->packaging->price . ' ' . trans('apis.rs') : null,
 				'package_name'  =>  isset($order->packaging->name) ? $order->packaging->name : NULL,
@@ -135,7 +135,7 @@ class OrderController extends Controller
 				'user_id' => $order->user_id,
 				'name'    => $user->name,
 				'phone'   => $user->phone,
-				'avatar'  => url('images/user') . '/' .  $user->avatar,
+				'avatar'  => url('images/users') . '/' .  $user->avatar,
 			]
 		];
 
