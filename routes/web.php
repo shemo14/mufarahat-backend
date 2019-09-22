@@ -342,7 +342,7 @@ use Illuminate\Support\Facades\Route;
                     'hasFather' =>true
                 ]);
 
-                // Delete Users
+                // 
                 Route::post('/active-delegates', [
                     'uses' => 'DelegateController@activate',
                     'as' => 'activate',
@@ -611,6 +611,64 @@ use Illuminate\Support\Facades\Route;
                 'title' => 'حذف اكثر من كوبون'
             ]);
         // ============= #Coupons ==============
+
+        // ============= Orders ==============
+            Route::get('/all-orders2',[
+                'uses'     =>'UsersController@index',
+                'as'       =>'orders2',
+                'title'    =>'الطلبات ',
+                'subTitle' =>'المنفذه ',
+                'subIcon'  =>'<i class="glyphicon glyphicon-film"></i>',
+                'icon'     =>'<i class="fa fa-cart-plus"></i>',
+                'child'    => [
+                    'newOrders',
+                    'currentOrders',
+                    'endedOrders',
+                    'deleteOrder',
+                    'deleteOrders',
+                ]
+            ]);
+
+            Route::get('/orders/0',[
+                'uses'      =>'OrdersController@index',
+                'as'        =>'newOrders',
+                'icon'      =>'<i class="fa fa-users"></i>',
+                'title'     => 'طلبات جديده',
+                'hasFather' =>true
+            ]);
+
+            Route::get('/orders/1',[
+                'uses'      =>'OrdersController@index',
+                'as'        =>'currentOrders',
+                'icon'      =>'<i class="fa fa-users"></i>',
+                'title'     => 'طلبات قيد التنفيذ',
+                'hasFather' =>true
+            ]);
+
+            Route::get('/orders/2',[
+                'uses'      =>'OrdersController@index',
+                'as'        =>'endedOrders',
+                'icon'      =>'<i class="fa fa-users"></i>',
+                'title'     => 'طلبات منفذه ',
+                'hasFather' =>true
+            ]);
+
+
+            // Delete User
+            Route::post('/delete-order', [
+                'uses' => 'OrdersController@delete',
+                'as' => 'deleteOrder',
+                'title' => 'حذف طلب '
+            ]);
+
+            // Delete Users
+            Route::post('/delete-orders', [
+                'uses' => 'OrdersController@deleteAll',
+                'as' => 'deleteOrders',
+                'title' => 'حذف اكتر من طلب'
+            ]);
+            
+        // ============= #Orders ==============
 
         // ============= questions ==============
             Route::get('questions', [

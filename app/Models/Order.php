@@ -43,6 +43,11 @@ class Order extends Model
         return $this->belongsTo('App\Models\PercentageUser', 'user_id', 'id');
     }
 
+    public function city()
+    {
+        return $this->belongsTo('App\Models\City', 'city_id', 'id');
+    }
+
     
 
 }
