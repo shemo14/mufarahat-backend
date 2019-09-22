@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Cart;
 use App\Models\OrderItem;
+use App\User;
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
@@ -35,7 +37,6 @@ class OrderController extends Controller
 		$order->long 			= $request->long;
 		$order->payment_type 	= $request->payment_type;
 		$order->name 			= Auth::user()->name;
-		$order->dalegate_id 	= 1;
 		$order->packaging_id 	= $request->packaging_id;
 
 		if ($order->save()){
@@ -63,7 +64,12 @@ class OrderController extends Controller
 			return returnResponse(null, validateRequest($validator), 400);
 		}
 
-		$orders 	= Order::where([ 'user_id' => Auth::user()->id, 'status' => $request->type ])->get();
+		if (Auth::user()->type == 'user')
+			$orders 	= Order::where([ 'user_id' => Auth::user()->id, 'status' => $request->type ])->get();
+		else
+			$orders 	= Order::where([ 'city_id' => Auth::user()->city_id , 'status' => 0 ])->get();
+
+
 		$all_orders = [];
 
 		foreach ($orders as $order) {
@@ -78,10 +84,62 @@ class OrderController extends Controller
 		return returnResponse($all_orders, '', 200);
 	}
 
+	public function order_details(Request $request){
+		$rules = [
+			'order_id'  => 'required',
+		];
+
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		$order 			= Order::find($request->order_id);
+		$order_items 	= OrderItem::where('order_id', $order->id)->get();
+		$all_items		= [];
+
+		foreach ($order_items as $item) {
+			$all_items[] = [
+				'id' 			=> $item->id,
+				'name' 			=> $item->product->name,
+				'desc' 			=> $item->product->desc,
+				'quantity' 		=> $item->quantity,
+				'order_price' 	=> $item->price . ' ' . trans('apis.rs'),
+				'image' 		=> url('images/product') . '/' . $item->product->images()->first()->name,
+				'shaping_price' => $order->city->shipping . ' ' . trans('apis.rs'),
+				'total_price' 	=> $order->price + $order->city->shipping . ' ' . trans('apis.rs'),
+				'category' 		=> $item->product->category->name,
+				'package_price' => isset($order->packaging->price) ? $order->packaging->price . ' ' . trans('apis.rs') : null,
+			];
+		}
+
+		$user = User::find($order->user_id);
+
+		$order_details = [
+			'order_id' => $order->id,
+			'status'   => $order->status,
+			'items'    => $all_items,
+			'location' => [
+				'lat'  		=> $order->lat,
+				'long' 		=> $order->long,
+			],
+			'user'	   => [
+				'user_id' => $order->user_id,
+				'name'    => $user->name,
+				'phone'   => $user->phone,
+				'avatar'  => url('images/user') . '/' .  $user->avatar,
+			]
+		];
+
+		return returnResponse($order_details, '', 200);
+	}
+
 	public function deleted_order(Request $request){
 		$rules = [
 			'order_id'  => 'required'
 		];
+
 		$validator  = validator($request->all(), $rules);
 
 		if ($validator->fails()) {

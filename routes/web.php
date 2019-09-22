@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-    Auth::loginUsingId(21);
+    Auth::loginUsingId(1);
 
     Route::get('/login', 'Admin\AuthController@loginForm')->name('loginForm');
     Route::post('/login', 'Admin\AuthController@login')->name('login');
