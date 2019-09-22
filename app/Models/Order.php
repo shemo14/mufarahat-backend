@@ -20,7 +20,7 @@ class Order extends Model
 
     public function packaging()
     {
-        return $this->belongsTo('App\Models\Packaging', 'packaging_id', 'id');
+        return $this->belongsTo('App\Models\Packaging', 'packaging_id', 'id')->select('name_' . lang() . ' as name', 'id', 'price');
     }
 
     public function coupon()

@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cc42629-ff91-46e8-a802-4f01731dc36a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrdersController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/products/5d836efd078ac-1568894717-g5Omn5qVB1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/products/5d836efd1ed2f-1568894717-nPHlSwwzl1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/products/5d836efd709e2-1568894717-xYwqUf3PXh.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/products/5d836f13489c7-1568894739-cCi6tgwruX.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/delegates/index2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/orders/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DelegateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DelegateController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/OrderItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OrderItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_15_135519_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_15_135519_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/users/1563444953_33614.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/users/5d74e614bcc2e-1567942164-MLwdoJP18K.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/users/5d75022e9d330-1567949358-mdi0ncqMMM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/users/5d7505690f9e9-1567950185-XvpFNcOoIq.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/users/cars/5d75022e9ec92-1567949358-hshLnSPRRC.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/users/cars/5d7505697769c-1567950185-ZWbPewq0aQ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/users/licenses/5d75022ea0a7f-1567949358-xVoAM06G8Q.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/users/licenses/5d75056978b52-1567950185-qncfd900ZV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/admins/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/admins/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/delegates/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/delegates/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/76/e7/76e7c0fdd0cc0d46502f9d381b947cdf6aa69891" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/76/e7/76e7c0fdd0cc0d46502f9d381b947cdf6aa69891" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/9c/1c/9c1c01dc3ac1445a500251fc34a15d3e75a849df" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/9c/1c/9c1c01dc3ac1445a500251fc34a15d3e75a849df" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="112" column="126" selection-start-line="112" selection-start-column="126" selection-end-line="112" selection-end-column="126" />
+            <state relative-caret-position="-653">
+              <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
               <folding>
                 <element signature="e#44#64#0#PHP" expanded="true" />
               </folding>
@@ -342,7 +311,7 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -485,12 +454,12 @@
       <workItem from="1568465350610" duration="89000" />
       <workItem from="1568531892575" duration="11176000" />
       <workItem from="1568619964628" duration="31232000" />
-      <workItem from="1569145450384" duration="3745000" />
+      <workItem from="1569145450384" duration="5261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57103000" />
+    <option name="totallyTimeSpent" value="58619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -815,8 +784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="112" column="126" selection-start-line="112" selection-start-column="126" selection-end-line="112" selection-end-column="126" />
+        <state relative-caret-position="-653">
+          <caret line="47" column="28" lean-forward="true" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
           <folding>
             <element signature="e#44#64#0#PHP" expanded="true" />
           </folding>

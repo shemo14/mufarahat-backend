@@ -16,6 +16,12 @@ class OrderController extends Controller
     public function set_order(Request $request){
 		$rules = [
 			'cart_items'  	=> 'required',
+			'lat'  			=> 'required',
+			'long'  		=> 'required',
+			'address'  		=> 'required',
+			'payment_type'  => 'required',
+			'price'  		=> 'required',
+			'city_id'  		=> 'required',
 		];
 
 		$validator  = validator($request->all(), $rules);
@@ -105,21 +111,22 @@ class OrderController extends Controller
 				'name' 			=> $item->product->name,
 				'desc' 			=> $item->product->desc,
 				'quantity' 		=> $item->quantity,
-				'order_price' 	=> $item->price . ' ' . trans('apis.rs'),
+				'price' 		=> $item->price . ' ' . trans('apis.rs'),
 				'image' 		=> url('images/product') . '/' . $item->product->images()->first()->name,
-				'shaping_price' => $order->city->shipping . ' ' . trans('apis.rs'),
-				'total_price' 	=> $order->price + $order->city->shipping . ' ' . trans('apis.rs'),
 				'category' 		=> $item->product->category->name,
 				'package_price' => isset($order->packaging->price) ? $order->packaging->price . ' ' . trans('apis.rs') : null,
+				'package_name'  =>  isset($order->packaging->name) ? $order->packaging->name : NULL,
 			];
 		}
 
 		$user = User::find($order->user_id);
 
 		$order_details = [
-			'order_id' => $order->id,
-			'status'   => $order->status,
-			'items'    => $all_items,
+			'order_id' 		=> $order->id,
+			'status'   		=> $order->status,
+			'shaping_price' => $order->city->shipping . ' ' . trans('apis.rs'),
+			'total'    		=> $order->price + $order->city->shipping . ' ' . trans('apis.rs'),
+			'items'    		=> $all_items,
 			'location' => [
 				'lat'  		=> $order->lat,
 				'long' 		=> $order->long,
