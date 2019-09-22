@@ -82,6 +82,7 @@ class OrderController extends Controller
 		$rules = [
 			'order_id'  => 'required'
 		];
+
 		$validator  = validator($request->all(), $rules);
 
 		if ($validator->fails()) {
