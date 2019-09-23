@@ -41,8 +41,9 @@ class OrderController extends Controller
 		$order->notes 			= $request->notes;
 		$order->lat 			= $request->lat;
 		$order->long 			= $request->long;
+		$order->address 		= $request->address;
 		$order->payment_type 	= $request->payment_type;
-		$order->name 			= Auth::user()->name;
+		$order->name 			= isset($request->name) ? $request->name : Auth::user()->name;
 		$order->packaging_id 	= $request->packaging_id;
 
 		if ($order->save()){
@@ -115,7 +116,7 @@ class OrderController extends Controller
 				'url' 			=> url('images/products') . '/' . $item->product->images()->first()->name,
 				'category' 		=> $item->product->category->name,
 				'package_price' => isset($order->packaging->price) ? $order->packaging->price . ' ' . trans('apis.rs') : null,
-				'package_name'  =>  isset($order->packaging->name) ? $order->packaging->name : NULL,
+				'package_name'  => isset($order->packaging->name) ? $order->packaging->name : NULL,
 			];
 		}
 
@@ -130,6 +131,7 @@ class OrderController extends Controller
 			'location' => [
 				'lat'  		=> $order->lat,
 				'long' 		=> $order->long,
+				'address' 	=> $order->address,
 			],
 			'user'	   => [
 				'user_id' => $order->user_id,
