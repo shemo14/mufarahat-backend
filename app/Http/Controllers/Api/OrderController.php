@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Cart;
 use App\Models\OrderItem;
+use App\Models\Transaction;
 use App\User;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Http\Request;
@@ -59,6 +60,22 @@ class OrderController extends Controller
 			Cart::whereIn('id', $cart_ids)->delete();
 			return returnResponse(NULL, trans('apis.set_order') , 200);
 		}
+	}
+
+	public function financial_accounts(){
+		$user_id 		= Auth::user()->id;
+		$accounts 		= Transaction::where(['dalegate_id' => $user_id, 'status' => 0])->get();
+		$all_accounts  	= [];
+
+		foreach ($accounts as $account) {
+			$all_accounts[] = [
+				'id' 		=> $account->id,
+				'order_id' 	=> $account->order_id,
+				'price'     => $account->order->price . ' ' . trans('apis.rs'),
+			];
+		}
+
+		return returnResponse($all_accounts, '', 200);
 	}
 
 	public function my_orders(Request $request){
@@ -188,6 +205,12 @@ class OrderController extends Controller
 		$order 			= Order::find($request->order_id);
 		$order->status 	= 2;
 		if ($order->save()){
+			if ($order->payment_type == 2){
+				$transaction 		   		= new Transaction();
+				$transaction->order_id 		= $order->id;
+				$transaction->dalegate_id 	= $order->dalegate_id;
+				$transaction->save();
+			}
 			return returnResponse(NULL, trans('apis.finish_order') , 200);
 		}
 	}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\City;
 use App\Models\Packaging;
+use App\Models\Suggestion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Social;
@@ -11,6 +12,7 @@ use App\Models\ContactUs;
 use App\Models\Intro;
 use Illuminate\Support\Facades\App;
 use App\Helpers\UploadFile;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use Carbon\Carbon;
 use App\Models\Images;
@@ -156,5 +158,16 @@ class AppController extends Controller
 		}
 
 		return returnResponse($packages_all, '', 200);
+	}
+
+	public function suggestions(Request $request){
+		$suggestions 			= new Suggestion();
+		$suggestions->user_id 	= Auth::user()->id;
+		$suggestions->title 	= $request->title;
+		$suggestions->content 	= $request->msg;
+
+		if ($suggestions->save()){
+			return returnResponse(NULL, trans('apis.order_report'), 200);
+		}
 	}
 }
