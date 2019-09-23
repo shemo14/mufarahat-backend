@@ -19,7 +19,11 @@ class CreateUserTokensTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
+<<<<<<< HEAD
             $table->longText('token');
+=======
+            $table->Text('token');
+>>>>>>> a472ad724837797bcdc96e7265f0f6af7a3a7b8c
 
             $table->timestamps();
         });

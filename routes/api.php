@@ -29,9 +29,6 @@ Route::group(['middleware' => 'localization'], function (){
 	// contact us details
 	Route::post('app_info'    		 		, 'Api\AppController@app_info');
 
-	// send report
-	Route::post('send_report'    	 		, 'Api\AppController@send_report');
-
 	// categories
 	Route::post('categories'         		, 'Api\CategoriesController@categories');
 
@@ -88,6 +85,15 @@ Route::group(['middleware' => 'localization'], function (){
 		Route::post('order_details'  	 	    , 'Api\OrderController@order_details');
 		Route::post('accept_order'  	 	    , 'Api\OrderController@accept_order');
 		Route::post('finish_order'  	 	    , 'Api\OrderController@finish_order');
+		Route::post('financial_accounts'	  	, 'Api\OrderController@financial_accounts');
+
+		// Reports
+		Route::post('reports_reasons'  	 	    , 'Api\ReportsController@reports_reasons');
+		Route::post('set_report'	  	 	    , 'Api\ReportsController@set_report');
+
+		// suggestions
+		Route::post('suggestions'    	 		, 'Api\AppController@suggestions');
+
 
 		// Notifications
 		Route::post('notifications'          , 'Api\NotifyController@notifications');
