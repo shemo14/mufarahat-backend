@@ -15,12 +15,12 @@ class Order extends Model
 
     public function dalegate()
     {
-        return $this->belongsTo('App\User', 'dalegate_id', 'id');
+        return $this->hasOne('App\User', 'id', 'dalegate_id');
     }
 
     public function packaging()
     {
-        return $this->belongsTo('App\Models\Packaging', 'packaging_id', 'id');
+        return $this->belongsTo('App\Models\Packaging', 'packaging_id', 'id')->select('name_' . lang() . ' as name', 'id', 'price');
     }
 
     public function coupon()

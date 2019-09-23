@@ -16,6 +16,12 @@ class OrderController extends Controller
     public function set_order(Request $request){
 		$rules = [
 			'cart_items'  	=> 'required',
+			'lat'  			=> 'required',
+			'long'  		=> 'required',
+			'address'  		=> 'required',
+			'payment_type'  => 'required',
+			'price'  		=> 'required',
+			'city_id'  		=> 'required',
 		];
 
 		$validator  = validator($request->all(), $rules);
@@ -35,8 +41,9 @@ class OrderController extends Controller
 		$order->notes 			= $request->notes;
 		$order->lat 			= $request->lat;
 		$order->long 			= $request->long;
+		$order->address 		= $request->address;
 		$order->payment_type 	= $request->payment_type;
-		$order->name 			= Auth::user()->name;
+		$order->name 			= isset($request->name) ? $request->name : Auth::user()->name;
 		$order->packaging_id 	= $request->packaging_id;
 
 		if ($order->save()){
@@ -105,34 +112,84 @@ class OrderController extends Controller
 				'name' 			=> $item->product->name,
 				'desc' 			=> $item->product->desc,
 				'quantity' 		=> $item->quantity,
-				'order_price' 	=> $item->price . ' ' . trans('apis.rs'),
-				'image' 		=> url('images/product') . '/' . $item->product->images()->first()->name,
-				'shaping_price' => $order->city->shipping . ' ' . trans('apis.rs'),
-				'total_price' 	=> $order->price + $order->city->shipping . ' ' . trans('apis.rs'),
+				'price' 		=> $item->price . ' ' . trans('apis.rs'),
+				'url' 			=> url('images/products') . '/' . $item->product->images()->first()->name,
 				'category' 		=> $item->product->category->name,
 				'package_price' => isset($order->packaging->price) ? $order->packaging->price . ' ' . trans('apis.rs') : null,
+				'package_name'  => isset($order->packaging->name) ? $order->packaging->name : NULL,
 			];
 		}
 
 		$user = User::find($order->user_id);
 
+		$delegated_data = [];
+
+		if ($order->dalegate_id){
+			$delegated_data = [
+				'user_id' => $order->dalegate_id,
+				'name'    => $order->dalegate->name,
+				'phone'   => $order->dalegate->phone,
+				'avatar'  => url('images/users') . '/' .  $order->dalegate->avatar,
+			];
+		}
+
 		$order_details = [
-			'order_id' => $order->id,
-			'status'   => $order->status,
-			'items'    => $all_items,
+			'order_id' 		=> $order->id,
+			'status'   		=> $order->status,
+			'shaping_price' => $order->city->shipping . ' ' . trans('apis.rs'),
+			'total'    		=> $order->price + $order->city->shipping . ' ' . trans('apis.rs'),
+			'items'    		=> $all_items,
 			'location' => [
 				'lat'  		=> $order->lat,
 				'long' 		=> $order->long,
+				'address' 	=> $order->address,
 			],
 			'user'	   => [
 				'user_id' => $order->user_id,
 				'name'    => $user->name,
 				'phone'   => $user->phone,
-				'avatar'  => url('images/user') . '/' .  $user->avatar,
-			]
+				'avatar'  => url('images/users') . '/' .  $user->avatar,
+			],
+			'delegated'	  => $delegated_data
 		];
 
 		return returnResponse($order_details, '', 200);
+	}
+
+	public function accept_order(Request $request){
+		$rules = [
+			'order_id'  => 'required'
+		];
+
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		$order 			= Order::find($request->order_id);
+		$order->status 	= 1;
+		if ($order->save()){
+			return returnResponse(NULL, trans('apis.accept_order') , 200);
+		}
+	}
+
+	public function finish_order(Request $request){
+		$rules = [
+			'order_id'  => 'required'
+		];
+
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		$order 			= Order::find($request->order_id);
+		$order->status 	= 2;
+		if ($order->save()){
+			return returnResponse(NULL, trans('apis.finish_order') , 200);
+		}
 	}
 
 	public function deleted_order(Request $request){
