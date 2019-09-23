@@ -170,7 +170,25 @@ class OrderController extends Controller
 		$order 			= Order::find($request->order_id);
 		$order->status 	= 1;
 		if ($order->save()){
-			return returnResponse(NULL, trans('apis.delete_order') , 200);
+			return returnResponse(NULL, trans('apis.accept_order') , 200);
+		}
+	}
+
+	public function finish_order(Request $request){
+		$rules = [
+			'order_id'  => 'required'
+		];
+
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		$order 			= Order::find($request->order_id);
+		$order->status 	= 2;
+		if ($order->save()){
+			return returnResponse(NULL, trans('apis.finish_order') , 200);
 		}
 	}
 

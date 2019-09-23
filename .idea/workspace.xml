@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cc42629-ff91-46e8-a802-4f01731dc36a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/apis.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/apis.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/apis.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/apis.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/76/e7/76e7c0fdd0cc0d46502f9d381b947cdf6aa69891" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/76/e7/76e7c0fdd0cc0d46502f9d381b947cdf6aa69891" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/9c/1c/9c1c01dc3ac1445a500251fc34a15d3e75a849df" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/9c/1c/9c1c01dc3ac1445a500251fc34a15d3e75a849df" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="88" column="86" selection-start-line="88" selection-start-column="86" selection-end-line="88" selection-end-column="86" />
+            <state relative-caret-position="547">
+              <caret line="89" column="83" selection-start-line="89" selection-start-column="71" selection-end-line="89" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -34,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+            <state relative-caret-position="490">
+              <caret line="172" column="64" selection-start-line="172" selection-start-column="64" selection-end-line="172" selection-end-column="64" />
               <folding>
                 <element signature="e#44#64#0#PHP" expanded="true" />
               </folding>
@@ -46,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/lang/en/apis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
+            <state relative-caret-position="630">
+              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -70,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/lang/ar/apis.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="48" />
+            <state relative-caret-position="615">
+              <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -88,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+            <state relative-caret-position="218">
+              <caret line="15" column="28" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -184,16 +182,16 @@
         <option value="&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/mufarahat-backend/app/Http/Controllers/Api/OrderController.php" />
         <option value="&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/mufarahat-backend/app/Http/Controllers/Api/AppController.php" />
         <option value="$PROJECT_DIR$/app/Helpers/help.php" />
-        <option value="$PROJECT_DIR$/resources/lang/ar/apis.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="&lt;e3ebfadc-d17e-4cb7-80e5-b40ad61589f3&gt;/mufarahat-backend/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/OrderItem.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_09_15_135519_create_orders_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_09_23_065803_create_notifications_table.php" />
-        <option value="$PROJECT_DIR$/resources/lang/en/apis.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" />
         <option value="$PROJECT_DIR$/app/Models/Order.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/resources/lang/en/apis.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php" />
+        <option value="$PROJECT_DIR$/resources/lang/ar/apis.php" />
       </list>
     </option>
   </component>
@@ -467,12 +465,12 @@
       <workItem from="1569145450384" duration="5261000" />
       <workItem from="1569161513301" duration="694000" />
       <workItem from="1569221210837" duration="1160000" />
-      <workItem from="1569222850280" duration="881000" />
+      <workItem from="1569222850280" duration="1737000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61354000" />
+    <option name="totallyTimeSpent" value="62210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -750,13 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/ar/apis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/OrderItem.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -771,13 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/apis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/CartController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -788,27 +772,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="88" column="86" selection-start-line="88" selection-start-column="86" selection-end-line="88" selection-end-column="86" />
+        <state relative-caret-position="547">
+          <caret line="89" column="83" selection-start-line="89" selection-start-column="71" selection-end-line="89" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/apis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="127" column="32" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
+        <state relative-caret-position="490">
+          <caret line="172" column="64" selection-start-line="172" selection-start-column="64" selection-end-line="172" selection-end-column="64" />
           <folding>
             <element signature="e#44#64#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Order.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/ar/apis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
+        <state relative-caret-position="615">
+          <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
         </state>
       </provider>
     </entry>
