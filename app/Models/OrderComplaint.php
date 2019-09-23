@@ -18,5 +18,14 @@ class OrderComplaint extends Model
         return $this->belongsTo('App\Models\Order', 'order_id', 'id');
     }
 
+    public function complaint()
+    {
+        return $this->belongsTo('App\Models\ComplaintReason', 'complaint_id', 'id');
+    }
+
+
+
+    
+
 
 }

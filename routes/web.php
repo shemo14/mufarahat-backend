@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-    Auth::loginUsingId(1);
+    Auth::loginUsingId(21);
 
     Route::get('/login', 'Admin\AuthController@loginForm')->name('loginForm');
     Route::post('/login', 'Admin\AuthController@login')->name('login');
@@ -698,6 +698,94 @@ use Illuminate\Support\Facades\Route;
             ]);
             
         // ============= #transactions ==============
+
+        // ============= Suggestions ==============
+            Route::get('/Suggestions',[
+                'uses'     =>'SuggestionsController@index',
+                'as'       =>'Suggestions',
+                'title'    =>'شكاوي ومقترحات',
+                'icon'     =>'<i class="fa fa-book"></i>',
+                'child'    => [
+                    'deletesuggestion',
+                    'deletesuggestions',
+                ]
+            ]);
+
+
+            // Delete User
+            Route::post('/delete-suggestion', [
+                'uses' => 'SuggestionsController@delete',
+                'as' => 'deletesuggestion',
+                'title' => 'حذف شكوي او اقتراح'
+            ]);
+
+            // Delete User
+            Route::post('/delete-suggestions', [
+                'uses' => 'SuggestionsController@deleteAll',
+                'as' => 'deletesuggestions',
+                'title' => 'حذف اكتر من شكوي او اقتراح'
+            ]);
+            
+        // ============= #Suggestions ==============
+
+        // ============= Complaint Reason==============
+            Route::get('/reasons',[
+                'uses'     =>'ReasonsController@index',
+                'as'       =>'reasons',
+                'title'    =>'اسباب الابلاغات',
+                'icon'     =>'<i class="fa fa-pencil-square-o"></i>',
+                'child'    => [
+                    'addreason',
+                    'updatereason',
+                    'deletereason',
+                    'deletereasons',
+                ]
+            ]);
+            Route::post('/add-reason', [
+                'uses' => 'ReasonsController@store',
+                'as' => 'addreason',
+                'title' => 'اضافه سبب'
+            ]);
+            Route::post('/update-reason', [
+                'uses' => 'ReasonsController@update',
+                'as' => 'updatereason',
+                'title' => 'تعديل سبب'
+            ]);
+            Route::post('/delete-reason', [
+                'uses' => 'ReasonsController@delete',
+                'as' => 'deletereason',
+                'title' => 'حذف سبب للابلاغات'
+            ]);
+            Route::post('/delete-reasons', [
+                'uses' => 'ReasonsController@deleteAll',
+                'as' => 'deletereasons',
+                'title' => 'حذف اكتر من سبب'
+            ]);
+        // ============= #Complaint Reasons ==============
+
+        // ============= Complaints==============
+            Route::get('/complaints',[
+                'uses'     =>'ComplaintsController@index',
+                'as'       =>'complaints',
+                'title'    =>'ابلاغات الطلبات',
+                'icon'     =>'<i class="fa fa-bullhorn"></i>',
+                'child'    => [
+                    'deletecomplaint',
+                    'deletecomplaints',
+                ]
+            ]);
+            
+            Route::post('/delete-complaint', [
+                'uses' => 'ComplaintsController@delete',
+                'as' => 'deletecomplaint',
+                'title' => 'حذف بلاغ '
+            ]);
+            Route::post('/delete-complaints', [
+                'uses' => 'ComplaintsController@deleteAll',
+                'as' => 'deletecomplaints',
+                'title' => 'حذف اكتر من بلاغ'
+            ]);
+        // ============= #Complaints ==============
 
         // ============= questions ==============
             Route::get('questions', [
