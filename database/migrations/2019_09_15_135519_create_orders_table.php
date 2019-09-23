@@ -42,6 +42,7 @@ class CreateOrdersTable extends Migration
 
             $table->string('name');
             $table->string('phone');
+            $table->string('address');
 
             $table->unsignedInteger('dalegate_id')->nullable();
             $table->foreign('dalegate_id')->references('id')->on('users')->onDelete('cascade');
