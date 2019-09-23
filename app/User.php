@@ -80,5 +80,19 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany('App\Models\PercentageUser', 'user_id', 'id');
     }
 
+    public function Suggestions()
+    {
+        return $this->hasMany('App\Models\Suggestion', 'user_id', 'id');
+    }
+
+    public function complaints()
+    {
+        return $this->hasMany('App\Models\OrderComplaint', 'user_id', 'id');
+    }
+    public function tokens()
+    {
+        return $this->hasMany('App\Models\UserToken', 'user_id', 'id');
+    }
+
 
 }
