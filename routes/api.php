@@ -89,6 +89,10 @@ Route::group(['middleware' => 'localization'], function (){
 		Route::post('accept_order'  	 	    , 'Api\OrderController@accept_order');
 		Route::post('finish_order'  	 	    , 'Api\OrderController@finish_order');
 
+		// Reports
+		Route::post('reports_reasons'  	 	    , 'Api\ReportsController@reports_reasons');
+		Route::post('set_report'	  	 	    , 'Api\ReportsController@set_report');
+
 		// Notifications
 		Route::post('notifications'          , 'Api\NotifyController@notifications');
 		Route::post('notification_status'    , 'Api\NotifyController@notification_status');

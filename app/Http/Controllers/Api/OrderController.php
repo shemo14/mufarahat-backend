@@ -74,7 +74,7 @@ class OrderController extends Controller
 		if (Auth::user()->type == 'user')
 			$orders 	= Order::where([ 'user_id' => Auth::user()->id, 'status' => $request->type ])->get();
 		else
-			$orders 	= Order::where([ 'city_id' => Auth::user()->city_id , 'status' => 0 ])->get();
+			$orders 	= Order::where([ 'city_id' => Auth::user()->city_id , 'status' => $request->type ])->get();
 
 
 		$all_orders = [];
