@@ -51,15 +51,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Product.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="27" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/City.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -465,12 +456,12 @@
       <workItem from="1569145450384" duration="5261000" />
       <workItem from="1569161513301" duration="694000" />
       <workItem from="1569221210837" duration="1160000" />
-      <workItem from="1569222850280" duration="1737000" />
+      <workItem from="1569222850280" duration="1979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62210000" />
+    <option name="totallyTimeSpent" value="62452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -801,6 +792,11 @@
             <element signature="e#44#64#0#PHP" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/ar/apis.php">
