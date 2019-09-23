@@ -122,6 +122,17 @@ class OrderController extends Controller
 
 		$user = User::find($order->user_id);
 
+		$delegated_data = [];
+
+		if ($order->dalegate_id){
+			$delegated_data = [
+				'user_id' => $order->dalegate_id,
+				'name'    => $order->dalegate->name,
+				'phone'   => $order->dalegate->phone,
+				'avatar'  => url('images/users') . '/' .  $order->dalegate->avatar,
+			];
+		}
+
 		$order_details = [
 			'order_id' 		=> $order->id,
 			'status'   		=> $order->status,
@@ -138,10 +149,29 @@ class OrderController extends Controller
 				'name'    => $user->name,
 				'phone'   => $user->phone,
 				'avatar'  => url('images/users') . '/' .  $user->avatar,
-			]
+			],
+			'delegated'	  => $delegated_data
 		];
 
 		return returnResponse($order_details, '', 200);
+	}
+
+	public function accept_order(Request $request){
+		$rules = [
+			'order_id'  => 'required'
+		];
+
+		$validator  = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+		$order 			= Order::find($request->order_id);
+		$order->status 	= 1;
+		if ($order->save()){
+			return returnResponse(NULL, trans('apis.delete_order') , 200);
+		}
 	}
 
 	public function deleted_order(Request $request){

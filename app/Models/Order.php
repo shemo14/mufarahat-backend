@@ -15,7 +15,7 @@ class Order extends Model
 
     public function dalegate()
     {
-        return $this->belongsTo('App\User', 'dalegate_id', 'id');
+        return $this->hasOne('App\User', 'id', 'dalegate_id');
     }
 
     public function packaging()
