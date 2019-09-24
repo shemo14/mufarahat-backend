@@ -626,6 +626,7 @@ use Illuminate\Support\Facades\Route;
                     'endedOrders',
                     'deleteOrder',
                     'deleteOrders',
+                    'showinvoice',
                 ]
             ]);
 
@@ -666,6 +667,12 @@ use Illuminate\Support\Facades\Route;
                 'uses' => 'OrdersController@deleteAll',
                 'as' => 'deleteOrders',
                 'title' => 'حذف اكتر من طلب'
+            ]);
+
+            Route::get('/showinvoice/{id}', [
+                'uses' => 'OrdersController@invoice',
+                'as' => 'showinvoice',
+                'title' => 'عرض الفاتوره'
             ]);
             
         // ============= #Orders ==============

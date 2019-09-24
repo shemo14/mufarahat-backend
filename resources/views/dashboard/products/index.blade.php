@@ -59,7 +59,7 @@
                                    <span class="label label-danger">{{$row->discount}} %</span>
                                 @endif
                             </td>
-                            <td>{{$row->quantity}}</td>
+                            <td>{!! $row->quantity == 0 ? '<span class="label label-danger">غير متاح</span>' : $row->quantity !!}</td>
                             <td>{{$row->created_at->diffForHumans()}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">

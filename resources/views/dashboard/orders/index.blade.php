@@ -39,6 +39,7 @@
                         <th>نوع التغليف </th>
                         <th>طريقه الدفع</th>
                         <th>المندوب</th>
+                        <th>عرض الفاتوره</th>
                         <th>التاريخ</th>
                         <th>التحكم</th>
                     </tr>
@@ -55,7 +56,7 @@
                             <td>{{$row->user->name}}</td>
                             <td>{{$row->price}}</td>
                             <td>{{$row->coupon != null ? $row->coupon->number : 'لايوجد'}}</td>
-                            <td>{{$row->packaging->name_ar}}</td> 
+                            <td>{{$row->packaging->name}}</td> 
                             <td>
                                 @if ($row->payment_type == 0)
                                     فيزا
@@ -71,6 +72,7 @@
                                 @endif
                             </td> 
                             <td>{{$row->dalegate != null ?  $row->dalegate->name  : 'لايوجد'}}</td> 
+                            <td><a href="{{ route('showinvoice', $row->id) }}"> عرض الفاتوره</a></td>
                             <td>{{$row->created_at->diffForHumans()}}</td>
                         
                             <td>
