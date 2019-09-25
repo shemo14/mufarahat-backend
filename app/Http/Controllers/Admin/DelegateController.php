@@ -38,7 +38,7 @@ class DelegateController extends Controller
     public function activate(Request  $request)
     {
         $delegate = User::findOrFail($request->active_id);
-        $delegate->active   = $delegate->checked > 0 ? 0 : 1 ;
+        $delegate->checked   = $delegate->checked > 0 ? 0 : 1 ;
         $message  = $delegate->checked > 0 ? '' : 'الغاء';
         $delegate->save();
         $ip = $request->ip();
