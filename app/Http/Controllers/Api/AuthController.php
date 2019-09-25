@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Delegate;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Illuminate\Support\Facades\App;
 use App\User;
+use App\Models\Delegate;
+use App\Models\UserToken;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use App\Http\Controllers\Controller;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
@@ -17,6 +18,7 @@ class AuthController extends Controller
 			'phone'         => 'required|exists:users,phone',
 			'password'      => 'required|string',
 			'device_id'     => 'required',
+			'type'     		=> 'required',
 		];
 
 		$validator = validator($request->all(), $rules);
@@ -35,33 +37,43 @@ class AuthController extends Controller
 			return returnResponse(null,'could_not_create_token', 500);
 		}
 
+		$userType = User::where('phone',$request->phone)->first();
 
-		$user               = auth()->user();
-		$user->device_id    = $request['device_id'];
-		$user->checked      = 1;
-		$user->save();
+		if($userType->type == $request->type){
+			$user               = auth()->user();
+			$user->device_id    = $request['device_id'];
+			// $user->checked      = 1;
+			$user->save();
 
-		$userData      = [
-			'id'            => $user->id,
-			'name'          => $user->name,
-			'email'         => $user->email,
-			'phone'         => $user->phone,
-//			'country_id'    => $user->country_id,
-			'code'          => $user->code,
-			'avatar'        => url('images/users') . '/' . $user->avatar,
-			'active'        => $user->active,
-			'checked'       => $user->checked,
-			'role'          => $user->role,
-			'device_id'     => $user->device_id,
-			'isNotify'      => $user->isNotify,
-			'lang'          => $user->lang,
-			'created_at'    => $user->created_at,
-			'updated_at'    => $user->updated_at,
-			'token'         => $token,
-		];
+			$userToken = new  UserToken();
+			$userToken->user_id = auth()->user()->id;
+			$userToken->token = $request['device_id'];
+			$userToken->save();
 
-		$msg           = trans('apis.login');
-		return returnResponse($userData, $msg, 200);
+			$userData      = [
+				'id'            => $user->id,
+				'name'          => $user->name,
+				'email'         => $user->email,
+				'phone'         => $user->phone,
+	//			'country_id'    => $user->country_id,
+				'code'          => $user->code,
+				'avatar'        => url('images/users') . '/' . $user->avatar,
+				'active'        => $user->active,
+				'checked'       => $user->checked,
+				'role'          => $user->role,
+				'device_id'     => $user->device_id,
+				'isNotify'      => $user->isNotify,
+				'lang'          => $user->lang,
+				'created_at'    => $user->created_at,
+				'updated_at'    => $user->updated_at,
+				'token'         => $token,
+			];
+
+			$msg           = trans('apis.login');
+			return returnResponse($userData, $msg, 200);
+		}else{
+			return returnResponse(null,'غير مسموح بالدخول', 500);
+		}
 	}
 
 	public function register(Request $request){
@@ -98,6 +110,12 @@ class AuthController extends Controller
 		$user->code       = $code;
 
 		if ($user->save()){
+
+			$userToken = new  UserToken();
+			$userToken->user_id = auth()->user()->id;
+			$userToken->token = $request['device_id'];
+			$userToken->save();
+
 			$data['code'] 	= $user->code;
 			$msg 			= trans('apis.register');
 			return returnResponse($data, $msg, 200);

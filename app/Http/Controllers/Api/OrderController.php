@@ -19,7 +19,7 @@ class OrderController extends Controller
 			'cart_items'  	=> 'required',
 			'lat'  			=> 'required',
 			'long'  		=> 'required',
-			'address'  		=> 'required',
+			// 'address'  		=> 'required',
 			'payment_type'  => 'required',
 			'price'  		=> 'required',
 			'city_id'  		=> 'required',
@@ -42,7 +42,7 @@ class OrderController extends Controller
 		$order->notes 			= $request->notes;
 		$order->lat 			= $request->lat;
 		$order->long 			= $request->long;
-		$order->address 		= $request->address;
+		// $order->address 		= $request->address;
 		$order->payment_type 	= $request->payment_type;
 		$order->name 			= isset($request->name) ? $request->name : Auth::user()->name;
 		$order->packaging_id 	= $request->packaging_id;
@@ -57,6 +57,10 @@ class OrderController extends Controller
 				$order_item->save();
 			}
 
+			$dalegates = User::where('city_id',$order->city_id)->where('type','delegate')->get();
+			foreach ($dalegates as $dalegate) {
+				set_notification($dalegate->id,2,$dalegate->lang,$order->id);
+			}
 			Cart::whereIn('id', $cart_ids)->delete();
 			return returnResponse(NULL, trans('apis.set_order') , 200);
 		}

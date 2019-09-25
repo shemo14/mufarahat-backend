@@ -91,6 +91,7 @@ class DelegateController extends Controller
             'lat'               => $request['lat'],
             'long'              => $request['long'],
             'active'            => 1 ,
+            'checked'           => 1 ,
             'type'              =>'delegate'
         ]);
 

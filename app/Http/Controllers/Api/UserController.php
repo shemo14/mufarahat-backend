@@ -12,7 +12,8 @@ use Hash;
 
 class UserController extends Controller
 {
-	public function user_data(Request $request){
+	public function user_data(Request $request)
+	{
 		$user           = auth()->user();
 		$token          = $request->header('Authorization');
 		$userData       = [
@@ -20,7 +21,7 @@ class UserController extends Controller
 			'name'          => $user->name,
 			'email'         => $user->email,
 			'phone'         => $user->phone,
-//			'country_id'    => $user->country_id,
+ //			'country_id'    => $user->country_id,
 			'code'          => $user->code,
 			'avatar'        => url('images/users') . '/' . $user->avatar,
 			'active'        => $user->active,
@@ -120,4 +121,6 @@ class UserController extends Controller
 			return returnResponse(null, $msg, 200);
 		}
 	}
+
+	
 }

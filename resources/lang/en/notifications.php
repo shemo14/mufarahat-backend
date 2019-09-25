@@ -12,4 +12,6 @@ return [
     'title_like_notification'       => 'new like',
     'body_like_notification'        => 'your product :product_name was liked by :user_name',
     'title_admin_notification'      => 'admin notification',
+    'title_dalegate_newOrders'      => 'New Order',
+    'body_dalegate_newOrders_notification'      => 'A new order is available',
 ];
