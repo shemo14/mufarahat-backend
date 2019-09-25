@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use App\Models\City;
 use App\Models\Role;
+use App\Models\Order;
 use App\Models\Delegate;
 use App\Models\Warehouse;
 use App\Helpers\UploadFile;
@@ -20,7 +21,7 @@ class DelegateController extends Controller
 {
     public function index(User $user)
     {
-        $users = User::with('dalegateInformation')->where('role', 0)->where('type','delegate')->where('active',1)->latest()->get();
+        $users = User::with('dalegateInformation')->where('role', 0)->where('type','delegate')->where('checked',1)->latest()->get();
         $cities = City::get();
         $warehouses = Warehouse::get();
         return view('dashboard.delegates.index', compact('users','cities','warehouses'));
@@ -28,7 +29,7 @@ class DelegateController extends Controller
 
     public function index2(User $user)
     {
-        $users = User::with('dalegateInformation')->where('role', 0)->where('type','delegate')->where('active',0)->latest()->get();
+        $users = User::with('dalegateInformation')->where('role', 0)->where('type','delegate')->where('checked',0)->latest()->get();
         $cities = City::get();
         $warehouses = Warehouse::get();
         return view('dashboard.delegates.index2', compact('users','cities','warehouses'));
@@ -36,10 +37,9 @@ class DelegateController extends Controller
 
     public function activate(Request  $request)
     {
-        // dd($request->active_id);
         $delegate = User::findOrFail($request->active_id);
-        $delegate->active   = $delegate->active > 0 ? 0 : 1 ;
-        $message  = $delegate->active > 0 ? '' : 'الغاء';
+        $delegate->checked   = $delegate->checked > 0 ? 0 : 1 ;
+        $message  = $delegate->checked > 0 ? '' : 'الغاء';
         $delegate->save();
         $ip = $request->ip();
         addReport(auth()->user()->id, $message.' تفعيل مندوب ', $ip);
@@ -181,8 +181,6 @@ class DelegateController extends Controller
         Session::flash('success', 'تم تعديل العضو بنجاح');
         return back();
     }
-
-
     
     public function delete(Request $request)
     {
@@ -190,5 +188,13 @@ class DelegateController extends Controller
         addReport(auth()->user()->id, 'بحذف المندوب', $request->ip());
         Session::flash('success', 'تم حذف المندوب بنجاح');
         return back();
+    }
+
+    public function orders($id){
+        $orders = Order::with('dalegate')->with('packaging')->with('coupon')->with('items')->with('city')->with('user')->where('dalegate_id',$id)->get();
+
+        $dalegate = User::find($id);
+
+        return view('dashboard.delegates.orders', compact('orders','dalegate'));
     }
 }

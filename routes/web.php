@@ -209,6 +209,7 @@ use Illuminate\Support\Facades\Route;
                     'deletedelegates',
                     'delegatesUnActive',
                     'activate',
+                    'dalegateOrders',
                 ]
             ]);
 
@@ -295,6 +296,12 @@ use Illuminate\Support\Facades\Route;
             // ============= #users ==============
 
             // ============= ActiveDelgates ==============
+                Route::get('/dalegateOrders/{id}',[
+                    'uses'=>'DelegateController@orders',
+                    'as'=>'dalegateOrders',
+                    'title'    => 'طلبات المندوب',
+                ]);
+
                 Route::get('/delegates',[
                     'uses'=>'DelegateController@index',
                     'as'=>'delegates',
