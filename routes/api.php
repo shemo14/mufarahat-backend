@@ -9,6 +9,7 @@ Route::group(['middleware' => 'localization'], function (){
 	// auth
 	Route::post('login'                     , 'Api\AuthController@login');
 	Route::post('register'                  , 'Api\AuthController@register');
+	Route::post('delegate_register'         , 'Api\AuthController@delegate_register');
 	Route::post('forget_password'           , 'Api\AuthController@forget_password');
 	Route::post('renew_password'            , 'Api\AuthController@renew_password');
 	Route::post('active_account'            , 'Api\AuthController@active_account');

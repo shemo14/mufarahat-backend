@@ -40,5 +40,12 @@ class OrdersController extends Controller
         }
     }
 
+    public function invoice($id){
+        $order = Order::with('dalegate')->with('packaging')->with('coupon')->with('items')->with('city')->with('user')->find($id);
+        return view('dashboard.orders.invoice', compact('order'));
+     }
+
+
+
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Delegate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use JWTAuth;
@@ -99,6 +100,58 @@ class AuthController extends Controller
 		if ($user->save()){
 			$data['code'] 	= $user->code;
 			$msg 			= trans('apis.register');
+			return returnResponse($data, $msg, 200);
+		}
+	}
+
+
+	public function delegate_register(Request $request){
+		$rules = [
+			'name'          => 'required',
+			'password'      => 'required|min:6',
+			'device_id'     => 'required',
+			'lat'	     	=> 'required',
+			'lng'		    => 'required',
+			'vehicle_img'	=> 'required',
+			'profile_img'	=> 'required',
+			'license_img'	=> 'required',
+			'email'         => 'required|email|unique:users,email',
+			'phone'         => 'required|min:9|unique:users,phone',
+		];
+
+		App::setLocale($request['lang']);
+		$validator = validator($request->all(), $rules);
+
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+
+
+		$user             	= new User();
+		$user->name       	= $request['name'];
+		$user->phone      	= $request['phone'];
+		$user->device_id  	= $request['device_id'];
+		$user->lang       	= $request['lang'];
+		$user->email      	= $request['email'];
+		$user->lat        	= $request['lat'];
+		$user->long       	= $request['lng'];
+		$user->type       	= 'delegate';
+		$user->avatar  		= save_img_base64($request['profile_img'], 'images/users');
+		$user->active     	= 0;
+		$user->password   	= bcrypt($request['password']);
+
+		$code             	= rand(1111, 9999);
+		$user->code       	= $code;
+
+		if ($user->save()){
+			$delegate 					= new Delegate();
+			$delegate->car_image 		= save_img_base64($request['vehicle_img'], 'images/delegates');
+			$delegate->licenses_image 	= save_img_base64($request['license_img'], 'images/delegates');
+			$delegate->user_id			= $user->id;
+			$delegate->save();
+
+			$data['code'] 				= $user->code;
+			$msg 						= trans('apis.register');
 			return returnResponse($data, $msg, 200);
 		}
 	}
