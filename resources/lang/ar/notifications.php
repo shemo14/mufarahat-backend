@@ -14,5 +14,6 @@ return [
     'title_admin_notification'      => 'اشعار اداري',
     'title_dalegate_newOrders'      => 'طلب جديد',
     'body_dalegate_newOrders_notification'      => 'يوجد طلب جديد متاح ',
-    // 'title_admin_notification'      => 'اشعار اداري',
+    'title_order_accepted'      => 'تم قبول طلبك',
+    'body_order_accepted'      => 'تم قبول طلبك وجاري تنفيذه',
 ];

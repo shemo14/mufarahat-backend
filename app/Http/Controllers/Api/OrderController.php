@@ -188,9 +188,11 @@ class OrderController extends Controller
 			return returnResponse(null, validateRequest($validator), 400);
 		}
 
-		$order 			= Order::find($request->order_id);
-		$order->status 	= 1;
+		$order 				    = Order::find($request->order_id);
+		$order->status 			= 1;
+		$order->dalegate_id 	= auth()->user()->id;
 		if ($order->save()){
+			set_notification($order->user_id,3,$order->user->lang,$order->id);
 			return returnResponse(NULL, trans('apis.accept_order') , 200);
 		}
 	}

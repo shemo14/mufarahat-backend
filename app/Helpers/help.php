@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\Order;
 use App\Models\Report;
 use App\Models\Favorite;
+use App\Models\UserToken;
 use App\Models\Permission;
 use App\Models\Notifications;
 use Illuminate\Support\Facades\Route;
@@ -71,10 +72,20 @@ function set_notification($user_id, $type , $lang ,$order_id = null , $admin_msg
 
 			$title = trans('notifications.title_dalegate_newOrders');
 			$body  = trans('notifications.body_comment_notification');
+	}elseif ($type == 3){
+		$order     = Order::find($order_id);
+		$title_ar  = 'اشعار قبول ';
+		$title_en  = 'Order Notfication';
+		$body_ar   = 'تم قبول طلبك وجاري تجهيزه';
+		$body_en   = 'Your request has been accepted and is being processed';
+		
+		$title = trans('notifications.title_order_accepted');
+		$body  = trans('notifications.body_order_accepted');
 	}
 	$user = User::find($user_id);
 
-	if ($user->device_id){
+	if ($user){
+
 		$notification               = new Notifications();
 		$notification->title_ar     = $title_ar;
 		$notification->title_en     = $title_en;
@@ -86,14 +97,15 @@ function set_notification($user_id, $type , $lang ,$order_id = null , $admin_msg
 
 		if ($notification->save()){
 			if ($user->isNotify){
-
-
-				$key                = $user->device_id;
-				$interestDetails    = ["$user_id" , $key];
-				$expo               = \ExponentPhpSDK\Expo::normalSetup();
-				$expo->subscribe($interestDetails[0], $interestDetails[1]);
-				$notification       = ['body' => $body, 'title' => $title, 'sound' => 'default', 'channelId' => 'orders', 'data' => [ 'type' => $type, 'order_id' => $order_id]];
-				$expo->notify($interestDetails[0], $notification);
+				$userTokens  = UserToken::where('user_id',$user_id)->get();
+				foreach($userTokens as $UT){
+					$key                = $UT->token;
+					$interestDetails    = ["$user_id" , $key];
+					$expo               = \ExponentPhpSDK\Expo::normalSetup();
+					$expo->subscribe($interestDetails[0], $interestDetails[1]);
+					$notification       = ['body' => $body, 'title' => $title, 'sound' => 'default', 'channelId' => 'orders', 'data' => [ 'type' => $type, 'order_id' => $order_id]];
+					$expo->notify($interestDetails[0], $notification);
+				}
 			}
 			return true;
 		}
