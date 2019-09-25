@@ -61,6 +61,7 @@
                         <th>رقم الهاتف</th>
                         <th> المدينه</th>
                         <th> المستودع </th>
+                        <th> المستودع </th>
                         <th>تاريخ التسجيل</th>
                         <th>التحكم</th>
                     </tr>
@@ -80,6 +81,7 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>
                             <td>{{$user->city->name_ar}}</td>
+                            <td><a href="{{ route('dalegateOrders', $user->id) }}">عرض الطلبات</a></td>
                             <td>{{$user->dalegateInformation->warehouse->name}}</td>
                             <td>{{$user->created_at->diffForHumans()}}</td>
                             <td>
