@@ -44,7 +44,7 @@ class NotifyController extends Controller
 		}
 	}
 
-	public function stop_notifications(Request $request){
+	public function stop_notifications(){
 		$user = Auth::user();
 		$msg  = '';
 

@@ -95,7 +95,6 @@ Route::group(['middleware' => 'localization'], function (){
 		// suggestions
 		Route::post('suggestions'    	 		, 'Api\AppController@suggestions');
 
-
 		// Notifications
 		Route::post('notifications'          , 'Api\NotifyController@notifications');
 		Route::post('notification_status'    , 'Api\NotifyController@notification_status');
