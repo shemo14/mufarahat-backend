@@ -9,6 +9,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Coupon;
 use App\Models\OrderItem;
+use App\Models\UserCoupon;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -50,6 +51,18 @@ class OrderController extends Controller
 		$order->packaging_id 	= $request->packaging_id;
 
 		if ($order->save()){
+			if($request->coupon_id){
+
+				$coupon = Coupon::find($request->coupon_id);
+				$coupon->usage_number =  $coupon->usage_number - 1 ; 
+				$coupon->save();
+
+				$coupon_user = new UserCoupon();
+				$coupon_user->user_id   = Auth::user()->id;
+				$coupon_user->coupon_id = $request->coupon_id;
+				$coupon_user->save();
+			}
+
 			foreach ($cart_items as $cart_item) {
 				$order_item 				= new OrderItem();
 				$order_item->order_id	 	= $order->id;
@@ -60,9 +73,9 @@ class OrderController extends Controller
 			}
 
 			$dalegates = User::where('city_id',$order->city_id)->where('type','delegate')->get();
-			foreach ($dalegates as $dalegate) {
-				set_notification($dalegate->id,2,$dalegate->lang,$order->id);
-			}
+			// foreach ($dalegates as $dalegate) {
+			// 	set_notification($dalegate->id,2,$dalegate->lang,$order->id);
+			// }
 			Cart::whereIn('id', $cart_ids)->delete();
 			return returnResponse(NULL, trans('apis.set_order') , 200);
 		}
