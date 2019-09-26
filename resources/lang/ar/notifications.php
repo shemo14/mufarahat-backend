@@ -16,4 +16,6 @@ return [
     'body_dalegate_newOrders_notification'      => 'يوجد طلب جديد متاح ',
     'title_order_accepted'      => 'تم قبول طلبك',
     'body_order_accepted'      => 'تم قبول طلبك وجاري تنفيذه',
+    'title_order_confirmed'      => 'تم تسليم الطلب بنجاح',
+    'body_order_confirmed'      => 'تم تأكيد استلام طلب رقم :order_id ',
 ];

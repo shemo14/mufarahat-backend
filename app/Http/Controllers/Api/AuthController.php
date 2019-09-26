@@ -55,7 +55,7 @@ class AuthController extends Controller
 				'name'          => $user->name,
 				'email'         => $user->email,
 				'phone'         => $user->phone,
-	//			'country_id'    => $user->country_id,
+	 //			'country_id'    => $user->country_id,
 				'code'          => $user->code,
 				'avatar'        => url('images/users') . '/' . $user->avatar,
 				'active'        => $user->active,
@@ -122,6 +122,13 @@ class AuthController extends Controller
 		}
 	}
 
+	public function delegateActiveChecked(Request $request){
+		$active = auth()->user()->active;
+		if ($active == 0 ) {
+			return returnResponse(null,'الحساب في في انتظار تأكيد الاداره ', 400);
+		}
+		return returnResponse('','', 200);
+	}
 
 	public function delegate_register(Request $request){
 		$rules = [
@@ -254,7 +261,7 @@ class AuthController extends Controller
 			'name'          => $user->name,
 			'email'         => $user->email,
 			'phone'         => $user->phone,
-//			'country_id'    => $user->country_id,
+      //			'country_id'    => $user->country_id,
 			'code'          => $user->code,
 			'avatar'        => url('images/users') . '/' . $user->avatar,
 			'active'        => $user->active,

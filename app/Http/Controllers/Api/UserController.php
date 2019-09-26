@@ -21,7 +21,7 @@ class UserController extends Controller
 			'name'          => $user->name,
 			'email'         => $user->email,
 			'phone'         => $user->phone,
- //			'country_id'    => $user->country_id,
+      //			'country_id'    => $user->country_id,
 			'code'          => $user->code,
 			'avatar'        => url('images/users') . '/' . $user->avatar,
 			'active'        => $user->active,

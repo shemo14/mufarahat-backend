@@ -14,6 +14,8 @@ return [
     'title_admin_notification'      => 'admin notification',
     'title_dalegate_newOrders'      => 'New Order',
     'body_dalegate_newOrders_notification'      => 'A new order is available',
-    'title_order_accepted'      => 'Order Accepted',
-    'body_order_accepted'      => 'Your request has been accepted and is being processed',
+    'title_order_accepted'          => 'Order Accepted',
+    'body_order_accepted'           => 'Your request has been accepted and is being processed',
+    'title_order_confirmed'         => 'Confirm delivery request',
+    'body_order_confirmed'          => 'Order :order_id has been confirmed',
 ];

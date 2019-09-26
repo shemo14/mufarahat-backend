@@ -13,6 +13,7 @@ Route::group(['middleware' => 'localization'], function (){
 	Route::post('forget_password'           , 'Api\AuthController@forget_password');
 	Route::post('renew_password'            , 'Api\AuthController@renew_password');
 	Route::post('active_account'            , 'Api\AuthController@active_account');
+	Route::post('delegateActiveChecked'     , 'Api\AuthController@delegateActiveChecked');
 
 	// roles
 	Route::post('roles'              		, 'Api\AppController@roles');
@@ -80,6 +81,7 @@ Route::group(['middleware' => 'localization'], function (){
 		Route::post('logout'       			 , 'Api\UserController@logout');
 
 		// Order
+		Route::post('couponDiscountOnOrder'  	, 'Api\OrderController@couponDiscountOnOrder');
 		Route::post('set_order'  	 	      	, 'Api\OrderController@set_order');
 		Route::post('my_orders'  	 	      	, 'Api\OrderController@my_orders');
 		Route::post('deleted_order'  	 	    , 'Api\OrderController@deleted_order');

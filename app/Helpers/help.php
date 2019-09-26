@@ -81,11 +81,20 @@ function set_notification($user_id, $type , $lang ,$order_id = null , $admin_msg
 		
 		$title = trans('notifications.title_order_accepted');
 		$body  = trans('notifications.body_order_accepted');
+	}elseif ($type == 4){
+		$order     = Order::find($order_id);
+		$title_ar  = 'تم تسليم الطلب بنجاح';
+		$title_en  = 'Confirm delivery request';
+		$body_ar   = 'تم تأكيد استلام الطلب رقم '.$order_id;
+		$body_en   = 'Order '.$order_id.' has been confirmed';
+		
+		$title = trans('notifications.title_order_confirmed');
+		$body  = trans('notifications.body_order_confirmed');
 	}
+
 	$user = User::find($user_id);
 
 	if ($user){
-
 		$notification               = new Notifications();
 		$notification->title_ar     = $title_ar;
 		$notification->title_en     = $title_en;
