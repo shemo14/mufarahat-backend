@@ -42,7 +42,6 @@ class AuthController extends Controller
 		if($userType->type == $request->type){
 			$user               = auth()->user();
 			$user->device_id    = $request['device_id'];
-			// $user->checked      = 1;
 			$user->save();
 
 			$userToken = new  UserToken();
@@ -50,12 +49,23 @@ class AuthController extends Controller
 			$userToken->token = $request['device_id'];
 			$userToken->save();
 
+			$delegated = [];
+
+			if ($request->type == 'delegate'){
+				$delegate = Delegate::where('user_id', $user->id)->first();
+				$delegated = [
+					'id' 			=> $delegate->id,
+					'car_img' 		=>  url('images/delegates') . '/' . $delegate->car_image,
+					'licenses_img' 	=>  url('images/delegates') . '/' . $delegate->licenses_image,
+				];
+			}
+
 			$userData      = [
 				'id'            => $user->id,
 				'name'          => $user->name,
 				'email'         => $user->email,
 				'phone'         => $user->phone,
-	 //			'country_id'    => $user->country_id,
+	 			'city_id'    	=> $user->city_id,
 				'code'          => $user->code,
 				'avatar'        => url('images/users') . '/' . $user->avatar,
 				'active'        => $user->active,
@@ -64,6 +74,7 @@ class AuthController extends Controller
 				'device_id'     => $user->device_id,
 				'isNotify'      => $user->isNotify,
 				'lang'          => $user->lang,
+				'delegate'     	=> $delegated,
 				'created_at'    => $user->created_at,
 				'updated_at'    => $user->updated_at,
 				'token'         => $token,
@@ -101,8 +112,10 @@ class AuthController extends Controller
 		$user->device_id  = $request['device_id'];
 		$user->lang       = $request['lang'];
 		$user->email      = $request['email'];
+		$user->address    = $request['address'];
 		$user->lat        = $request['lat'];
 		$user->long       = $request['lng'];
+		$user->type       = 'user';
 		$user->active     = 0;
 		$user->password   = bcrypt($request['password']);
 
@@ -125,9 +138,10 @@ class AuthController extends Controller
 	public function delegateActiveChecked(Request $request){
 		$active = auth()->user()->active;
 		if ($active == 0 ) {
-			return returnResponse(null,'الحساب في في انتظار تأكيد الاداره ', 400);
+			return returnResponse(null,'الحساب في انتظار تأكيد الاداره', 400);
 		}
-		return returnResponse('','', 200);
+
+		return returnResponse(NULL,'', 200);
 	}
 
 	public function delegate_register(Request $request){
@@ -160,6 +174,7 @@ class AuthController extends Controller
 		$user->email      	= $request['email'];
 		$user->lat        	= $request['lat'];
 		$user->long       	= $request['lng'];
+		$user->address   	= $request['address'];
 		$user->type       	= 'delegate';
 		$user->avatar  		= save_img_base64($request['profile_img'], 'images/users');
 		$user->active     	= 0;
@@ -256,12 +271,24 @@ class AuthController extends Controller
 	public function user_data(Request $request){
 		$user           = auth()->user();
 		$token          = $request->header('Authorization');
+
+		$delegated = [];
+
+		if ($user->type == 'delegate'){
+			$delegate = Delegate::where('user_id', $user->id)->first();
+			$delegated = [
+				'id' 			=> $delegate->id,
+				'car_img' 		=>  url('images/delegates') . '/' . $delegate->car_image,
+				'licenses_img' 	=>  url('images/delegates') . '/' . $delegate->licenses_image,
+			];
+		}
+
 		$userData       = [
 			'id'            => $user->id,
 			'name'          => $user->name,
 			'email'         => $user->email,
 			'phone'         => $user->phone,
-      //			'country_id'    => $user->country_id,
+      		'city_id' 	    => $user->city_id,
 			'code'          => $user->code,
 			'avatar'        => url('images/users') . '/' . $user->avatar,
 			'active'        => $user->active,
@@ -270,6 +297,7 @@ class AuthController extends Controller
 			'device_id'     => $user->device_id,
 			'isNotify'      => $user->isNotify,
 			'lang'          => $user->lang,
+			'delegate'		=> $delegated,
 			'created_at'    => $user->created_at,
 			'updated_at'    => $user->updated_at,
 			'token'         => $token,
