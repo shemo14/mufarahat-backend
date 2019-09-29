@@ -22,7 +22,6 @@ class NotifyController extends Controller
 				'time'  => $notification->created_at->diffForHumans(),
 			];
 		}
-
 		return returnResponse($all_notifies, '', 200);
 	}
 

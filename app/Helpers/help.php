@@ -1,15 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\User;
+use App\Models\Cart;
 use App\Models\Role;
-//use App\Html;
-//use App\Contact;
-//use App\SmsEmailNotification;
-use App\Models\Permission;
+use App\Models\Order;
 use App\Models\Report;
 use App\Models\Favorite;
-use App\Models\Cart;
+use App\Models\UserToken;
+use App\Models\Permission;
+use App\Models\Notifications;
+use Illuminate\Support\Facades\Route;
 
 function Home()
 {
@@ -43,114 +43,83 @@ function Home()
     return $blocks[]=$home; 
 }
 
-//function set_notification($user_id, $comment_id, $product_id, $like_id, $offer_id, $type ,$lang, $admin_msg_ar, $admin_msg_en){
-//	// type = 1 => admin notification
-//	// type = 2 => order notification (send - accept - refuse)
-//	// type = 3 => comment
-//	// type = 4 => like
-//
-//	App::setLocale($lang);
-//	$title = '';
-//	$body  = '';
-//
-//	if ($type == 1){
-//		$title_ar = 'اشعار اداري';
-//		$title_en = 'admin notification';
-//		$body_ar  = $admin_msg_ar;
-//		$body_en  = $admin_msg_en;
-//
-//		$title = trans('notifications.title_admin_notification');
-//		$body  = $lang == 'ar' ? $body_ar : $body_en;
-//	}elseif ($type == 2){
-//		$offer = Offers::find($offer_id);
-//		if ($offer->status == 0){
-//			$title_ar = 'عرض جديد';
-//			$title_en = 'new offer';
-//			$body_ar  = 'يوجد عرض جديد علي ';
-//			$body_ar  .= $offer->product->name;
-//			$body_ar  .= ' من قبل ';
-//			$body_ar  .= $offer->user->name;
-//			$body_en  = 'new offer on ';
-//			$body_en  .= $offer->product->name;
-//			$body_en  .= ' from ';
-//			$body_en  .= $offer->user->name;
-//
-//			$title = trans('notifications.title_offer_notification');
-//			$body  = trans('notifications.body_offer_notification', ['product_name' => $offer->product->name, 'user_name' => $offer->user->name]);
-//		}elseif ($offer->status == 1){
-//			$title_ar = 'رفض العرض';
-//			$title_en = 'offer refused';
-//			$body_ar  = 'تم رفض عرضك علي ';
-//			$body_ar  .= $offer->product->name;
-//			$body_en  = 'your offer on ';
-//			$body_en  .= $offer->product->name;
-//			$body_en  .= ' was refused ';
-//
-//			$title = trans('notifications.title_refused_offer');
-//			$body  = trans('notifications.body_refused_offer', ['product_name' => $offer->product->name]);
-//		}elseif ($offer->status == 2){
-//			$title_ar = 'قبول العرض';
-//			$title_en = 'offer accepted';
-//			$body_ar  = 'تم قبول عرضك علي ';
-//			$body_ar  .= $offer->product->name;
-//			$body_en  = 'your offer on ';
-//			$body_en  .= $offer->product->name;
-//			$body_en  .= ' was accepted ';
-//
-//			$title = trans('notifications.title_accepted_offer');
-//			$body  = trans('notifications.body_accepted_offer', ['product_name' => $offer->product->name]);
-//		}
-//	}elseif ($type == 3){
-//		$comment   = Comments::find($comment_id);
-//		$title_ar  = 'تعليق جديد';
-//		$title_en  = 'new comment';
-//		$body_ar   = 'تم التعليق علي  ';
-//		$body_ar  .= $comment->product->name;
-//		$body_en   = 'you have a new comment on ';
-//		$body_en  .= $comment->product->name;
-//
-//		$title = trans('notifications.title_comment_notification');
-//		$body  = trans('notifications.body_comment_notification', ['product_name' => $comment->product->name, 'user_name' => $comment->user->name]);
-//	}elseif ($type == 4){
-//		$fav        = Favs::find($like_id);
-//		$title_ar   = 'اعجاب جديد';
-//		$title_en   =  'new like';
-//		$body_ar    = 'تم الاعجاب بـ';
-//		$body_ar   .= $fav->product->name;
-//		$body_en    = 'your have a new like on ';
-//		$body_en   .= $fav->product->name;
-//
-//		$title = trans('notifications.title_like_notification');
-//		$body  = trans('notifications.body_like_notification', ['product_name' => $fav->product->name, 'user_name' => $fav->user->name]);
-//	}
-//
-//	$user = User::find($user_id);
-//
-//	if ($user->device_id){
-//		$notification               = new Notifications();
-//		$notification->title_ar     = $title_ar;
-//		$notification->title_en     = $title_en;
-//		$notification->body_ar      = $body_ar;
-//		$notification->body_en      = $body_en;
-//		$notification->user_id      = $user_id;
-//		$notification->product_id   = $product_id;
-//		$notification->offer_id     = $offer_id;
-//		$notification->type         = $type;
-//
-//		if ($notification->save()){
-//			if ($user->isNotify){
-//				$key                = $user->device_id;
-//				$interestDetails    = ["$user_id" , $key];
-//				$expo               = \ExponentPhpSDK\Expo::normalSetup();
-//				$expo->subscribe($interestDetails[0], $interestDetails[1]);
-//				$notification       = ['body' => $body, 'title' => $title, 'sound' => 'default', 'channelId' => 'orders', 'data' => [ 'type' => $type, 'product_id' => $product_id, 'offer_id' => $offer_id ]];
-//				$expo->notify($interestDetails[0], $notification);
-//			}
-//
-//			return true;
-//		}
-//	}
-//}
+function set_notification($user_id, $type , $lang ,$order_id = null , $admin_msg_ar = null , $admin_msg_en = null ){
+	// type = 1 => admin notification
+	// type = 2 => Send new orders to Dalegates
+	// type = 3 => 
+	// type = 4 => 
+
+	App::setLocale($lang);
+	$title = '';
+	$body  = '';
+
+	if ($type == 1){
+		$title_ar = 'اشعار اداري';
+		$title_en = 'admin notification';
+		$body_ar  = $admin_msg_ar;
+		$body_en  = $admin_msg_en;
+
+		$title = trans('notifications.title_admin_notification');
+        $body  = $lang == 'ar' ? $body_ar : $body_en;
+    }elseif ($type == 2){
+			$order     = Order::find($order_id);
+			$title_ar  = 'طلب جديد ';
+			$title_en  = 'new Order';
+			$body_ar   = 'يوجد طلب جديد ';
+			// $body_ar  .= $order->product->name;
+			$body_en   = 'A new order is available';
+			// $body_en  .= $comment->product->name;
+
+			$title = trans('notifications.title_dalegate_newOrders');
+			$body  = trans('notifications.body_comment_notification');
+	}elseif ($type == 3){
+		$order     = Order::find($order_id);
+		$title_ar  = 'اشعار قبول ';
+		$title_en  = 'Order Notfication';
+		$body_ar   = 'تم قبول طلبك وجاري تجهيزه';
+		$body_en   = 'Your request has been accepted and is being processed';
+		
+		$title = trans('notifications.title_order_accepted');
+		$body  = trans('notifications.body_order_accepted');
+	}elseif ($type == 4){
+		$order     = Order::find($order_id);
+		$title_ar  = 'تم تسليم الطلب بنجاح';
+		$title_en  = 'Confirm delivery request';
+		$body_ar   = 'تم تأكيد استلام الطلب رقم '.$order_id;
+		$body_en   = 'Order '.$order_id.' has been confirmed';
+		
+		$title = trans('notifications.title_order_confirmed');
+		$body  = trans('notifications.body_order_confirmed');
+	}
+
+	$user = User::find($user_id);
+
+	if ($user){
+		$notification               = new Notifications();
+		$notification->title_ar     = $title_ar;
+		$notification->title_en     = $title_en;
+		$notification->body_ar      = $body_ar;
+		$notification->body_en      = $body_en;
+		$notification->user_id      = $user_id;
+		$notification->order_id     = $order_id;
+		$notification->type         = $type;
+
+		if ($notification->save()){
+			if ($user->isNotify){
+				$userTokens  = UserToken::where('user_id',$user_id)->get();
+				foreach($userTokens as $UT){
+					$key                = $UT->token;
+					$interestDetails    = ["$user_id" , $key];
+					$expo               = \ExponentPhpSDK\Expo::normalSetup();
+					$expo->subscribe($interestDetails[0], $interestDetails[1]);
+					$notification       = ['body' => $body, 'title' => $title, 'sound' => 'default', 'channelId' => 'orders', 'data' => [ 'type' => $type, 'order_id' => $order_id]];
+					$expo->notify($interestDetails[0], $notification);
+				}
+			}
+			return true;
+		}
+	}
+}
 
 function lang(){
 	return App::getLocale();

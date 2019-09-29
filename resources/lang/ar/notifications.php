@@ -12,4 +12,10 @@ return [
     'title_like_notification'       => 'اعجاب جديد',
     'body_like_notification'        => 'تم الاعجاب علي :product_name من قبل :user_name',
     'title_admin_notification'      => 'اشعار اداري',
+    'title_dalegate_newOrders'      => 'طلب جديد',
+    'body_dalegate_newOrders_notification'      => 'يوجد طلب جديد متاح ',
+    'title_order_accepted'      => 'تم قبول طلبك',
+    'body_order_accepted'      => 'تم قبول طلبك وجاري تنفيذه',
+    'title_order_confirmed'      => 'تم تسليم الطلب بنجاح',
+    'body_order_confirmed'      => 'تم تأكيد استلام طلب رقم :order_id ',
 ];

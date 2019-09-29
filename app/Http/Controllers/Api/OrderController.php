@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Cart;
-use App\Models\OrderItem;
-use App\Models\Transaction;
+use Auth;
 use App\User;
-use Illuminate\Auth\Middleware\Authenticate;
+use Carbon\Carbon;
+use App\Models\Cart;
+use App\Models\Order;
+use App\Models\Coupon;
+use App\Models\OrderItem;
+use App\Models\UserCoupon;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Order;
-use Auth;
+use Illuminate\Auth\Middleware\Authenticate;
 
 class OrderController extends Controller
 {
@@ -19,7 +22,7 @@ class OrderController extends Controller
 			'cart_items'  	=> 'required',
 			'lat'  			=> 'required',
 			'long'  		=> 'required',
-			'address'  		=> 'required',
+			// 'address'  		=> 'required',
 			'payment_type'  => 'required',
 			'price'  		=> 'required',
 			'city_id'  		=> 'required',
@@ -42,12 +45,24 @@ class OrderController extends Controller
 		$order->notes 			= $request->notes;
 		$order->lat 			= $request->lat;
 		$order->long 			= $request->long;
-		$order->address 		= $request->address;
+		// $order->address 		= $request->address;
 		$order->payment_type 	= $request->payment_type;
 		$order->name 			= isset($request->name) ? $request->name : Auth::user()->name;
 		$order->packaging_id 	= $request->packaging_id;
 
 		if ($order->save()){
+			if($request->coupon_id){
+
+				$coupon = Coupon::find($request->coupon_id);
+				$coupon->usage_number =  $coupon->usage_number - 1 ; 
+				$coupon->save();
+
+				$coupon_user = new UserCoupon();
+				$coupon_user->user_id   = Auth::user()->id;
+				$coupon_user->coupon_id = $request->coupon_id;
+				$coupon_user->save();
+			}
+
 			foreach ($cart_items as $cart_item) {
 				$order_item 				= new OrderItem();
 				$order_item->order_id	 	= $order->id;
@@ -57,6 +72,10 @@ class OrderController extends Controller
 				$order_item->save();
 			}
 
+			$dalegates = User::where('city_id',$order->city_id)->where('type','delegate')->get();
+			// foreach ($dalegates as $dalegate) {
+			// 	set_notification($dalegate->id,2,$dalegate->lang,$order->id);
+			// }
 			Cart::whereIn('id', $cart_ids)->delete();
 			return returnResponse(NULL, trans('apis.set_order') , 200);
 		}
@@ -184,9 +203,11 @@ class OrderController extends Controller
 			return returnResponse(null, validateRequest($validator), 400);
 		}
 
-		$order 			= Order::find($request->order_id);
-		$order->status 	= 1;
+		$order 				    = Order::find($request->order_id);
+		$order->status 			= 1;
+		$order->dalegate_id 	= auth()->user()->id;
 		if ($order->save()){
+			set_notification($order->user_id,3,$order->user->lang,$order->id);
 			return returnResponse(NULL, trans('apis.accept_order') , 200);
 		}
 	}
@@ -211,6 +232,7 @@ class OrderController extends Controller
 				$transaction->dalegate_id 	= $order->dalegate_id;
 				$transaction->save();
 			}
+			set_notification($order->dalegate_id,4,$order->dalegate->lang,$order->id);
 			return returnResponse(NULL, trans('apis.finish_order') , 200);
 		}
 	}
@@ -231,4 +253,55 @@ class OrderController extends Controller
 			return returnResponse(NULL, trans('apis.delete_order') , 200);
 		}
 	}
+
+	public function couponDiscountOnOrder(Request $request){
+		$rules = [
+			'cart_items'  	  => 'required',
+			'coupon_number'   => 'required',
+		];
+		$validator  = validator($request->all(), $rules);
+		if ($validator->fails()) {
+			return returnResponse(null, validateRequest($validator), 400);
+		}
+		$cart_ids 	   = json_decode($request->cart_items);
+		$cart_items    = Cart::whereIn('id', $cart_ids)->get();
+		$couponDetails = Coupon::where('number',$request->coupon_number)->first();
+		$totalMoney = 0 ;
+		if ($couponDetails) {
+			if($couponDetails->usage_number > 0 && $couponDetails->expire_date >= Carbon::now()){
+				foreach ($cart_items as $cart_item) {
+					if($couponDetails->category_id == $cart_item->product->category_id){
+						$totalDiscount 				    = $couponDetails->discount + $cart_item->product->discount ;
+						$totalDiscount 					= $totalDiscount > 100 ? 100 : $totalDiscount ;
+						$totalProductPriceAfterDiscount = $cart_item->product->price - (($cart_item->product->price * $totalDiscount)/100);
+						$totalMoney += ($totalProductPriceAfterDiscount * $cart_item->quantity ) ;
+					}else{
+						$totalDiscount 				    = $cart_item->product->discount ;
+						$totalProductPriceAfterDiscount = $cart_item->product->price - (($cart_item->product->price * $totalDiscount)/100);
+						$totalMoney += ($totalProductPriceAfterDiscount * $cart_item->quantity ) ;
+					}
+				}
+				return returnResponse(['totalPrice' => $totalMoney,'coupon_id' => $couponDetails->id],'تم تفعيل الكوبون بنجاح ', 200);
+			}else{
+				foreach ($cart_items as $cart_item) {
+						$totalDiscount 				    = $cart_item->product->discount ;
+						$totalProductPriceAfterDiscount = $cart_item->product->price - (($cart_item->product->price * $totalDiscount)/100);
+						$totalMoney += ($totalProductPriceAfterDiscount * $cart_item->quantity ) ;
+				}
+				return returnResponse(['totalPrice' => $totalMoney,'coupon_id' => null],'تم انتهاء صلاحيه هذا الكوبون', 400);
+			}
+		}else{
+			foreach ($cart_items as $cart_item) {
+				$totalDiscount 				    = $cart_item->product->discount ;
+				$totalProductPriceAfterDiscount = $cart_item->product->price - (($cart_item->product->price * $totalDiscount)/100);
+				$totalMoney += ($totalProductPriceAfterDiscount * $cart_item->quantity ) ;
+			}	
+			return returnResponse(['totalPrice' => $totalMoney,'coupon_id' => null],'الكود غير متوفر', 400);
+		}
+		
+	}
+
+
+
+
 }
