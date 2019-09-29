@@ -135,8 +135,8 @@ class AuthController extends Controller
 		}
 	}
 
-	public function delegateActiveChecked(Request $request){
-		$active = auth()->user()->active;
+	public function delegateActiveChecked(){
+		$active = auth()->user()->checked;
 		if ($active == 0 ) {
 			return returnResponse(null,'الحساب في انتظار تأكيد الاداره', 400);
 		}
