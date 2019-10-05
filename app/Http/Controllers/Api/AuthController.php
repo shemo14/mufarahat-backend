@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Support\Facades\Auth;
 use JWTAuth;
 use App\User;
 use App\Models\Delegate;
@@ -250,7 +251,6 @@ class AuthController extends Controller
 
 	public function renew_password(Request $request){
 		$rules = [
-			'id'        => 'required',
 			'password'  => 'required|min:6',
 		];
 
@@ -260,7 +260,7 @@ class AuthController extends Controller
 			return returnResponse(null, validateRequest($validator), 400);
 		}
 
-		$user           = User::find($request['id']);
+		$user           = Auth::user();
 		$user->password = bcrypt($request['password']);
 		$user->save();
 
