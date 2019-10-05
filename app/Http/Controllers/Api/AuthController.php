@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Hash;
 
 class AuthController extends Controller
 {
@@ -261,10 +262,13 @@ class AuthController extends Controller
 		}
 
 		$user           = Auth::user();
-		$user->password = bcrypt($request['password']);
-		$user->save();
+		if (Hash::check($request->password, $user->password)) {
+			$user->password = bcrypt($request['password']);
+			$user->save();
+			$msg  = trans('apis.update_password');
+		}else
+			$msg  = trans('apis.failed_update_password');
 
-		$msg  = trans('apis.update_password');
 		return returnResponse(null, $msg, 200);
 	}
 
