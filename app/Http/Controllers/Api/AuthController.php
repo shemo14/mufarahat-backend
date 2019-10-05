@@ -266,10 +266,11 @@ class AuthController extends Controller
 			$user->password = bcrypt($request['password']);
 			$user->save();
 			$msg  = trans('apis.update_password');
-		}else
+			return returnResponse(null, $msg, 200);
+		}else{
 			$msg  = trans('apis.failed_update_password');
-
-		return returnResponse(null, $msg, 200);
+			return returnResponse(null, $msg, 400);
+		}
 	}
 
 	public function user_data(Request $request){
